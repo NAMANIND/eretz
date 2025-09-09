@@ -15,8 +15,7 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   videoId = "nQmFpa3yxxg", // Default video ID - replace with your desired video
-  title = "Transform Your Vision Into Reality",
-  subtitle = "Experience the future of digital innovation with cutting-edge solutions that elevate your brand to extraordinary heights.",
+
   className = "",
 }) => {
   return (
@@ -45,7 +44,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               animationType="slideUp"
               className="inline-block "
             >
-              WE DON'T JUST BUILD HOMES,
+              WE DON&apos;T JUST BUILD HOMES,
             </GSAPTextReveal>
             <GSAPTextReveal
               delay={0.4}

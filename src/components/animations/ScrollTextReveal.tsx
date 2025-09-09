@@ -32,44 +32,50 @@ export const ScrollTextReveal: React.FC<ScrollTextRevealProps> = ({
 
   const elements = mode === "words" ? children.split(" ") : children.split("");
 
+  // Create individual components for each element to avoid hook violations
+  const ElementComponent = ({
+    element,
+    index,
+  }: {
+    element: string;
+    index: number;
+  }) => {
+    const start = index / elements.length;
+    const end = (index + 1) / elements.length;
+
+    const opacity = useTransform(
+      scrollYProgress,
+      [start - 0.1, start, end, end + 0.1],
+      [0.2, 0.4, 1, 1]
+    );
+
+    const textColor = useTransform(
+      scrollYProgress,
+      [start, end],
+      ["var(--muted)", "var(--primary)"]
+    );
+
+    const scale = useTransform(scrollYProgress, [start, end], [0.98, 1]);
+
+    return (
+      <motion.span
+        className={`inline-block ${mode === "words" ? "mr-1" : ""}`}
+        style={{
+          opacity,
+          color: textColor,
+          scale,
+        }}
+      >
+        {element === " " ? "\u00A0" : element}
+      </motion.span>
+    );
+  };
+
   return (
     <span ref={containerRef} className={`inline-block ${className}`}>
-      {elements.map((element, index) => {
-        // Calculate the progress range for this element
-        const start = index / elements.length;
-        const end = (index + 1) / elements.length;
-
-        // Transform scroll progress to opacity with smooth transitions
-        const opacity = useTransform(
-          scrollYProgress,
-          [start - 0.1, start, end, end + 0.1],
-          [0.2, 0.4, 1, 1]
-        );
-
-        // Transform scroll progress to color
-        const textColor = useTransform(
-          scrollYProgress,
-          [start, end],
-          ["var(--muted)", "var(--primary)"]
-        );
-
-        // Transform scroll progress to slight scale effect
-        const scale = useTransform(scrollYProgress, [start, end], [0.98, 1]);
-
-        return (
-          <motion.span
-            key={index}
-            className={`inline-block ${mode === "words" ? "mr-1" : ""}`}
-            style={{
-              opacity,
-              color: textColor,
-              scale,
-            }}
-          >
-            {element === " " ? "\u00A0" : element}
-          </motion.span>
-        );
-      })}
+      {elements.map((element, index) => (
+        <ElementComponent key={index} element={element} index={index} />
+      ))}
     </span>
   );
 };
