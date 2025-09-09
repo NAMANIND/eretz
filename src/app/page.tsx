@@ -2,7 +2,10 @@ import React from "react";
 import HeroSection from "./sections/HeroSection";
 import ProductSection from "./sections/ProductSection";
 import AboutSection from "./sections/AboutSection";
+import Projects from "./sections/Projects";
+import WhyDubai from "./sections/WhyDubai";
 import WwdSection from "./sections/WwdSextion";
+import ContactSection from "./sections/ContactSection";
 import DockNavbar from "@/components/ui/DockNavbar";
 import SlidelLayout from "./sections/SlidelLayout";
 
@@ -15,6 +18,9 @@ function page() {
       <AboutSection />
       <WwdSection />
       <SlidelLayout />
+      <Projects />
+      <WhyDubai />
+      <ContactSection />
     </div>
   );
 }
