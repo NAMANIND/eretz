@@ -163,7 +163,7 @@ function VelocityText({
 
 interface ScrollVelocityProps {
   scrollContainerRef?: React.RefObject<HTMLElement>;
-  items?: any[];
+  items?: Item[];
   velocity?: number;
   className?: string;
   damping?: number;
