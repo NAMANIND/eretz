@@ -1,73 +1,32 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import GSAPTextReveal from "@/components/ui/GSAPTextReveal";
-
 import { ScrollTextReveal } from "@/components/animations/ScrollTextReveal";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const AboutSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const greyContentRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!sectionRef.current || !greyContentRef.current || !frameRef.current)
-      return;
+  // Scroll progress for the section
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 100%", "end 120%"], //
+  });
 
-    const section = frameRef.current;
-    const greyContent = greyContentRef.current;
-
-    // Initially position grey content below the frame
-    gsap.set(greyContent, {
-      y: "-140vh",
-      paddingBottom: "100vh",
-      paddingRight: "20px",
-      paddingLeft: "20px",
-      bottom: "0%",
-    });
-
-    // Create timeline with midpoint animation
-    const timeline = gsap.timeline();
-
-    timeline
-      .to(greyContent, {
-        y: "-100vh", // Midpoint position
-        paddingBottom: "50vh",
-        paddingRight: "16px",
-        paddingLeft: "16px",
-        bottom: "100%",
-        duration: 0.5,
-      })
-      .to(greyContent, {
-        y: "0vh", // Final position
-        paddingBottom: "0vh",
-        paddingRight: "0px",
-        paddingLeft: "0px",
-        bottom: "0%",
-        duration: 0.5,
-      });
-
-    // Create scroll trigger animation with timeline
-    ScrollTrigger.create({
-      trigger: section,
-      start: "top 150%",
-      end: "bottom 150%",
-      scrub: 1,
-      animation: timeline,
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.trigger === section) {
-          trigger.kill();
-        }
-      });
-    };
-  }, []);
+  // Transform values for the grey content animation
+  const greyContentY = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    ["-200vh", "-100vh", "0vh"]
+  );
+  const greyContentBottom = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    ["0%", "100%", "0%"]
+  );
 
   return (
     <section
@@ -130,8 +89,12 @@ const AboutSection: React.FC = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div
+            <motion.div
               ref={greyContentRef}
+              style={{
+                y: greyContentY,
+                bottom: greyContentBottom,
+              }}
               className="relative bg-transparent overflow-hidden flex items-center justify-center h-[50vh] "
             >
               <img
@@ -139,7 +102,7 @@ const AboutSection: React.FC = () => {
                 alt="Frame Center"
                 className="w-full h-full object-cover object-center"
               />
-            </div>
+            </motion.div>
             <div className="relative h-[50vh]">
               <img
                 src="/placeholder-3.jpg"
