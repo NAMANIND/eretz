@@ -66,7 +66,7 @@ const SlidelLayout = () => {
           sliderStyle="Line"
           showLabels={false}
           rounding="Soft"
-          speed={1}
+          speed={1.4}
           padding={200}
           className=" h-full w-full"
         />
