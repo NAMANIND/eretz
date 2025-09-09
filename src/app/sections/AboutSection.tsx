@@ -13,7 +13,7 @@ const AboutSection: React.FC = () => {
   // Scroll progress for the section
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start 100%", "end 120%"], //
+    offset: ["start 110%", "end 120%"], //
   });
 
   // Transform values for the grey content animation
@@ -27,6 +27,8 @@ const AboutSection: React.FC = () => {
     [0, 0.5, 1],
     ["0%", "100%", "0%"]
   );
+
+  const padding = useTransform(scrollYProgress, [0, 1], ["1.14rem", "0rem"]);
 
   return (
     <section
@@ -94,6 +96,8 @@ const AboutSection: React.FC = () => {
               style={{
                 y: greyContentY,
                 bottom: greyContentBottom,
+                paddingRight: padding,
+                paddingLeft: padding,
               }}
               className="relative bg-transparent overflow-hidden flex items-center justify-center h-[50vh] "
             >
