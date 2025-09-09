@@ -63,20 +63,12 @@ const ContactSection = () => {
             </h1>
 
             {/* Description */}
-            <div className="max-w-4xl mx-auto mb-12">
-              <h4 className="text-lg text-gray-700 leading-relaxed">
-                <GSAPTextReveal
-                  splitBy="lines"
-                  animationType="slideUp"
-                  stagger={0.2}
-                  duration={0.8}
-                  delay={0.6}
-                >
-                  Ready to invest in Dubai&apos;s premium real estate market?
-                  Our team is here to guide you through every step of your
-                  property investment journey. From exclusive developments to
-                  personalized investment strategies.
-                </GSAPTextReveal>
+            <div className="max-w-5xl mx-auto text-center mb-12">
+              <h4 className="text-lg text-gray-700 leading-relaxed text-center">
+                Ready to invest in Dubai&apos;s premium real estate market? Our
+                team is here to guide you through every step of your property
+                investment journey. From exclusive developments to personalized
+                investment strategies.
               </h4>
             </div>
 
