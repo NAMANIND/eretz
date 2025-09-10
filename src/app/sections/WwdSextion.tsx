@@ -178,9 +178,9 @@ const WwdSection = () => {
                       : "transparent",
                   backdropFilter:
                     hoveredIndex === index ? "blur(10px)" : "none",
-                  borderLeft: index === 0 ? "none" : "3px solid white",
+                  borderLeft: index === 0 ? "none" : "5px solid white",
                   borderRight:
-                    index === services.length - 1 ? "none" : "3px solid white",
+                    index === services.length - 1 ? "none" : "5px solid white",
                 }}
               >
                 <div

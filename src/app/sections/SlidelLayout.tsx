@@ -5,8 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import GSAPTextReveal from "@/components/ui/GSAPTextReveal";
-
-import SlidyComponent from "@/components/ui/SlidyComponent";
+import ScrollSlidy from "@/components/ui/ScrollSlidy";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,7 +39,7 @@ const SlidelLayout = () => {
 
   return (
     <section className="bg-white  px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto py-24">
+      <div className="max-w-7xl mx-auto py-24 relative">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-[30px] font-normal text-gray-900  leading-[1.1] font-krona">
@@ -58,16 +57,10 @@ const SlidelLayout = () => {
         </div>
 
         {/* Image Grid */}
-        <SlidyComponent
+        <ScrollSlidy
           beforeImage={imageData[0].src}
           afterImage={imageData[1].src}
-          aspectRatio="16:9"
-          autoplay={true}
-          sliderStyle="Line"
           showLabels={false}
-          rounding="Soft"
-          speed={1.4}
-          padding={200}
           className=" h-full w-full"
         />
       </div>

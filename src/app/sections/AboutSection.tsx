@@ -41,7 +41,7 @@ const AboutSection: React.FC = () => {
             mode="characters"
             startOffset="start center"
             endOffset="start 0.3"
-            className="text-2xl lg:text-6xl font-normal text-gray-900 w-6xl font-krona leading-[1.1]"
+            className="text-2xl lg:text-7xl font-semibold text-gray-900 w-6xl  leading-[1.1]"
           >
             At ERETZ, we shape not just buildings, but environments that
             immediately feel right.
@@ -84,7 +84,7 @@ const AboutSection: React.FC = () => {
         {/* Red Frame with Grey Content */}
         <div className="relative w-full max-w-7xl mx-auto my-8">
           <div className="grid grid-cols-3 gap-0rounded-2xl">
-            <div className="relative  h-[50vh]  ">
+            <div className="relative  h-[60vh]  ">
               <img
                 src="/placeholder-1.jpg"
                 alt="Frame Left"
@@ -99,7 +99,7 @@ const AboutSection: React.FC = () => {
                 paddingRight: padding,
                 paddingLeft: padding,
               }}
-              className="relative bg-transparent overflow-hidden flex items-center justify-center h-[50vh] "
+              className="relative bg-transparent overflow-hidden flex items-center justify-center h-[60vh] "
             >
               <img
                 src="/placeholder-2.jpg"
@@ -107,7 +107,7 @@ const AboutSection: React.FC = () => {
                 className="w-full h-full object-cover object-center"
               />
             </motion.div>
-            <div className="relative h-[50vh]">
+            <div className="relative h-[60vh]">
               <img
                 src="/placeholder-3.jpg"
                 alt="Frame Right"
