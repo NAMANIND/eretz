@@ -133,24 +133,14 @@ function VelocityText({
               key={item.key}
               ref={i === 0 ? copyRef : null}
             >
-              <div className="relative group overflow-hidden rounded-2xl w-80 lg:w-96">
-                <div className="h-[400px] lg:h-[500px] relative">
+              <div className="lg:col-span-1 relative group overflow-hidden w-80 lg:w-96 ">
+                <div className="aspect-[4/3] relative">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-
-                  {/* Content Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 leading-tight font-krona text-wrap">
-                      {item.title.toUpperCase()}
-                    </h3>
-                    <div className="text-sm lg:text-base leading-relaxed opacity-90 text-wrap">
-                      {item.description}
-                    </div>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               </div>
             </span>
@@ -177,7 +167,7 @@ interface ScrollVelocityProps {
   direction?: "left" | "right" | "alternate";
 }
 
-export const WhyDubaiScrollVelocity = ({
+export const ScrollVelocity = ({
   scrollContainerRef,
   items = [],
   velocity = 100,

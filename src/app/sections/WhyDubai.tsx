@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { GSAPTextReveal } from "@/components/ui/GSAPTextReveal";
-import { WhyDubaiScrollVelocity } from "@/components/ui/WhyDubaiScrollVelocity";
+import { WhyDubaiHScroll } from "@/components/ui/WhyDubaiHScroll";
 
 const WhyDubai: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
   const items = [
     {
       id: 1,
@@ -75,6 +76,7 @@ const WhyDubai: React.FC = () => {
     <section
       className="relative w-full min-h-screen bg-white py-24 px-6 lg:px-12"
       id="why-dubai"
+      ref={sectionRef}
     >
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
@@ -94,13 +96,12 @@ const WhyDubai: React.FC = () => {
 
         {/* ScrollVelocity Content */}
         <div className="relative">
-          <WhyDubaiScrollVelocity
+          <WhyDubaiHScroll
             items={items}
-            velocity={200}
             className="w-full h-full"
-            damping={500}
-            stiffness={4000}
-            numCopies={6}
+            containerRef={sectionRef as React.RefObject<HTMLDivElement>}
+            scrubValue={1}
+            ease="none"
           />
         </div>
       </div>
