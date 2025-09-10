@@ -39,7 +39,7 @@ const ProductSection = () => {
 
   return (
     <section className="bg-white pt-[150px]  px-6 lg:px-12">
-      <div className="w-full mx-40">
+      <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-[30px] font-normal text-gray-900 mb-6 leading-[1.1] font-krona">
