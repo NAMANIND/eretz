@@ -77,7 +77,7 @@ export const GSAPTextReveal: React.FC<GSAPTextRevealProps> = ({
             .split(" ")
             .map(
               (word, i) =>
-                `<div class="single-line-wrap" style="overflow:hidden;height:100%;display:inline-block;padding-bottom:0.1em;margin-bottom:-0.1em;"><div class="single-line" style="display:inline-block;position:relative;">${word}</div></div>`
+                `<div class="single-line-wrap" style="overflow:hidden;height:100%;display:inline-block;padding-bottom:0.1em;margin-bottom:-0.3em;"><div class="single-line" style="display:inline-block;position:relative;">${word}</div></div>`
             )
             .join(" ");
       }

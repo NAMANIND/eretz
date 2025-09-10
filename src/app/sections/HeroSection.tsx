@@ -32,10 +32,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       />
 
       {/* Content Overlay */}
-      <div className="absolute inset-0 z-20 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div
+        className="absolute inset-0 z-20 flex items-center justify-center px-4 sm:px-6 lg:px-8
+      bg-black/40
+      
+      "
+      >
         <div className="text-center max-w-7xl mx-auto">
           {/* Main Title with GSAP Text Reveal */}
-          <h1 className=" font-normal text-[36px] text-white mb-6  leading-[1.1] font-krona">
+          <h1 className=" font-normal text-[36px] text-white mb-6  font-krona">
             <GSAPTextReveal
               delay={0.2}
               duration={0.8}

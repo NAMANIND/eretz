@@ -63,7 +63,7 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
         clipPath:
           cropFrom === "top"
             ? "polygon(0% 20%, 100% 20%, 100% 100%, 0% 100%)" // Crop from top, image takes 80%, text 20%
-            : "polygon(0% 0%, 100% 0%, 100% 80%, 0% 80%)", // Crop from bottom, image takes 80%, text 20%
+            : "polygon(0% 0%, 100% 0%, 100% 85%, 0% 85%)", // Crop from bottom, image takes 80%, text 20%
         duration: duration,
         delay: delay,
         ease: "power3.out",
@@ -112,7 +112,7 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
             splitBy="words"
             animationType="slideUp"
             stagger={0.1}
-            className={`text-lg text-black leading-[0.95] font-medium  max-w-md ${getTextAlignmentClass()}`}
+            className={`text-lg text-black font-medium  max-w-md ${getTextAlignmentClass()}`}
             reveal="onTrigger"
           >
             {text}

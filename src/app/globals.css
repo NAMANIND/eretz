@@ -40,6 +40,7 @@
 
 * {
   box-sizing: border-box;
+  line-height: 130%;
 }
 
 html {
@@ -50,7 +51,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
-  line-height: 1.6;
+  line-height: 130%;
   overflow-x: hidden;
 }
 
