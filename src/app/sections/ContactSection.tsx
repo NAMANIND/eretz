@@ -33,12 +33,9 @@ const ContactSection = () => {
   return (
     <>
       {/* Main Contact + Footer Section */}
-      <section
-        id="contact"
-        className="sticky bottom-0 bg-black text-white overflow-hidden -z-20"
-      >
+      <section className="sticky bottom-0 bg-black text-white overflow-hidden -z-20">
         {/* Hero/CTA Section */}
-        <div className="relative z-10 text-center">
+        <div className="relative z-10 text-center" id="contact">
           <div className="container-w mx-auto">
             <h1 className="text-2xl md:text-4xl  font-normal mb-8 leading-[1.1] font-krona">
               <GSAPTextReveal
@@ -246,9 +243,9 @@ const ContactSection = () => {
                   <input
                     type="email"
                     placeholder="Your email address"
-                    className="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors text-sm"
+                    className="w-full bg-black   border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors text-sm"
                   />
-                  <button className="w-full bg-white text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors text-sm">
+                  <button className="w-full bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors text-sm">
                     Subscribe
                   </button>
                 </div>
