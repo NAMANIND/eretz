@@ -112,7 +112,7 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
             splitBy="words"
             animationType="slideUp"
             stagger={0.1}
-            className={`text-lg text-black font-medium  max-w-md ${getTextAlignmentClass()}`}
+            className={`text-lg text-black font-medium   max-w-md ${getTextAlignmentClass()}`}
             reveal="onTrigger"
           >
             {text}

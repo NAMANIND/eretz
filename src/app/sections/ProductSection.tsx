@@ -38,11 +38,11 @@ const ProductSection = () => {
   ];
 
   return (
-    <section className="bg-white pt-[150px]  px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-white">
+      <div className="container-w mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-[30px] font-normal text-gray-900 mb-6 leading-[1.1] font-krona">
+        <div className="text-center">
+          <h2 className="container-heading font-krona">
             <GSAPTextReveal
               splitBy="words"
               animationType="slideUp"
@@ -82,7 +82,7 @@ const ProductSection = () => {
                 }}
               >
                 <div className="relative">
-                  <div className="aspect-[4/5] overflow-hidden">
+                  <div className="aspect-[4/5] overflow-hidden h-[60vh]">
                     <GSAPImageReveal
                       src={image.src}
                       alt={image.alt}

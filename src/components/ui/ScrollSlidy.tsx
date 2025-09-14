@@ -21,7 +21,7 @@ export default function ScrollSlidy({
   // Use Framer Motion's scroll tracking
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end 130%"],
+    offset: ["start 50%", "end 130%"],
   });
 
   // Transform scroll progress to slider position (0 to 100)

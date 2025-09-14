@@ -682,3 +682,23 @@ body {
     backdrop-filter: none;
   }
 }
+
+.container-w {
+  width: 100%;
+  padding: 0 10rem;
+  margin-top: 9.375rem;
+}
+
+.container-f {
+  width: 100%;
+  margin-top: 9.375rem;
+}
+
+.container-heading {
+  font-size: 2.25rem;
+  font-weight: normal;
+  color: var(--gray-900);
+  margin-bottom: 5.625rem;
+  line-height: 130%;
+  text-transform: uppercase;
+}

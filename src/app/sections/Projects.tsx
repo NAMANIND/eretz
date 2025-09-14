@@ -76,14 +76,11 @@ const Projects: React.FC = () => {
     },
   ];
   return (
-    <section
-      className="relative w-full min-h-screen bg-white py-24 px-6 lg:px-12"
-      id="projects"
-    >
-      <div className="mx-auto max-w-7xl">
+    <section className="relative w-full min-h-screen bg-white" id="projects">
+      <div className="mx-auto container-w">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-6xl font-normal text-gray-900 mb-8 leading-[1.1] font-krona">
+        <div className="text-center ">
+          <h2 className="container-heading font-krona">
             <GSAPTextReveal
               splitBy="words"
               animationType="slideUp"

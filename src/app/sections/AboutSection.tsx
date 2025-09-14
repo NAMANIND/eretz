@@ -13,14 +13,14 @@ const AboutSection: React.FC = () => {
   // Scroll progress for the section
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start 110%", "end 120%"], //
+    offset: ["start 80%", "end 120%"], //
   });
 
   // Transform values for the grey content animation
   const greyContentY = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ["-200vh", "-100vh", "0vh"]
+    ["-220vh", "-100vh", "0vh"]
   );
   const greyContentBottom = useTransform(
     scrollYProgress,
@@ -33,9 +33,9 @@ const AboutSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen overflow-hidden bg-white py-24  px-6 lg:px-12"
+      className="relative w-full min-h-screen overflow-hidden bg-white "
     >
-      <div ref={frameRef} className=" mx-auto max-w-7xl  ">
+      <div ref={frameRef} className=" mx-auto container-w ">
         <div className="h-[100vh] flex items-center justify-center gap-4 flex-col">
           <ScrollTextReveal
             mode="characters"
@@ -48,8 +48,8 @@ const AboutSection: React.FC = () => {
           </ScrollTextReveal>
         </div>
         {/* Section Header */}
-        <div className="text-left" id="about">
-          <h2 className="text-[30px] text-center font-normal  text-gray-900 mb-6 leading-[1.1] font-krona">
+        <div className="text-center" id="about">
+          <h2 className=" container-heading  font-krona">
             <GSAPTextReveal
               splitBy="words"
               animationType="slideUp"
@@ -61,7 +61,7 @@ const AboutSection: React.FC = () => {
             </GSAPTextReveal>
           </h2>
 
-          <h5 className="text-xl text-gray-900  leading-[1.3] py-4 text-justify">
+          <h5 className="text-xl text-gray-900  leading-[1.3] text-justify">
             <GSAPTextReveal
               splitBy="lines"
               animationType="slideUp"
@@ -82,7 +82,7 @@ const AboutSection: React.FC = () => {
         </div>
 
         {/* Red Frame with Grey Content */}
-        <div className="relative w-full max-w-7xl mx-auto my-8">
+        <div className="relative w-full  mx-auto my-10">
           <div className="grid grid-cols-3 gap-0rounded-2xl">
             <div className="relative  h-[60vh]  ">
               <img
@@ -117,7 +117,7 @@ const AboutSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="text-left pt-10">
+        <div className="text-left">
           <h5 className="text-lg text-gray-900 mb-6 leading-[0.95]">
             <GSAPTextReveal
               splitBy="lines"

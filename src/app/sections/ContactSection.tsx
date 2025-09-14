@@ -35,11 +35,11 @@ const ContactSection = () => {
       {/* Main Contact + Footer Section */}
       <section
         id="contact"
-        className="relative bg-white text-gray-900 overflow-hidden pt-12 pb-8 px-6 lg:px-12"
+        className="relative bg-white text-gray-900 overflow-hidden"
       >
         {/* Hero/CTA Section */}
         <div className="relative z-10 text-center">
-          <div className="max-w-7xl mx-auto">
+          <div className="container-w mx-auto">
             <h1 className="text-2xl md:text-4xl  font-normal mb-8 leading-[1.1] font-krona">
               <GSAPTextReveal
                 splitBy="words"

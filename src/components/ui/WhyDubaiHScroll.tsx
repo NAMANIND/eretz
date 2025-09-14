@@ -45,7 +45,7 @@ function HorizontalScroll({
     // Calculate the exact scroll distance needed
     const containerWidth = container.offsetWidth;
     const totalContentWidth = panels.scrollWidth;
-    const scrollDistance = totalContentWidth - containerWidth + 150;
+    const scrollDistance = totalContentWidth - containerWidth * 0.8;
 
     // Create GSAP ScrollTrigger animation
     const animation = gsap.to(panels, {

@@ -15,6 +15,7 @@ interface NavItem {
 
 export const DockNavbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
   const navItems = [
     { id: "about", label: "About", href: "#about", icon: <User size={20} /> },
     {
@@ -43,9 +44,15 @@ export const DockNavbar: React.FC = () => {
     },
   ];
 
-  // Track active section based on scroll position
+  // Track active section and scroll position
   useEffect(() => {
     const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+
+      // Toggle navbar style after 100vh scroll
+      setIsScrolled(scrollY > viewportHeight);
+
       const sections = navItems.map((item) => item.id);
       const currentSection = sections.find((section) => {
         const element = document.getElementById(section);
@@ -72,12 +79,19 @@ export const DockNavbar: React.FC = () => {
 
   return (
     <motion.nav
-      className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-50 justify-between items-center flex w-7xl`}
+      className={`fixed top-0 z-50 justify-between items-center flex w-full px-40 py-3 transition-all duration-500 ease-in-out  ${
+        isScrolled ? " backdrop-blur-2xl shadow-md" : "backdrop-blur-2xl"
+      }`}
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <img src="/logo.svg" alt="logo" height={100} />
+      <img
+        src={isScrolled ? "/logo-black.svg" : "/logo.svg"}
+        alt="logo"
+        height={100}
+        className="transition-all duration-500 ease-in-out"
+      />
 
       <div className="flex items-center space-x-10">
         <div className="flex items-center gap-x-8">
@@ -89,14 +103,20 @@ export const DockNavbar: React.FC = () => {
                 onClick={() => handleNavClick(item.href)}
               >
                 <HoverAnimation
-                  className=" bg-clip-text text-white leading-[1.1]"
+                  className={`bg-clip-text leading-[1.3] transition-colors duration-500 ease-in-out ${
+                    isScrolled ? "text-black" : "text-white"
+                  }`}
                   duration={0.5}
                   stagger={0.01}
                 >
                   {item.label}
                 </HoverAnimation>
                 <div className="absolute bottom-0 right-0 h-[1px] w-full overflow-hidden">
-                  <div className="h-full bg-white transform scale-x-0 origin-right transition-transform duration-700 ease-in-out group-hover:scale-x-100 group-hover:origin-left"></div>
+                  <div
+                    className={`h-full transform scale-x-0 origin-right transition-all duration-700 ease-in-out group-hover:scale-x-100 group-hover:origin-left ${
+                      isScrolled ? "bg-black" : "bg-white"
+                    }`}
+                  ></div>
                 </div>
               </h3>
             </Link>
@@ -104,10 +124,18 @@ export const DockNavbar: React.FC = () => {
         </div>
 
         <Link href="tel:+18556531901">
-          <h3 className="text-sm text-muted-foreground relative group cursor-pointer text-white leading-[1.2] pb-1">
+          <h3
+            className={`text-sm text-muted-foreground relative group cursor-pointer leading-[1.2] pb-1 transition-colors duration-500 ease-in-out ${
+              isScrolled ? "text-black" : "text-white"
+            }`}
+          >
             +1 (855) 653-1901
             <div className="absolute bottom-0 right-0 h-[1px] w-full overflow-hidden">
-              <div className="h-full bg-white transform scale-x-0 origin-right transition-transform duration-1000 ease-in-out group-hover:scale-x-100 group-hover:origin-left"></div>
+              <div
+                className={`h-full transform scale-x-0 origin-right transition-all duration-1000 ease-in-out group-hover:scale-x-100 group-hover:origin-left ${
+                  isScrolled ? "bg-black" : "bg-white"
+                }`}
+              ></div>
             </div>
           </h3>
         </Link>

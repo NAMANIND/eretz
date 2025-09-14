@@ -38,11 +38,11 @@ const SlidelLayout = () => {
   ];
 
   return (
-    <section className="bg-white  px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto py-24 relative">
+    <section className="bg-white ">
+      <div className="container-w mx-auto relative">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-[30px] font-normal text-gray-900  leading-[1.1] font-krona">
+        <div className="text-center mb-[90px]">
+          <h2 className="text-[40px] font-normal text-gray-900 ">
             <GSAPTextReveal
               splitBy="words"
               animationType="slideUp"

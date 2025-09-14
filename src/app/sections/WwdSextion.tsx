@@ -117,9 +117,9 @@ const WwdSection = () => {
       className="relative min-h-screen w-full overflow-hidden"
       id="what-we-do"
     >
-      <div className=" mx-auto py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-[30px] font-normal text-gray-900 mb-6 leading-[1.1] font-krona">
+      <div className=" mx-auto  container-f">
+        <div className="text-center">
+          <h2 className="container-heading font-krona">
             <GSAPTextReveal
               splitBy="words"
               animationType="slideUp"
