@@ -33,11 +33,11 @@ const ContactSection = () => {
   return (
     <>
       {/* Main Contact + Footer Section */}
-      <section className="sticky bottom-0 bg-black text-white overflow-hidden -z-20">
+      <section className="sticky -bottom-20  bg-black text-white overflow-hidden -z-20">
         {/* Hero/CTA Section */}
-        <div className="relative z-10 text-center" id="contact">
+        <div className="relative z-10 text-center " id="contact">
           <div className="container-w mx-auto">
-            <h1 className="text-2xl md:text-4xl  font-normal mb-8 leading-[1.1] font-krona">
+            <h1 className="text-2xl   font-normal mb-8 leading-[1.1] font-krona">
               <GSAPTextReveal
                 splitBy="words"
                 animationType="slideUp"
@@ -86,8 +86,8 @@ const ContactSection = () => {
         <hr className="my-12 border-gray-700" />
         {/* Footer Section */}
         <footer className="relative z-10 ">
-          <div className=" container-w mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <div className="  px-[10rem] mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-10">
               {/* About ERETZ */}
               <div>
                 <h3 className="text-lg font-normal font-krona text-white mb-6">
