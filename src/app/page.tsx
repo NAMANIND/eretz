@@ -19,8 +19,12 @@ function page() {
       <WwdSection />
       <SlidelLayout />
       <Projects />
-      <WhyDubai />
-      <ContactSection />
+
+      {/* Parallax Container for WhyDubai and ContactSection */}
+      <div className="relative">
+        <WhyDubai />
+        <ContactSection />
+      </div>
     </div>
   );
 }

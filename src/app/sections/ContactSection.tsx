@@ -35,7 +35,7 @@ const ContactSection = () => {
       {/* Main Contact + Footer Section */}
       <section
         id="contact"
-        className="relative bg-white text-gray-900 overflow-hidden"
+        className="sticky bottom-0 bg-black text-white overflow-hidden -z-20"
       >
         {/* Hero/CTA Section */}
         <div className="relative z-10 text-center">
@@ -64,7 +64,7 @@ const ContactSection = () => {
 
             {/* Description */}
             <div className="max-w-5xl mx-auto text-center mb-12">
-              <h4 className="text-lg text-gray-700 leading-relaxed text-center">
+              <h4 className="text-lg text-gray-300 leading-relaxed text-center">
                 Ready to invest in Dubai&apos;s premium real estate market? Our
                 team is here to guide you through every step of your property
                 investment journey. From exclusive developments to personalized
@@ -75,7 +75,7 @@ const ContactSection = () => {
             {/* CTA Button */}
             <motion.button
               onClick={() => setIsFormOpen(true)}
-              className="bg-gray-900 text-white px-8 py-4 rounded-lg font-medium text-lg hover:bg-gray-800 transition-all duration-300 shadow-lg"
+              className="bg-white text-gray-900 px-8 py-4 rounded-lg font-medium text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg"
               whileHover={{
                 scale: 1.05,
                 transition: { duration: 0.2 },
@@ -86,14 +86,14 @@ const ContactSection = () => {
             </motion.button>
           </div>
         </div>
-        <hr className="my-12 border-gray-200" />
+        <hr className="my-12 border-gray-700" />
         {/* Footer Section */}
         <footer className="relative z-10 ">
-          <div className="max-w-7xl mx-auto">
+          <div className=" container-w mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
               {/* About ERETZ */}
               <div>
-                <h3 className="text-lg font-normal font-krona text-gray-900 mb-6">
+                <h3 className="text-lg font-normal font-krona text-white mb-6">
                   <GSAPTextReveal
                     splitBy="words"
                     animationType="slideUp"
@@ -108,7 +108,7 @@ const ContactSection = () => {
                   <li>
                     <a
                       href="#about"
-                      className="text-gray-700 hover:text-gray-900 transition-colors text-sm"
+                      className="text-gray-300 hover:text-white transition-colors text-sm"
                     >
                       Our Story
                     </a>
@@ -116,7 +116,7 @@ const ContactSection = () => {
                   <li>
                     <a
                       href="#projects"
-                      className="text-gray-700 hover:text-gray-900 transition-colors text-sm"
+                      className="text-gray-300 hover:text-white transition-colors text-sm"
                     >
                       Projects
                     </a>
@@ -124,7 +124,7 @@ const ContactSection = () => {
                   <li>
                     <a
                       href="#what-we-do"
-                      className="text-gray-700 hover:text-gray-900 transition-colors text-sm"
+                      className="text-gray-300 hover:text-white transition-colors text-sm"
                     >
                       What We Do
                     </a>
@@ -132,7 +132,7 @@ const ContactSection = () => {
                   <li>
                     <a
                       href="#"
-                      className="text-gray-700 hover:text-gray-900 transition-colors text-sm"
+                      className="text-gray-300 hover:text-white transition-colors text-sm"
                     >
                       Investment Opportunities
                     </a>
@@ -142,7 +142,7 @@ const ContactSection = () => {
 
               {/* Services */}
               <div>
-                <h3 className="text-lg font-normal font-krona text-gray-900 mb-6">
+                <h3 className="text-lg font-normal font-krona text-white mb-6">
                   <GSAPTextReveal
                     splitBy="words"
                     animationType="slideUp"
@@ -157,7 +157,7 @@ const ContactSection = () => {
                   <li>
                     <a
                       href="#"
-                      className="text-gray-700 hover:text-gray-900 transition-colors text-sm"
+                      className="text-gray-300 hover:text-white transition-colors text-sm"
                     >
                       Property Development
                     </a>
@@ -165,7 +165,7 @@ const ContactSection = () => {
                   <li>
                     <a
                       href="#"
-                      className="text-gray-700 hover:text-gray-900 transition-colors text-sm"
+                      className="text-gray-300 hover:text-white transition-colors text-sm"
                     >
                       Investment Consulting
                     </a>
@@ -173,7 +173,7 @@ const ContactSection = () => {
                   <li>
                     <a
                       href="#"
-                      className="text-gray-700 hover:text-gray-900 transition-colors text-sm"
+                      className="text-gray-300 hover:text-white transition-colors text-sm"
                     >
                       Property Management
                     </a>
@@ -181,7 +181,7 @@ const ContactSection = () => {
                   <li>
                     <a
                       href="#"
-                      className="text-gray-700 hover:text-gray-900 transition-colors text-sm"
+                      className="text-gray-300 hover:text-white transition-colors text-sm"
                     >
                       Golden Visa Assistance
                     </a>
@@ -191,7 +191,7 @@ const ContactSection = () => {
 
               {/* Contact */}
               <div>
-                <h3 className="text-lg font-normal font-krona text-gray-900 mb-6">
+                <h3 className="text-lg font-normal font-krona text-white mb-6">
                   <GSAPTextReveal
                     splitBy="words"
                     animationType="slideUp"
@@ -206,7 +206,7 @@ const ContactSection = () => {
                   <li>
                     <a
                       href="mailto:info@eretz.ae"
-                      className="text-gray-700 hover:text-gray-900 transition-colors text-sm"
+                      className="text-gray-300 hover:text-white transition-colors text-sm"
                     >
                       info@eretz.ae
                     </a>
@@ -214,20 +214,20 @@ const ContactSection = () => {
                   <li>
                     <a
                       href="tel:+971-4-123-4567"
-                      className="text-gray-700 hover:text-gray-900 transition-colors text-sm"
+                      className="text-gray-300 hover:text-white transition-colors text-sm"
                     >
                       +971 4 123 4567
                     </a>
                   </li>
                   <li>
-                    <span className="text-gray-700 text-sm">Dubai, UAE</span>
+                    <span className="text-gray-300 text-sm">Dubai, UAE</span>
                   </li>
                 </ul>
               </div>
 
               {/* Get Updates */}
               <div>
-                <h3 className="text-lg font-normal font-krona text-gray-900 mb-6">
+                <h3 className="text-lg font-normal font-krona text-white mb-6">
                   <GSAPTextReveal
                     splitBy="words"
                     animationType="slideUp"
@@ -238,7 +238,7 @@ const ContactSection = () => {
                     STAY UPDATED
                   </GSAPTextReveal>
                 </h3>
-                <p className="text-gray-700 mb-6 text-sm leading-relaxed">
+                <p className="text-gray-300 mb-6 text-sm leading-relaxed">
                   Get the latest updates on our projects and investment
                   opportunities.
                 </p>
@@ -246,9 +246,9 @@ const ContactSection = () => {
                   <input
                     type="email"
                     placeholder="Your email address"
-                    className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-gray-900 transition-colors text-sm"
+                    className="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors text-sm"
                   />
-                  <button className="w-full bg-gray-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors text-sm">
+                  <button className="w-full bg-white text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors text-sm">
                     Subscribe
                   </button>
                 </div>
@@ -257,24 +257,24 @@ const ContactSection = () => {
 
             <div className="flex justify-center w-full h-full">
               <img
-                src="/logo-black.svg"
+                src="/logo.svg"
                 alt="ERETZ"
                 className="w-full h-full opacity-[0.1]"
               />
             </div>
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-6 text-sm text-black -mt-6">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-6 text-sm text-white -mt-6">
               <div className="flex flex-col lg:flex-row items-center gap-6">
                 <span>©2025 ERETZ PROPERTIES. ALL RIGHTS RESERVED</span>
               </div>
               <div className="flex flex-col lg:flex-row items-center gap-6">
                 <div className="flex items-center gap-4">
-                  <a href="#" className="hover:text-gray-900 transition-colors">
+                  <a href="#" className="hover:text-gray-300 transition-colors">
                     LinkedIn
                   </a>
-                  <a href="#" className="hover:text-gray-900 transition-colors">
+                  <a href="#" className="hover:text-gray-300 transition-colors">
                     Instagram
                   </a>
-                  <a href="#" className="hover:text-gray-900 transition-colors">
+                  <a href="#" className="hover:text-gray-300 transition-colors">
                     Twitter
                   </a>
                 </div>
@@ -297,25 +297,25 @@ const ContactSection = () => {
           transition={{ duration: 0.3 }}
         >
           <motion.div
-            className="bg-white rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+            className="bg-gray-800 rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-normal font-krona text-gray-900">
+              <h2 className="text-3xl font-normal font-krona text-white">
                 GET IN TOUCH
               </h2>
               <button
                 onClick={() => setIsFormOpen(false)}
-                className="text-gray-500 hover:text-gray-900 text-2xl transition-colors p-1"
+                className="text-gray-400 hover:text-white text-2xl transition-colors p-1"
               >
                 ×
               </button>
             </div>
 
-            <p className="text-gray-700 mb-8 leading-relaxed">
+            <p className="text-gray-300 mb-8 leading-relaxed">
               Ready to start your investment journey with ERETZ? Fill out the
               form below and our team will get back to you within 24 hours.
             </p>
@@ -324,7 +324,7 @@ const ContactSection = () => {
               <div>
                 <label
                   htmlFor="firstName"
-                  className="block text-sm font-medium text-gray-900 mb-3"
+                  className="block text-sm font-medium text-white mb-3"
                 >
                   First Name *
                 </label>
@@ -334,7 +334,7 @@ const ContactSection = () => {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-gray-900 transition-all"
+                  className="w-full px-4 py-4 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent text-white bg-gray-700 transition-all"
                   required
                 />
               </div>
@@ -342,7 +342,7 @@ const ContactSection = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-900 mb-3"
+                  className="block text-sm font-medium text-white mb-3"
                 >
                   Email Address *
                 </label>
@@ -352,7 +352,7 @@ const ContactSection = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-gray-900 transition-all"
+                  className="w-full px-4 py-4 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent text-white bg-gray-700 transition-all"
                   required
                 />
               </div>
@@ -360,7 +360,7 @@ const ContactSection = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-900 mb-3"
+                  className="block text-sm font-medium text-white mb-3"
                 >
                   Message *
                 </label>
@@ -371,7 +371,7 @@ const ContactSection = () => {
                   onChange={handleInputChange}
                   rows={5}
                   placeholder="Tell us about your investment goals and how we can help..."
-                  className="w-full px-4 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-gray-900 resize-none transition-all"
+                  className="w-full px-4 py-4 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent text-white bg-gray-700 resize-none transition-all"
                   required
                 />
               </div>
@@ -380,7 +380,7 @@ const ContactSection = () => {
                 <motion.button
                   type="button"
                   onClick={() => setIsFormOpen(false)}
-                  className="flex-1 py-4 px-6 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="flex-1 py-4 px-6 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-700 transition-colors font-medium"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -388,7 +388,7 @@ const ContactSection = () => {
                 </motion.button>
                 <motion.button
                   type="submit"
-                  className="flex-1 py-4 px-6 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
+                  className="flex-1 py-4 px-6 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors font-medium"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
