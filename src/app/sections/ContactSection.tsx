@@ -33,11 +33,11 @@ const ContactSection = () => {
   return (
     <>
       {/* Main Contact + Footer Section */}
-      <section className="sticky -bottom-20  bg-black text-white overflow-hidden -z-20">
+      <section className="relative lg:sticky lg:-bottom-20 bg-black text-white overflow-hidden -z-20">
         {/* Hero/CTA Section */}
         <div className="relative z-10 text-center " id="contact">
-          <div className="container-w mx-auto">
-            <h1 className="text-2xl   font-normal mb-8 leading-[1.1] font-krona">
+          <div className="container-w mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className="text-xl sm:text-2xl lg:text-4xl font-normal mb-6 sm:mb-8 leading-[1.2] lg:leading-[1.1] font-krona">
               <GSAPTextReveal
                 splitBy="words"
                 animationType="slideUp"
@@ -60,8 +60,8 @@ const ContactSection = () => {
             </h1>
 
             {/* Description */}
-            <div className="max-w-5xl mx-auto text-center mb-12">
-              <h4 className="text-lg text-gray-300 leading-relaxed text-center">
+            <div className="max-w-3xl lg:max-w-5xl mx-auto text-center mb-8 sm:mb-12 px-4">
+              <h4 className="text-base sm:text-lg text-gray-300 leading-relaxed text-center">
                 Ready to invest in Dubai&apos;s premium real estate market? Our
                 team is here to guide you through every step of your property
                 investment journey. From exclusive developments to personalized
@@ -72,7 +72,7 @@ const ContactSection = () => {
             {/* CTA Button */}
             <motion.button
               onClick={() => setIsFormOpen(true)}
-              className="bg-white text-gray-900 px-8 py-4 rounded-lg font-medium text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg"
+              className="w-full sm:w-auto bg-white text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium text-base sm:text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg"
               whileHover={{
                 scale: 1.05,
                 transition: { duration: 0.2 },
@@ -83,14 +83,14 @@ const ContactSection = () => {
             </motion.button>
           </div>
         </div>
-        <hr className="my-12 border-gray-700" />
+        <hr className="my-8 sm:my-12 border-gray-700" />
         {/* Footer Section */}
         <footer className="relative z-10 ">
-          <div className="  px-[10rem] mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-10">
+          <div className="px-4 sm:px-6 lg:px-8 mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-10">
               {/* About ERETZ */}
               <div>
-                <h3 className="text-lg font-normal font-krona text-white mb-6">
+                <h3 className="text-base sm:text-lg font-normal font-krona text-white mb-4 sm:mb-6">
                   <GSAPTextReveal
                     splitBy="words"
                     animationType="slideUp"
@@ -139,7 +139,7 @@ const ContactSection = () => {
 
               {/* Services */}
               <div>
-                <h3 className="text-lg font-normal font-krona text-white mb-6">
+                <h3 className="text-base sm:text-lg font-normal font-krona text-white mb-4 sm:mb-6">
                   <GSAPTextReveal
                     splitBy="words"
                     animationType="slideUp"
@@ -188,7 +188,7 @@ const ContactSection = () => {
 
               {/* Contact */}
               <div>
-                <h3 className="text-lg font-normal font-krona text-white mb-6">
+                <h3 className="text-base sm:text-lg font-normal font-krona text-white mb-4 sm:mb-6">
                   <GSAPTextReveal
                     splitBy="words"
                     animationType="slideUp"
@@ -224,7 +224,7 @@ const ContactSection = () => {
 
               {/* Get Updates */}
               <div>
-                <h3 className="text-lg font-normal font-krona text-white mb-6">
+                <h3 className="text-base sm:text-lg font-normal font-krona text-white mb-4 sm:mb-6">
                   <GSAPTextReveal
                     splitBy="words"
                     animationType="slideUp"
@@ -243,7 +243,7 @@ const ContactSection = () => {
                   <input
                     type="email"
                     placeholder="Your email address"
-                    className="w-full bg-black   border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors text-sm"
+                    className="w-full bg-black border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors text-sm"
                   />
                   <button className="w-full bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors text-sm">
                     Subscribe
@@ -252,14 +252,14 @@ const ContactSection = () => {
               </div>
             </div>
 
-            <div className="flex justify-center w-full h-full">
+            <div className="flex justify-center w-full h-24 sm:h-40 lg:h-full">
               <img
                 src="/logo.svg"
                 alt="ERETZ"
-                className="w-full h-full opacity-[0.1]"
+                className="w-full h-full opacity-[0.1] object-contain"
               />
             </div>
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-6 text-sm text-white -mt-6">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6 text-xs sm:text-sm text-white -mt-4 lg:-mt-6 px-4">
               <div className="flex flex-col lg:flex-row items-center gap-6">
                 <span>©2025 ERETZ PROPERTIES. ALL RIGHTS RESERVED</span>
               </div>

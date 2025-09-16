@@ -30,24 +30,42 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
   cropFrom = "none",
   text,
   textAlign = "center",
+  reveal = "onView",
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
-  const isAnimated = useRef(false);
 
   useEffect(() => {
     if (!containerRef.current || !imageRef.current) return;
-    if (isAnimated.current) return;
 
     const container = containerRef.current;
     const image = imageRef.current;
 
-    // Initially image covers entire container (text is hidden behind)
+    const finalClipPath =
+      cropFrom === "top"
+        ? "polygon(0% 20%, 100% 20%, 100% 100%, 0% 100%)"
+        : cropFrom === "bottom"
+        ? "polygon(0% 0%, 100% 0%, 100% 85%, 0% 85%)"
+        : "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)";
+
+    // Cleanup any previous ScrollTriggers tied to this container
+    ScrollTrigger.getAll().forEach((trigger) => {
+      if (trigger.trigger === container) trigger.kill();
+    });
+
+    if (reveal === "onTrigger") {
+      // Immediately set to final state without creating ScrollTrigger
+      gsap.set(image, {
+        clipPath: finalClipPath,
+      });
+      return;
+    }
+
+    // onView: start fully covered, then animate crop on enter
     gsap.set(image, {
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     });
 
-    // Create ScrollTrigger animation
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container,
@@ -57,20 +75,14 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
       },
     });
 
-    // After delay, crop the image to reveal text (if cropFrom is not "none")
     if (cropFrom !== "none") {
       tl.to(image, {
-        clipPath:
-          cropFrom === "top"
-            ? "polygon(0% 20%, 100% 20%, 100% 100%, 0% 100%)" // Crop from top, image takes 80%, text 20%
-            : "polygon(0% 0%, 100% 0%, 100% 85%, 0% 85%)", // Crop from bottom, image takes 80%, text 20%
+        clipPath: finalClipPath,
         duration: duration,
         delay: delay,
         ease: "power3.out",
       });
     }
-
-    isAnimated.current = true;
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => {
@@ -79,7 +91,7 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
         }
       });
     };
-  }, [delay, duration, cropFrom]);
+  }, [delay, duration, cropFrom, reveal]);
 
   const getTextAlignmentClass = () => {
     switch (textAlign) {

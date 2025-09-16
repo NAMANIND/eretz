@@ -40,14 +40,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       >
         <div className="text-center max-w-7xl mx-auto">
           {/* Main Title with GSAP Text Reveal */}
-          <h1 className=" font-normal text-[36px] text-white mb-6  font-krona">
+          <h1 className=" font-normal  container-heading  mb-6  font-krona">
             <GSAPTextReveal
               delay={0.2}
               duration={0.8}
               stagger={0}
               splitBy="words"
               animationType="slideUp"
-              className="inline-block "
+              className="inline-block text-white "
             >
               WE DON&apos;T JUST BUILD HOMES,
             </GSAPTextReveal>
@@ -57,7 +57,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               stagger={0}
               splitBy="lines"
               animationType="slideUp"
-              className="inline-block "
+              className="inline-block text-white "
             >
               WE CRAFT LEGACIES THAT LAST GENERATIONS.
             </GSAPTextReveal>

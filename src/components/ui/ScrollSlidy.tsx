@@ -30,14 +30,14 @@ export default function ScrollSlidy({
   return (
     <div
       ref={containerRef}
-      className=" h-[400vh] mt-[50vh] -mb-[50vh]  relative"
+      className=" relative h-auto mt-8 mb-8 md:h-[400vh] md:mt-[50vh] md:-mb-[50vh]"
     >
       {/* Image Comparison Container */}
       <div
-        className={`sticky top-1/2 -translate-y-1/2 h-[80vh] w-full aspect-16/9 flex items-center justify-center`}
+        className={`relative md:sticky md:top-1/2 md:-translate-y-1/2 h-[30vh] sm:h-[50vh] md:h-[80vh] w-full aspect-video md:aspect-16/9 flex items-center justify-center`}
       >
         <motion.div
-          className={` overflow-hidden select-none  w-full ${className} aspect-16/9 `}
+          className={` overflow-hidden select-none w-full ${className} aspect-video md:aspect-16/9 `}
           style={{
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
           }}

@@ -75,7 +75,7 @@ export const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({
       <iframe
         ref={iframeRef}
         src={getYouTubeUrl()}
-        className="absolute top-1/2 left-1/2 w-[300vw] h-[300vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        className="absolute top-1/2 left-1/2 h-[100vh] w-[177.78vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         style={{
           minWidth: "100vw",
           minHeight: "100vh",
@@ -86,6 +86,8 @@ export const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({
         allowFullScreen={false}
         loading="eager"
         tabIndex={-1}
+        aria-hidden="true"
+        role="presentation"
         title="YouTube Video Background"
         onLoad={() => setIsLoaded(true)}
       />

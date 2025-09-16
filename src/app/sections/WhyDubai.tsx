@@ -74,7 +74,7 @@ const WhyDubai: React.FC = () => {
   ];
   return (
     <section
-      className="relative w-full min-h-screen bg-white py-1 z-10"
+      className="relative w-full  min-h-screen bg-white py-1 z-10 overflow-x-hidden"
       id="why-dubai"
       ref={sectionRef}
     >

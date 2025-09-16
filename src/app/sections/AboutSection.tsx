@@ -1,14 +1,40 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import GSAPTextReveal from "@/components/ui/GSAPTextReveal";
 import { ScrollTextReveal } from "@/components/animations/ScrollTextReveal";
 
 const AboutSection: React.FC = () => {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const greyContentRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1024px)");
+    const handleChange = (event: MediaQueryListEvent) => {
+      setIsMobile(event.matches);
+    };
+
+    // Initialize
+    setIsMobile(mediaQuery.matches);
+
+    // Subscribe with fallback for older browsers
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", handleChange);
+    } else if (typeof mediaQuery.addListener === "function") {
+      mediaQuery.addListener(handleChange);
+    }
+
+    return () => {
+      if (typeof mediaQuery.removeEventListener === "function") {
+        mediaQuery.removeEventListener("change", handleChange);
+      } else if (typeof mediaQuery.removeListener === "function") {
+        mediaQuery.removeListener(handleChange);
+      }
+    };
+  }, []);
 
   // Scroll progress for the section
   const { scrollYProgress } = useScroll({
@@ -29,6 +55,72 @@ const AboutSection: React.FC = () => {
   );
 
   const padding = useTransform(scrollYProgress, [0, 1], ["1.14rem", "0rem"]);
+
+  if (isMobile) {
+    return (
+      <section
+        ref={sectionRef}
+        className="relative w-full min-h-screen overflow-hidden bg-white "
+      >
+        <div ref={frameRef} className=" mx-auto container-w ">
+          <div className="py-16 px-4 flex items-center justify-center gap-4 flex-col text-center">
+            <h1 className="text-2xl font-semibold text-gray-900 leading-[1.2]">
+              At ERETZ, we shape not just buildings, but environments that
+              immediately feel right.
+            </h1>
+          </div>
+          <div className="text-center" id="about">
+            <h2 className=" container-heading  font-krona">ABOUT ERETZ</h2>
+            <h5 className="text-base text-gray-900 leading-[1.5] text-justify ">
+              ERETZ is a property development company rooted in the values of
+              authenticity, quality, and integrity. Inspired by an ancient
+              language word "Eretz", meaning land or earth, our name reflects a
+              deep connection to the ground we build on and the lives we aim to
+              enrich. We specialize in crafting residential buildings that
+              combine timeless design with solid construction—homes that are
+              both an emotional and financial investment.
+            </h5>
+          </div>
+
+          <div className="relative w-full  mx-auto my-6 ">
+            <div className="grid grid-cols-1 gap-3 rounded-2xl">
+              <div className="relative h-64">
+                <img
+                  src="/placeholder-1.jpg"
+                  alt="Frame Left"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="relative h-64">
+                <img
+                  src="/placeholder-2.jpg"
+                  alt="Frame Center"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+              <div className="relative h-64">
+                <img
+                  src="/placeholder-3.jpg"
+                  alt="Frame Right"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="text-left ">
+            <h5 className="text-base text-gray-900 mb-6 leading-[1.4] text-justify">
+              At ERETZ, we don&apos;t just develop structures, we shape enduring
+              lifestyles. Our commitment to craftsmanship is evident in every
+              project we undertake, ensuring that every detail, from layout to
+              finish, serves a purpose and reflects our genuine care for the
+              people who call our spaces home.
+            </h5>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section
