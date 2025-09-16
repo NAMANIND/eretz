@@ -74,11 +74,11 @@ const AboutSection: React.FC = () => {
             <h5 className="text-base text-gray-900 leading-[1.5] text-justify ">
               ERETZ is a property development company rooted in the values of
               authenticity, quality, and integrity. Inspired by an ancient
-              language word "Eretz", meaning land or earth, our name reflects a
-              deep connection to the ground we build on and the lives we aim to
-              enrich. We specialize in crafting residential buildings that
-              combine timeless design with solid construction—homes that are
-              both an emotional and financial investment.
+              language word &quot;Eretz&quot;, meaning land or earth, our name
+              reflects a deep connection to the ground we build on and the lives
+              we aim to enrich. We specialize in crafting residential buildings
+              that combine timeless design with solid construction—homes that
+              are both an emotional and financial investment.
             </h5>
           </div>
 
