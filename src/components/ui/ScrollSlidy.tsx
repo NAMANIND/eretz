@@ -30,7 +30,7 @@ export default function ScrollSlidy({
   return (
     <div
       ref={containerRef}
-      className=" relative h-auto mt-8 mb-8 md:h-[200vh] md:mt-[50vh] md:-mb-[50vh]"
+      className=" relative sm:w-full w-[90vw]  h-auto mt-8 mb-8 md:h-[200vh] md:mt-[50vh] md:-mb-[50vh]"
     >
       {/* Image Comparison Container */}
       <div

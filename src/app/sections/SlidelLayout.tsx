@@ -39,9 +39,9 @@ const SlidelLayout = () => {
 
   return (
     <section className="bg-white ">
-      <div className="container mx-auto relative pb-[150px] flex items-center flex-col ">
+      <div className="container mx-auto relative sm:pb-[150px] pb-[40px] flex items-center flex-col ">
         {/* Section Header */}
-        <div className="text-center w-3/4">
+        <div className="text-center sm:w-3/4 w-full">
           <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-normal mb-[20px] text-gray-900">
             <GSAPTextReveal
               splitBy="lines"

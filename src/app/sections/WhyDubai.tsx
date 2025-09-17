@@ -168,27 +168,15 @@ const WhyDubai: React.FC = () => {
               </div>
 
               {/* Pagination dots */}
-              <div className="mt-6 flex items-center justify-center gap-2">
-                {items.map((_, idx) => (
-                  <button
-                    key={idx}
-                    aria-label={`Go to slide ${idx + 1}`}
-                    onClick={() => {
-                      if (!carouselRef.current) return;
-                      const width = carouselRef.current.clientWidth;
-                      carouselRef.current.scrollTo({
-                        left: width * idx,
-                        behavior: "smooth",
-                      });
-                      setActiveIndex(idx);
+              <div className="mt-6 flex items-center justify-center">
+                <div className="relative w-[80%] h-0.5 bg-gray-200 rounded-full overflow-hidden">
+                  <div
+                    className="absolute top-0 left-0 h-full bg-gray-900 rounded-full transition-all duration-300 ease-out"
+                    style={{
+                      width: `${((activeIndex + 1) / items.length) * 100}%`,
                     }}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      activeIndex === idx
-                        ? "w-6 bg-gray-900"
-                        : "w-2 bg-gray-300"
-                    }`}
                   />
-                ))}
+                </div>
               </div>
             </div>
           ) : (
@@ -224,7 +212,7 @@ const WhyDubai: React.FC = () => {
                 <GSAPTextReveal
                   splitBy="lines"
                   animationType="slideUp"
-                  delay={0.4}
+                  delay={2}
                   duration={0.8}
                   stagger={0.2}
                 >

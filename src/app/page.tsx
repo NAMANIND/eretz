@@ -15,7 +15,7 @@ function page() {
       <DockNavbar />
       <HeroSection />
       <div className="relative">
-        <div className=" w-full h-[60vh]  mx-auto  sticky top-1/2 container -translate-y-1/2 z-4">
+        <div className=" w-full h-[60vh] hidden sm:flex  mx-auto  sticky top-1/2 container -translate-y-1/2 z-4">
           <div className="grid grid-cols-3  gap-0 ">
             <div className="  h-[60vh] opacity-0  ">
               <img
@@ -40,10 +40,7 @@ function page() {
             </div>
           </div>
         </div>
-        <div
-          className="relative -mt-[60vh]
-  "
-        >
+        <div className="relative mt-0 sm:-mt-[60vh]">
           <ProductSection />
           <AboutSection />
         </div>
@@ -55,6 +52,7 @@ function page() {
       {/* Parallax Container for WhyDubai and ContactSection */}
       <div className="relative">
         <WhyDubai />
+
         <FooterSection />
       </div>
     </div>

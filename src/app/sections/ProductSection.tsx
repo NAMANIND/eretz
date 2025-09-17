@@ -119,25 +119,15 @@ const ProductSection = () => {
             </div>
 
             {/* Pagination dots */}
-            <div className="mt-6 flex items-center justify-center gap-2">
-              {imageData.map((_, idx) => (
-                <button
-                  key={idx}
-                  aria-label={`Go to slide ${idx + 1}`}
-                  onClick={() => {
-                    if (!carouselRef.current) return;
-                    const width = carouselRef.current.clientWidth;
-                    carouselRef.current.scrollTo({
-                      left: width * idx,
-                      behavior: "smooth",
-                    });
-                    setActiveIndex(idx);
+            <div className="mt-6 flex items-center justify-center">
+              <div className="relative w-[80%] h-0.5 bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  className="absolute top-0 left-0 h-full bg-gray-900 rounded-full transition-all duration-300 ease-out"
+                  style={{
+                    width: `${((activeIndex + 1) / imageData.length) * 100}%`,
                   }}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    activeIndex === idx ? "w-6 bg-gray-900" : "w-2 bg-gray-300"
-                  }`}
                 />
-              ))}
+              </div>
             </div>
           </div>
         ) : (

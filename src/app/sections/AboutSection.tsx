@@ -37,10 +37,17 @@ const AboutSection: React.FC = () => {
     return (
       <section className="w-full min-h-screen overflow-hidden bg-white ">
         <div className=" mx-auto container ">
-          <div className="py-16 px-4 flex items-center justify-center gap-4 flex-col text-center">
-            <h1 className="text-2xl font-semibold text-gray-900 leading-[1.2]">
-              At ERETZ, we shape not just buildings, but environments that
-              immediately feel right.
+          <div className="py-16 px-4 flex items-center justify-center gap-4 flex-col text-center h-[50vh]">
+            <h1 className="text-2xl font-semibold text-gray-900 text-left  leading-[1.2]">
+              <ScrollTextReveal
+                mode="characters"
+                startOffset="start 0.8"
+                endOffset="end 0.2"
+                className="text-4xl font-semibold w-full text-gray-900  text-wrap leading-[1.1]"
+              >
+                At ERETZ, we shape not just buildings, but environments that
+                immediately feel right.
+              </ScrollTextReveal>
             </h1>
           </div>
           <div className="text-center" id="about">
