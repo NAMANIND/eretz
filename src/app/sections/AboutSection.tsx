@@ -97,55 +97,20 @@ const AboutSection: React.FC = () => {
   }
 
   return (
-    <section className=" w-full min-h-screen   bg-white ">
-      <div className=" w-full  mx-auto my-10 sticky top-0">
-        <div className="grid grid-cols-3  gap-0rounded-2xl">
-          <div className="  h-[60vh] opacity-0  ">
-            <img
-              src="/placeholder-1.jpg"
-              alt="Frame Left"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <motion.div
-            // ref={greyContentRef}
-            // style={{
-            //   y: greyContentY,
-            //   bottom: greyContentBottom,
-            //   paddingRight: padding,
-            //   paddingLeft: padding,
-            // }}
-            className=" bg-transparent  top-0 left-0 flex items-center justify-center h-[60vh] "
-          >
-            <img
-              src="/placeholder-2.jpg"
-              alt="Frame Center"
-              className="w-full h-full object-cover object-center"
-            />
-          </motion.div>
-          <div className=" h-[60vh] opacity-0">
-            <img
-              src="/placeholder-3.jpg"
-              alt="Frame Right"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
+    <section className=" w-full min-h-screen  z-2  ">
+      <div className="h-[150vh] flex items-center justify-center gap-4 flex-col">
+        <ScrollTextReveal
+          mode="characters"
+          startOffset="start 0.8"
+          endOffset="end 0.2"
+          className="text-2xl lg:text-7xl font-semibold text-gray-900 w-6xl  leading-[1.1]"
+        >
+          At ERETZ, we shape not just buildings, but environments that
+          immediately feel right.
+        </ScrollTextReveal>
       </div>
-      <div className=" mx-auto container ">
-        <div className="h-[100vh] flex items-center justify-center gap-4 flex-col">
-          <ScrollTextReveal
-            mode="characters"
-            startOffset="start center"
-            endOffset="start 0.3"
-            className="text-2xl lg:text-7xl font-semibold text-gray-900 w-6xl  leading-[1.1]"
-          >
-            At ERETZ, we shape not just buildings, but environments that
-            immediately feel right.
-          </ScrollTextReveal>
-        </div>
-        {/* Section Header */}
-        <div className="text-center" id="about">
+      <div className=" mx-auto container  ">
+        <div className="text-center " id="about">
           <h2 className=" container-heading  font-krona">
             <GSAPTextReveal
               splitBy="words"
@@ -169,17 +134,17 @@ const AboutSection: React.FC = () => {
             >
               ERETZ is a property development company rooted in the values of
               authenticity, quality, and integrity. Inspired by an ancient
-              language word &quot;Eretz&quot;, \n meaning land or earth, our
-              name reflects a deep connection to the ground we build on and the
-              lives we aim to enrich. We specialize in crafting \n residential
-              buildings that combine timeless design with solid construction
-              homes that are both an emotional and financial investment.
+              language word &quot;Eretz&quot;, meaning land or earth, our name
+              reflects a deep connection to the ground we build on and the lives
+              we aim to enrich. We specialize in crafting residential buildings
+              that combine timeless design with solid construction homes that
+              are both an emotional and financial investment.
             </GSAPTextReveal>
           </h5>
         </div>
 
-        <div className=" w-full  mx-auto my-10">
-          <div className="grid grid-cols-3 gap-0rounded-2xl">
+        <div className=" w-full  mx-auto my-10  ">
+          <div className="grid grid-cols-3 gap-0  ">
             <div className="  h-[60vh]  ">
               <img
                 src="/placeholder-1.jpg"
@@ -213,15 +178,14 @@ const AboutSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="text-left">
+        <div className="text-left h-[10vh]">
           <h5 className="text-lg text-gray-900 mb-6 leading-[0.95]">
             <GSAPTextReveal
               splitBy="lines"
               animationType="slideUp"
-              stagger={0}
+              delay={0.2}
               duration={0.8}
-              delay={0}
-              reveal="onTrigger"
+              stagger={0.2}
               className="text-justify"
             >
               At ERETZ, we don&apos;t just develop structures, we shape enduring
@@ -232,6 +196,8 @@ const AboutSection: React.FC = () => {
             </GSAPTextReveal>
           </h5>
         </div>
+
+        <div className="h-[calc(20vh_-_40px)]" />
       </div>
     </section>
   );

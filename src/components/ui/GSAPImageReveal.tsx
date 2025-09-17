@@ -76,17 +76,12 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
       {/* Text content (behind image initially) */}
       {text && (
         <motion.div
-          className={` absolute flex flex-1 ${getTextPositionClass()}
-
-        
-  
-          
-          z-0 bg-white`}
+          className={` absolute flex flex-1 ${getTextPositionClass()} w-full z-0 bg-white`}
           initial={textAlign === "left" ? { y: -150 } : { y: 150 }}
           animate={{ y: 0 }}
           viewport={{ once: true }}
           transition={{
-            delay: 1,
+            delay: 1.5,
             duration: 1.2,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
@@ -111,7 +106,7 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
         ref={imageRef}
         src={src}
         alt={alt}
-        className="{`z-10 p-1 w-full h-full object-cover ${className}`}"
+        className="{`z-10 p-[1px] w-full h-full object-cover ${className}`}"
       />
     </div>
   );

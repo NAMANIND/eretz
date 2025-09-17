@@ -20,7 +20,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section
-      className={`relative w-full h-screen overflow-hidden ${className}`}
+      className={`relative z-10 w-full h-screen overflow-hidden ${className}`}
     >
       {/* YouTube Video Background */}
       <YouTubeBackground
@@ -44,8 +44,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <GSAPTextReveal
               delay={0.2}
               duration={0.8}
-              stagger={0}
-              splitBy="words"
+              stagger={0.2}
+              splitBy="lines"
               animationType="slideUp"
               className="inline-block text-white "
             >
@@ -54,7 +54,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <GSAPTextReveal
               delay={0.4}
               duration={0.8}
-              stagger={0}
+              stagger={0.2}
               splitBy="lines"
               animationType="slideUp"
               className="inline-block text-white"

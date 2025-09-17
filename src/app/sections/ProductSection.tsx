@@ -65,8 +65,8 @@ const ProductSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full  min-h-screen bg-white py-1 z-10 ">
-      <div className="container mx-auto">
+    <section className=" w-full relative z-10 ">
+      <div className="mx-auto container bg-white  pt-[150px]  overflow-hidden">
         {/* Section Header */}
         <div className="text-center">
           <h2 className="container-heading font-krona">
@@ -84,7 +84,7 @@ const ProductSection = () => {
 
         {/* Image Grid */}
         {isMobile ? (
-          <div className="relative w-full">
+          <div className=" w-full">
             {/* Scroll-snap Carousel */}
             <div
               ref={carouselRef}
@@ -97,7 +97,7 @@ const ProductSection = () => {
             >
               {imageData.map((image, idx) => (
                 <div key={image.id} className="space-y-8">
-                  <div className="relative">
+                  <div>
                     <div className="aspect-[4/5] overflow-hidden h-[60vh]">
                       <GSAPImageReveal
                         src={image.src}
@@ -141,7 +141,7 @@ const ProductSection = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-row gap-4  h-[500px]">
+          <div className="flex flex-row gap-2  h-[500px]">
             {imageData.map((image, index) => {
               return (
                 <motion.div
@@ -170,7 +170,7 @@ const ProductSection = () => {
                     src={image.src}
                     alt={image.alt}
                     containerClassName=" ease-[cubic-bezier(0.25, 0.46, 0.45, 0.94)]"
-                    delay={1.3}
+                    delay={2}
                     duration={1.2}
                     cropFrom={image.cropFrom as "none" | "bottom" | "top"}
                     text={image.text}

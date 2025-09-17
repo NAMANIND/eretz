@@ -109,7 +109,7 @@ const Projects: React.FC = () => {
 
   return (
     <section
-      className="relative w-full h-fit sm:min-h-screen bg-white px-6 "
+      className="relative w-full h-fit sm:min-h-screen bg-white px-6 pb-[50px] "
       id="projects"
     >
       <div className="mx-auto container-f overflow-hidden ">

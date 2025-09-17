@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { GSAPTextReveal } from "@/components/ui/GSAPTextReveal";
 import { WhyDubaiHScroll } from "@/components/ui/WhyDubaiHScroll";
+import { motion } from "framer-motion";
 
 const items = [
   {
@@ -102,13 +103,13 @@ const WhyDubai: React.FC = () => {
   }, []);
   return (
     <section
-      className="relative w-full  min-h-screen bg-white py-1 z-10 "
+      className="relative w-full  bg-white py-1 z-10 "
       id="why-dubai"
       ref={sectionRef}
     >
-      <div className="mx-auto container overflow-x-hidden">
+      <div className="mx-auto  min-h-screen overflow-x-hidden">
         {/* Section Header */}
-        <div className="text-center ">
+        <div className="text-center  pt-[80px]  ">
           <h2 className="container-heading font-krona">
             <GSAPTextReveal
               splitBy="words"
@@ -199,6 +200,55 @@ const WhyDubai: React.FC = () => {
               ease="none"
             />
           )}
+        </div>
+      </div>
+      <div className="w-full bg-white h-fit py-12">
+        <div className="relative z-10 text-center " id="contact">
+          <div className="container flex items-center flex-col mx-auto px-4">
+            <h1 className="font-normal w-3/4 container-hero text-center  mb-6  font-krona">
+              <GSAPTextReveal
+                splitBy="lines"
+                animationType="slideUp"
+                delay={1}
+                duration={0.8}
+                stagger={0.2}
+              >
+                LET&apos;S MAKE THIS OFFICIAL, GET IN TOUCH AND START YOUR
+                INVESTMENT JOURNEY
+              </GSAPTextReveal>
+            </h1>
+
+            {/* Description */}
+            <div className="max-w-3xl lg:max-w-5xl mx-auto text-center mb-8 sm:mb-12 px-4">
+              <h4 className="text-base sm:text-lg text-gray-800 leading-relaxed text-center">
+                <GSAPTextReveal
+                  splitBy="lines"
+                  animationType="slideUp"
+                  delay={0.4}
+                  duration={0.8}
+                  stagger={0.2}
+                >
+                  Ready to invest in Dubai&apos;s premium real estate market?
+                  Our team is here to guide you through every step of your
+                  property investment journey. From exclusive developments to
+                  personalized investment strategies.
+                </GSAPTextReveal>
+              </h4>
+            </div>
+
+            {/* CTA Button */}
+            <motion.button
+              // onClick={() => setIsFormOpen(true)}
+              className="w-full sm:w-auto bg-black text-gray-200 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium text-base sm:text-lg hover:bg-gray-800 transition-all duration-300 shadow-lg"
+              whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.2 },
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get In Touch
+            </motion.button>
+          </div>
         </div>
       </div>
     </section>

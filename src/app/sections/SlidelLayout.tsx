@@ -39,16 +39,16 @@ const SlidelLayout = () => {
 
   return (
     <section className="bg-white ">
-      <div className="container mx-auto relative">
+      <div className="container mx-auto relative pb-[150px] flex items-center flex-col ">
         {/* Section Header */}
-        <div className="text-center mb-[90px]">
-          <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-normal text-gray-900">
+        <div className="text-center w-3/4">
+          <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-normal mb-[20px] text-gray-900">
             <GSAPTextReveal
-              splitBy="words"
+              splitBy="lines"
               animationType="slideUp"
-              stagger={0.1}
-              duration={0.2}
-              delay={0}
+              delay={0.2}
+              duration={0.8}
+              stagger={0.2}
             >
               Every decision from design to layout reflects a deep understanding
               of how you truly want to live.
