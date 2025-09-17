@@ -38,14 +38,6 @@ const items = [
     image: "/placeholder-3.jpg",
     category: "Residency",
   },
-  {
-    id: 4,
-    title: "Exceptional Safety Standards",
-    description:
-      "Ranked among the safest countries globally, UAE offers a secure environment supported by advanced law enforcement.",
-    image: "/placeholder-1.jpg",
-    category: "Safety",
-  },
 ];
 
 const ParallaxColumn: React.FC<{
@@ -117,10 +109,10 @@ const Projects: React.FC = () => {
 
   return (
     <section
-      className="relative w-full h-fit sm:min-h-screen bg-white px-6"
+      className="relative w-full h-fit sm:min-h-screen bg-white px-6 pb-[50px] "
       id="projects"
     >
-      <div className="mx-auto container-f ">
+      <div className="mx-auto container-f overflow-hidden ">
         <div className="text-center ">
           <h2 className="container-heading font-krona">
             <GSAPTextReveal

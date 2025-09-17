@@ -65,8 +65,8 @@ const ProductSection = () => {
   }, []);
 
   return (
-    <section className="bg-white overflow-x-hidden">
-      <div className="container-w mx-auto">
+    <section className=" w-full relative z-10 ">
+      <div className="mx-auto container bg-white  pt-[150px]  overflow-hidden">
         {/* Section Header */}
         <div className="text-center">
           <h2 className="container-heading font-krona">
@@ -84,7 +84,7 @@ const ProductSection = () => {
 
         {/* Image Grid */}
         {isMobile ? (
-          <div className="relative w-full">
+          <div className=" w-full">
             {/* Scroll-snap Carousel */}
             <div
               ref={carouselRef}
@@ -97,7 +97,7 @@ const ProductSection = () => {
             >
               {imageData.map((image, idx) => (
                 <div key={image.id} className="space-y-8">
-                  <div className="relative">
+                  <div>
                     <div className="aspect-[4/5] overflow-hidden h-[60vh]">
                       <GSAPImageReveal
                         src={image.src}
@@ -141,12 +141,12 @@ const ProductSection = () => {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+          <div className="flex flex-row gap-2  h-[500px]">
             {imageData.map((image, index) => {
               return (
                 <motion.div
                   key={image.id}
-                  className="space-y-8"
+                  className="w-1/3"
                   initial={{
                     clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
                     y: 150,
@@ -166,22 +166,16 @@ const ProductSection = () => {
                     ease: [0.25, 0.46, 0.45, 0.94],
                   }}
                 >
-                  <div className="relative">
-                    <div className="aspect-[4/5] overflow-hidden h-[60vh]">
-                      <GSAPImageReveal
-                        src={image.src}
-                        alt={image.alt}
-                        containerClassName="w-full h-full ease-[cubic-bezier(0.25, 0.46, 0.45, 0.94)]"
-                        delay={1.3}
-                        duration={1.2}
-                        cropFrom={image.cropFrom as "none" | "bottom" | "top"}
-                        text={image.text}
-                        textAlign={
-                          image.textAlign as "left" | "center" | "right"
-                        }
-                      />
-                    </div>
-                  </div>
+                  <GSAPImageReveal
+                    src={image.src}
+                    alt={image.alt}
+                    containerClassName=" ease-[cubic-bezier(0.25, 0.46, 0.45, 0.94)]"
+                    delay={2}
+                    duration={1.2}
+                    cropFrom={image.cropFrom as "none" | "bottom" | "top"}
+                    text={image.text}
+                    textAlign={image.textAlign as "left" | "center" | "right"}
+                  />
                 </motion.div>
               );
             })}

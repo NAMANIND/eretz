@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { GSAPTextReveal } from "@/components/ui/GSAPTextReveal";
 import { motion } from "framer-motion";
 
-const ContactSection = () => {
+const FooterSection = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -34,58 +34,7 @@ const ContactSection = () => {
     <>
       {/* Main Contact + Footer Section */}
       <section className="relative lg:sticky lg:-bottom-20 bg-black text-white overflow-hidden -z-20">
-        {/* Hero/CTA Section */}
-        <div className="relative z-10 text-center " id="contact">
-          <div className="container-w mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-xl sm:text-2xl lg:text-4xl font-normal mb-6 sm:mb-8 leading-[1.2] lg:leading-[1.1] font-krona">
-              <GSAPTextReveal
-                splitBy="words"
-                animationType="slideUp"
-                stagger={0.1}
-                duration={0.8}
-                delay={0.2}
-              >
-                LET&apos;S MAKE THIS OFFICIAL, GET IN TOUCH
-              </GSAPTextReveal>
-              <br />
-              <GSAPTextReveal
-                splitBy="words"
-                animationType="slideUp"
-                stagger={0.1}
-                duration={0.8}
-                delay={0.4}
-              >
-                AND START YOUR INVESTMENT JOURNEY
-              </GSAPTextReveal>
-            </h1>
-
-            {/* Description */}
-            <div className="max-w-3xl lg:max-w-5xl mx-auto text-center mb-8 sm:mb-12 px-4">
-              <h4 className="text-base sm:text-lg text-gray-300 leading-relaxed text-center">
-                Ready to invest in Dubai&apos;s premium real estate market? Our
-                team is here to guide you through every step of your property
-                investment journey. From exclusive developments to personalized
-                investment strategies.
-              </h4>
-            </div>
-
-            {/* CTA Button */}
-            <motion.button
-              onClick={() => setIsFormOpen(true)}
-              className="w-full sm:w-auto bg-white text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium text-base sm:text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg"
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.2 },
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get In Touch
-            </motion.button>
-          </div>
-        </div>
-        <hr className="my-8 sm:my-12 border-gray-700" />
-        {/* Footer Section */}
-        <footer className="relative z-10 ">
+        <footer className="relative z-10 py-8 ">
           <div className="px-4 sm:px-6 lg:px-8 mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-10">
               {/* About ERETZ */}
@@ -400,4 +349,4 @@ const ContactSection = () => {
   );
 };
 
-export default ContactSection;
+export default FooterSection;

@@ -96,7 +96,7 @@ export const DockNavbar: React.FC = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="flex items-center justify-between px-6 py-3 md:px-40">
+        <div className="flex items-center justify-between container mx-auto h-[60px] py-l">
           {/* Mobile left: hamburger */}
           <button
             type="button"
@@ -117,7 +117,7 @@ export const DockNavbar: React.FC = () => {
             src={isScrolled ? "/logo-black.svg" : "/logo.svg"}
             alt="logo"
             height={100}
-            className="h-8 w-auto md:h-[unset] transition-all duration-500 ease-in-out"
+            className="h-[20px]  transition-all duration-500 ease-in-out"
           />
 
           {/* Mobile right: phone icon */}
@@ -161,14 +161,14 @@ export const DockNavbar: React.FC = () => {
 
             <Link href="tel:+18556531901">
               <h3
-                className={`text-sm text-muted-foreground relative group cursor-pointer leading-[1.2] pb-1 transition-colors duration-500 ease-in-out ${
+                className={`text-sm text-muted-foreground relative group cursor-pointer leading-[1.2] pb-1 transition-colors duration-500 ease-in-out inline-block whitespace-nowrap ${
                   isScrolled ? "text-black" : "text-white"
                 }`}
               >
                 +1 (855) 653-1901
                 <div className="absolute bottom-0 right-0 h-[1px] w-full overflow-hidden">
                   <div
-                    className={`h-full transform scale-x-0 origin-right transition-all duration-1000 ease-in-out group-hover:scale-x-100 group-hover:origin-left ${
+                    className={`h-full transform scale-x-0 origin-right transition-all duration-1000 ease-in-out group-hover:scale-x-100 group-hover:origin-left  ${
                       isScrolled ? "bg-black" : "bg-white"
                     }`}
                   ></div>

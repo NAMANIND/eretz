@@ -48,28 +48,83 @@ export const GSAPTextReveal: React.FC<GSAPTextRevealProps> = ({
             )
             .join("");
         case "lines":
-          // Split by sentences or manual line breaks (handle both \n and literal \\n)
-          const hasLineBreaks = text.includes("\n") || text.includes("\\n");
-          let lines: string[];
+          // Measure natural wrapping by grouping tokens by their vertical position
+          // Create an offscreen measuring container that mirrors styles
+          const measure = document.createElement("div");
+          const styles = getComputedStyle(textElement);
+          const width =
+            textElement.offsetWidth ||
+            textElement.parentElement?.offsetWidth ||
+            300;
 
-          if (hasLineBreaks) {
-            // Handle both actual newlines and literal \n strings
-            lines = text
-              .replace(/\\n/g, "\n") // Convert literal \n to actual newlines
-              .split("\n")
-              .map((line) => line.trim())
-              .filter((line) => line.length > 0);
-          } else {
-            // Fall back to sentence splitting
-            lines = text.split(".").filter((line) => line.trim());
+          measure.style.cssText = `
+            position: absolute;
+            left: -99999px;
+            top: 0;
+            visibility: hidden;
+            white-space: normal;
+            width: ${width}px;
+            font: ${styles.font};
+            line-height: ${styles.lineHeight};
+            letter-spacing: ${styles.letterSpacing};
+            word-spacing: ${styles.wordSpacing};
+          `;
+
+          // Tokenize into words and spaces to preserve exact spacing
+          const tokens = (text.match(/\S+|\s+/g) || []) as string[];
+
+          tokens.forEach((token) => {
+            if (/^\s+$/.test(token)) {
+              const spaceNode = document.createTextNode(token);
+              measure.appendChild(spaceNode);
+            } else {
+              const span = document.createElement("span");
+              span.textContent = token;
+              span.style.display = "inline-block";
+              span.style.whiteSpace = "nowrap";
+              measure.appendChild(span);
+            }
+          });
+
+          document.body.appendChild(measure);
+
+          // Group tokens by their offsetTop to form lines
+          const lines: string[] = [];
+          let currentTop = -1;
+          let currentLine: string[] = [];
+
+          Array.from(measure.childNodes).forEach((node) => {
+            const isWord = node.nodeType === Node.ELEMENT_NODE;
+            const content = isWord
+              ? (node as HTMLElement).textContent || ""
+              : node.textContent || "";
+            const top = isWord
+              ? (node as HTMLElement).offsetTop
+              : (node.previousSibling as HTMLElement | null)?.offsetTop ??
+                currentTop;
+
+            if (currentTop === -1) {
+              currentTop = top;
+            }
+
+            if (top !== currentTop && currentLine.length) {
+              lines.push(currentLine.join(""));
+              currentLine = [];
+              currentTop = top;
+            }
+
+            currentLine.push(content);
+          });
+
+          if (currentLine.length) {
+            lines.push(currentLine.join(""));
           }
 
+          document.body.removeChild(measure);
+
           return lines
-            .map((line, i) => {
-              const cleanLine =
-                line.trim() +
-                (hasLineBreaks ? "" : i < lines.length - 1 ? "." : "");
-              return `<div class="single-line-wrap" style="overflow:hidden;display:block;padding-bottom:0.1em;margin-bottom:-0.1em;"><div class="single-line" style="display:block;text-align:start;position:relative;">${cleanLine}</div></div>`;
+            .map((line) => {
+              return `<div class="single-line-wrap" style="overflow:hidden;display:block;padding-bottom:0.1em;margin-bottom:-0.1em;"><div class="single-line" style="display:block;position:relative;">${line}</div></div>`;
             })
             .join("");
         default: // words

@@ -683,84 +683,31 @@ body {
   }
 }
 
-.container-w {
-  width: 100%;
-  padding: 0 10rem;
-  margin-top: 9.375rem;
+.py-l {
+  padding-bottom: 24px;
+  padding-top: 24px;
 }
 
 .container-f {
   width: 100%;
-  margin-top: 9.375rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container-heading {
-  font-size: 2.25rem;
+  font-size: clamp(1.2rem, 4.5vw, 1.8rem);
   font-weight: normal;
   color: var(--gray-900);
-  margin-bottom: 5.625rem;
+  margin-bottom: 80px;
+  /* margin-top: clamp(2rem, 6vw, 5.625rem); */
   line-height: 130%;
   text-transform: uppercase;
 }
 
-/* Responsive containers */
-/* Mobile-first defaults */
-.container-w {
-  padding: 0 1.25rem;
-  margin-top: 4rem;
-}
-
-.container-f {
-  margin-top: 4rem;
-}
-
-.container-heading {
-  font-size: clamp(1.5rem, 4.5vw, 2.25rem);
+.container-head {
+  font-size: clamp(1.5rem, 4.5vw, 4.25rem);
   margin-bottom: clamp(2rem, 6vw, 5.625rem);
-}
-
-/* >= 640px */
-@media (min-width: 640px) {
-  .container-w {
-    padding: 0 2rem;
-    margin-top: 5rem;
-  }
-  .container-f {
-    margin-top: 5rem;
-  }
-}
-
-/* >= 768px */
-@media (min-width: 768px) {
-  .container-w {
-    padding: 0 4rem;
-    margin-top: 6.5rem;
-  }
-  .container-f {
-    margin-top: 6.5rem;
-  }
-}
-
-/* >= 1024px */
-@media (min-width: 1024px) {
-  .container-w {
-    padding: 0 6rem;
-    margin-top: 7.5rem;
-  }
-  .container-f {
-    margin-top: 7.5rem;
-  }
-}
-
-/* >= 1280px — keep original desktop values */
-@media (min-width: 1280px) {
-  .container-w {
-    padding: 0 10rem;
-    margin-top: 9.375rem;
-  }
-  .container-f {
-    margin-top: 9.375rem;
-  }
 }
 
 /* Hide scrollbars utility (preserve scrolling) */
@@ -770,4 +717,20 @@ body {
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  /* width: 91.66667%; */
+}
+
+.container-hero {
+  font-size: clamp(1rem, 4.5vw, 1.8rem);
 }

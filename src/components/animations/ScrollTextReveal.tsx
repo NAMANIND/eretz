@@ -13,7 +13,13 @@ interface ScrollTextRevealProps {
     | "start end"
     | "start 0.8"
     | "start 0.9";
-  endOffset?: "end start" | "end center" | "end end" | "end 0.2" | "start 0.3";
+  endOffset?:
+    | "end start"
+    | "end center"
+    | "end end"
+    | "end 0.2"
+    | "start 0.3"
+    | "start center";
 }
 
 export const ScrollTextReveal: React.FC<ScrollTextRevealProps> = ({
@@ -30,18 +36,25 @@ export const ScrollTextReveal: React.FC<ScrollTextRevealProps> = ({
     offset: [startOffset, endOffset],
   });
 
-  const elements = mode === "words" ? children.split(" ") : children.split("");
+  const tokens = (children.match(/\S+|\s+/g) || []) as string[];
+  const totalUnits =
+    mode === "words"
+      ? tokens.filter((t) => /\S/.test(t)).length
+      : tokens.filter((t) => /\S/.test(t)).join("").length;
 
-  // Create individual components for each element to avoid hook violations
+  let runningIndex = 0;
+
   const ElementComponent = ({
     element,
     index,
+    totalCount,
   }: {
     element: string;
     index: number;
+    totalCount: number;
   }) => {
-    const start = index / elements.length;
-    const end = (index + 1) / elements.length;
+    const start = index / totalCount;
+    const end = (index + 1) / totalCount;
 
     const opacity = useTransform(
       scrollYProgress,
@@ -59,23 +72,53 @@ export const ScrollTextReveal: React.FC<ScrollTextRevealProps> = ({
 
     return (
       <motion.span
-        className={`inline-block ${mode === "words" ? "mr-1" : ""}`}
+        className="inline-block"
         style={{
           opacity,
           color: textColor,
           scale,
         }}
       >
-        {element === " " ? "\u00A0" : element}
+        {element}
       </motion.span>
     );
   };
 
   return (
     <span ref={containerRef} className={`inline-block ${className}`}>
-      {elements.map((element, index) => (
-        <ElementComponent key={index} element={element} index={index} />
-      ))}
+      {tokens.map((token, tokenIdx) => {
+        if (/^\s+$/.test(token)) {
+          return <span key={`space-${tokenIdx}`}>{token}</span>;
+        }
+
+        if (mode === "words") {
+          const currentIndex = runningIndex++;
+          return (
+            <ElementComponent
+              key={`word-${tokenIdx}`}
+              element={token}
+              index={currentIndex}
+              totalCount={totalUnits}
+            />
+          );
+        }
+
+        return (
+          <span key={`group-${tokenIdx}`} style={{ whiteSpace: "nowrap" }}>
+            {token.split("").map((ch, chIdx) => {
+              const currentIndex = runningIndex++;
+              return (
+                <ElementComponent
+                  key={`char-${tokenIdx}-${chIdx}`}
+                  element={ch}
+                  index={currentIndex}
+                  totalCount={totalUnits}
+                />
+              );
+            })}
+          </span>
+        );
+      })}
     </span>
   );
 };
