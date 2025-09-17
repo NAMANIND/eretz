@@ -119,7 +119,7 @@ export default function ScrollSlidy({
           </motion.div>
 
           {/* Progress Indicator */}
-          <motion.div
+          {/* <motion.div
             className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -128,7 +128,7 @@ export default function ScrollSlidy({
             <motion.span>
               {useTransform(sliderPosition, (value) => `${Math.round(value)}%`)}
             </motion.span>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </div>
     </div>

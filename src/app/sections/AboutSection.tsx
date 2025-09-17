@@ -7,9 +7,6 @@ import { ScrollTextReveal } from "@/components/animations/ScrollTextReveal";
 
 const AboutSection: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const greyContentRef = useRef<HTMLDivElement>(null);
-  const frameRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 1024px)");
@@ -36,33 +33,10 @@ const AboutSection: React.FC = () => {
     };
   }, []);
 
-  // Scroll progress for the section
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start 80%", "end 120%"], //
-  });
-
-  // Transform values for the grey content animation
-  const greyContentY = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    ["-220vh", "-100vh", "0vh"]
-  );
-  const greyContentBottom = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    ["0%", "100%", "0%"]
-  );
-
-  const padding = useTransform(scrollYProgress, [0, 1], ["1.14rem", "0rem"]);
-
   if (isMobile) {
     return (
-      <section
-        ref={sectionRef}
-        className="relative w-full min-h-screen overflow-hidden bg-white "
-      >
-        <div ref={frameRef} className=" mx-auto container-w ">
+      <section className="w-full min-h-screen overflow-hidden bg-white ">
+        <div className=" mx-auto container ">
           <div className="py-16 px-4 flex items-center justify-center gap-4 flex-col text-center">
             <h1 className="text-2xl font-semibold text-gray-900 leading-[1.2]">
               At ERETZ, we shape not just buildings, but environments that
@@ -82,23 +56,23 @@ const AboutSection: React.FC = () => {
             </h5>
           </div>
 
-          <div className="relative w-full  mx-auto my-6 ">
+          <div className=" w-full  mx-auto my-6 ">
             <div className="grid grid-cols-1 gap-3 rounded-2xl">
-              <div className="relative h-64">
+              <div className=" h-64">
                 <img
                   src="/placeholder-1.jpg"
                   alt="Frame Left"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="relative h-64">
+              <div className=" h-64">
                 <img
                   src="/placeholder-2.jpg"
                   alt="Frame Center"
                   className="w-full h-full object-cover object-center"
                 />
               </div>
-              <div className="relative h-64">
+              <div className=" h-64">
                 <img
                   src="/placeholder-3.jpg"
                   alt="Frame Right"
@@ -123,11 +97,42 @@ const AboutSection: React.FC = () => {
   }
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full min-h-screen overflow-hidden bg-white "
-    >
-      <div ref={frameRef} className=" mx-auto container-w ">
+    <section className=" w-full min-h-screen   bg-white ">
+      <div className=" w-full  mx-auto my-10 sticky top-0">
+        <div className="grid grid-cols-3  gap-0rounded-2xl">
+          <div className="  h-[60vh] opacity-0  ">
+            <img
+              src="/placeholder-1.jpg"
+              alt="Frame Left"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <motion.div
+            // ref={greyContentRef}
+            // style={{
+            //   y: greyContentY,
+            //   bottom: greyContentBottom,
+            //   paddingRight: padding,
+            //   paddingLeft: padding,
+            // }}
+            className=" bg-transparent  top-0 left-0 flex items-center justify-center h-[60vh] "
+          >
+            <img
+              src="/placeholder-2.jpg"
+              alt="Frame Center"
+              className="w-full h-full object-cover object-center"
+            />
+          </motion.div>
+          <div className=" h-[60vh] opacity-0">
+            <img
+              src="/placeholder-3.jpg"
+              alt="Frame Right"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+      <div className=" mx-auto container ">
         <div className="h-[100vh] flex items-center justify-center gap-4 flex-col">
           <ScrollTextReveal
             mode="characters"
@@ -173,10 +178,9 @@ const AboutSection: React.FC = () => {
           </h5>
         </div>
 
-        {/* Red Frame with Grey Content */}
-        <div className="relative w-full  mx-auto my-10">
+        <div className=" w-full  mx-auto my-10">
           <div className="grid grid-cols-3 gap-0rounded-2xl">
-            <div className="relative  h-[60vh]  ">
+            <div className="  h-[60vh]  ">
               <img
                 src="/placeholder-1.jpg"
                 alt="Frame Left"
@@ -184,14 +188,14 @@ const AboutSection: React.FC = () => {
               />
             </div>
             <motion.div
-              ref={greyContentRef}
-              style={{
-                y: greyContentY,
-                bottom: greyContentBottom,
-                paddingRight: padding,
-                paddingLeft: padding,
-              }}
-              className="relative bg-transparent overflow-hidden flex items-center justify-center h-[60vh] "
+              // ref={greyContentRef}
+              // style={{
+              //   y: greyContentY,
+              //   bottom: greyContentBottom,
+              //   paddingRight: padding,
+              //   paddingLeft: padding,
+              // }}
+              className=" bg-transparent opacity-0 top-0 left-0 flex items-center justify-center h-[60vh] "
             >
               <img
                 src="/placeholder-2.jpg"
@@ -199,7 +203,7 @@ const AboutSection: React.FC = () => {
                 className="w-full h-full object-cover object-center"
               />
             </motion.div>
-            <div className="relative h-[60vh]">
+            <div className=" h-[60vh]">
               <img
                 src="/placeholder-3.jpg"
                 alt="Frame Right"

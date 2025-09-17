@@ -14,8 +14,10 @@ function page() {
     <div>
       <DockNavbar />
       <HeroSection />
-      <ProductSection />
-      <AboutSection />
+      <div className="relative">
+        <ProductSection />
+        <AboutSection />
+      </div>
       <WwdSection />
       <SlidelLayout />
       <Projects />

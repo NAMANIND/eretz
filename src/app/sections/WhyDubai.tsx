@@ -102,11 +102,11 @@ const WhyDubai: React.FC = () => {
   }, []);
   return (
     <section
-      className="relative w-full  min-h-screen bg-white py-1 z-10 overflow-x-hidden"
+      className="relative w-full  min-h-screen bg-white py-1 z-10 "
       id="why-dubai"
       ref={sectionRef}
     >
-      <div className="mx-auto container-w">
+      <div className="mx-auto container overflow-x-hidden">
         {/* Section Header */}
         <div className="text-center ">
           <h2 className="container-heading font-krona">

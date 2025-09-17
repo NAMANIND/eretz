@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState, use } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GSAPTextReveal from "./GSAPTextReveal";
+import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,64 +35,17 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
+  const [show, setShow] = useState(false);
 
+  // after this much duration set show to true
   useEffect(() => {
-    if (!containerRef.current || !imageRef.current) return;
+    if (reveal === "onTrigger") return;
+    const timer = setTimeout(() => {
+      setShow(true);
+    }, (duration + delay) * 1000); // Convert to milliseconds
 
-    const container = containerRef.current;
-    const image = imageRef.current;
-
-    const finalClipPath =
-      cropFrom === "top"
-        ? "polygon(0% 20%, 100% 20%, 100% 100%, 0% 100%)"
-        : cropFrom === "bottom"
-        ? "polygon(0% 0%, 100% 0%, 100% 85%, 0% 85%)"
-        : "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)";
-
-    // Cleanup any previous ScrollTriggers tied to this container
-    ScrollTrigger.getAll().forEach((trigger) => {
-      if (trigger.trigger === container) trigger.kill();
-    });
-
-    if (reveal === "onTrigger") {
-      // Immediately set to final state without creating ScrollTrigger
-      gsap.set(image, {
-        clipPath: finalClipPath,
-      });
-      return;
-    }
-
-    // onView: start fully covered, then animate crop on enter
-    gsap.set(image, {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-    });
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container,
-        start: "top 80%",
-        end: "bottom 20%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    if (cropFrom !== "none") {
-      tl.to(image, {
-        clipPath: finalClipPath,
-        duration: duration,
-        delay: delay,
-        ease: "power3.out",
-      });
-    }
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.trigger === container) {
-          trigger.kill();
-        }
-      });
-    };
-  }, [delay, duration, cropFrom, reveal]);
+    return () => clearTimeout(timer);
+  }, [duration, delay, reveal]);
 
   const getTextAlignmentClass = () => {
     switch (textAlign) {
@@ -106,18 +60,37 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
 
   const getTextPositionClass = () => {
     return textAlign === "left"
-      ? "items-start justify-start "
-      : "items-end justify-end ";
+      ? "items-start justify-start pb-8 "
+      : "items-end justify-end pt-8 ";
+  };
+
+  const getcoldirection = () => {
+    return textAlign === "left" ? "flex-col" : "flex-col-reverse";
   };
 
   return (
     <div
       ref={containerRef}
-      className={`relative flex items-center justify-between gap-4 ${containerClassName}`}
+      className={`relative flex  items-center ${getcoldirection()} h-full justify-between col-1`}
     >
       {/* Text content (behind image initially) */}
       {text && (
-        <div className={`absolute inset-0 flex ${getTextPositionClass()} z-0`}>
+        <motion.div
+          className={` absolute flex flex-1 ${getTextPositionClass()}
+
+        
+  
+          
+          z-0 bg-white`}
+          initial={textAlign === "left" ? { y: -150 } : { y: 150 }}
+          animate={{ y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            delay: 1,
+            duration: 1.2,
+            ease: [0.25, 0.46, 0.45, 0.94],
+          }}
+        >
           <GSAPTextReveal
             delay={1.2}
             duration={1}
@@ -129,15 +102,16 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
           >
             {text}
           </GSAPTextReveal>
-        </div>
+        </motion.div>
       )}
 
       {/* Image (covers text initially, then gets cropped if cropFrom is not "none") */}
-      <img
+
+      <motion.img
         ref={imageRef}
         src={src}
         alt={alt}
-        className={`relative z-10 w-full h-full object-cover ${className}`}
+        className="{`z-10 p-1 w-full h-full object-cover ${className}`}"
       />
     </div>
   );

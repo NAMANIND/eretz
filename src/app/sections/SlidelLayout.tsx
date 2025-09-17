@@ -39,7 +39,7 @@ const SlidelLayout = () => {
 
   return (
     <section className="bg-white ">
-      <div className="container-w mx-auto relative">
+      <div className="container mx-auto relative">
         {/* Section Header */}
         <div className="text-center mb-[90px]">
           <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-normal text-gray-900">

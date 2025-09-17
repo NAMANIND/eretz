@@ -69,7 +69,7 @@ export const GSAPTextReveal: React.FC<GSAPTextRevealProps> = ({
               const cleanLine =
                 line.trim() +
                 (hasLineBreaks ? "" : i < lines.length - 1 ? "." : "");
-              return `<div class="single-line-wrap" style="overflow:hidden;display:block;padding-bottom:0.1em;margin-bottom:-0.1em;"><div class="single-line" style="display:block;text-align:start;position:relative;">${cleanLine}</div></div>`;
+              return `<div class="single-line-wrap" style="overflow:hidden;display:block;padding-bottom:0.1em;margin-bottom:-0.1em;"><div class="single-line" style="display:block;position:relative;">${cleanLine}</div></div>`;
             })
             .join("");
         default: // words

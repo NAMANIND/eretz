@@ -36,7 +36,7 @@ const ContactSection = () => {
       <section className="relative lg:sticky lg:-bottom-20 bg-black text-white overflow-hidden -z-20">
         {/* Hero/CTA Section */}
         <div className="relative z-10 text-center " id="contact">
-          <div className="container-w mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="container ">
             <h1 className="text-xl sm:text-2xl lg:text-4xl font-normal mb-6 sm:mb-8 leading-[1.2] lg:leading-[1.1] font-krona">
               <GSAPTextReveal
                 splitBy="words"
