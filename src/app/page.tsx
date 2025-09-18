@@ -16,7 +16,7 @@ function page() {
       <HeroSection />
       <div className="relative">
         <div className=" w-full h-[60vh] hidden sm:flex  mx-auto  sticky top-1/2 container -translate-y-1/2 z-4">
-          <div className="grid grid-cols-3  gap-0 ">
+          <div className="grid grid-cols-3  gap-0 w-full ">
             <div className="  h-[60vh] opacity-0  ">
               <img
                 src="/placeholder-1.jpg"
@@ -40,7 +40,7 @@ function page() {
             </div>
           </div>
         </div>
-        <div className="relative mt-0 sm:-mt-[60vh] w-full">
+        <div className="relative mt-0 sm:-mt-[60vh]">
           <ProductSection />
           <AboutSection />
         </div>
