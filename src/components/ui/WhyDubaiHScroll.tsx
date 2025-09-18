@@ -75,10 +75,10 @@ function HorizontalScroll({
     <div className={`${containerClassName} ${className}`}>
       <div className="flex" ref={panelsRef}>
         {items.map((item, index) => (
-          <div key={index} className={`${panelClassName} flex-shrink-0 `}>
-            <div className="px-4">
-              <div className="relative group overflow-hidden rounded-2xl w-80 lg:w-96 mx-auto">
-                <div className="h-[400px] lg:h-[500px] relative">
+          <div key={index} className={`${panelClassName} flex-shrink-0 w-1/3 `}>
+            <div className="px-4 w-full">
+              <div className="relative group overflow-hidden rounded-2xl mx-auto">
+                <div className=" h-[60vh] relative">
                   <img
                     src={item.image}
                     alt={item.title}
