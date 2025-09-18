@@ -4,7 +4,7 @@ import ProductSection from "./sections/ProductSection";
 import AboutSection from "./sections/AboutSection";
 import Projects from "./sections/Projects";
 import WhyDubai from "./sections/WhyDubai";
-import WwdSection from "./sections/WwdSextion";
+import WwdSection from "./sections/WwdSection";
 import FooterSection from "./sections/FooterSection";
 import DockNavbar from "@/components/ui/DockNavbar";
 import SlidelLayout from "./sections/SlidelLayout";

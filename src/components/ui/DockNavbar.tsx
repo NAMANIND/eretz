@@ -142,16 +142,16 @@ export const DockNavbar: React.FC = () => {
                       className={`bg-clip-text leading-[1.3] transition-colors duration-500 ease-in-out ${
                         isScrolled ? "text-black" : "text-white"
                       }`}
-                      duration={0.5}
-                      stagger={0.01}
+                      duration={0.6}
+                      stagger={0.02}
                     >
                       {item.label}
                     </HoverAnimation>
                     <div className="absolute bottom-0 right-0 h-[1px] w-full overflow-hidden">
                       <div
-                        className={`h-full transform scale-x-0 origin-right transition-all duration-700 ease-in-out group-hover:scale-x-100 group-hover:origin-left ${
+                        className={`h-full ${
                           isScrolled ? "bg-black" : "bg-white"
-                        }`}
+                        } transform scale-x-0 origin-right transition-transform duration-700 ease-in-out group-hover:scale-x-100 group-hover:origin-left`}
                       ></div>
                     </div>
                   </h3>
@@ -168,9 +168,9 @@ export const DockNavbar: React.FC = () => {
                 +1 (855) 653-1901
                 <div className="absolute bottom-0 right-0 h-[1px] w-full overflow-hidden">
                   <div
-                    className={`h-full transform scale-x-0 origin-right transition-all duration-1000 ease-in-out group-hover:scale-x-100 group-hover:origin-left  ${
+                    className={`h-full ${
                       isScrolled ? "bg-black" : "bg-white"
-                    }`}
+                    } transform scale-x-0 origin-right transition-transform duration-700 ease-in-out group-hover:scale-x-100 group-hover:origin-left`}
                   ></div>
                 </div>
               </h3>

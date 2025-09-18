@@ -81,7 +81,7 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
           animate={{ y: 0 }}
           viewport={{ once: true }}
           transition={{
-            delay: 1.5,
+            delay: 1.8,
             duration: 1.2,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
