@@ -40,7 +40,7 @@ function page() {
             </div>
           </div>
         </div>
-        <div className="relative mt-0 sm:-mt-[60vh]">
+        <div className="relative mt-0 sm:-mt-[60vh] w-full">
           <ProductSection />
           <AboutSection />
         </div>
