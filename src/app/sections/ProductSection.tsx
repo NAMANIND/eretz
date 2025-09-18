@@ -131,7 +131,7 @@ const ProductSection = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-row gap-2  h-[500px]">
+          <div className="flex flex-row gap-2  h-60vh">
             {imageData.map((image, index) => {
               return (
                 <motion.div
