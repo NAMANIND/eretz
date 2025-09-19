@@ -9,7 +9,7 @@ const AboutSection: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 1024px)");
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
     const handleChange = (event: MediaQueryListEvent) => {
       setIsMobile(event.matches);
     };
@@ -36,7 +36,7 @@ const AboutSection: React.FC = () => {
   if (isMobile) {
     return (
       <section className="w-full min-h-screen overflow-hidden bg-white ">
-        <div className=" mx-auto container ">
+        <div className=" mx-auto container-et ">
           <div className="py-16 px-4 flex items-center justify-center gap-4 flex-col text-center h-[50vh]">
             <h1 className="text-2xl font-semibold text-gray-900 text-left  leading-[1.2]">
               <ScrollTextReveal
@@ -105,18 +105,18 @@ const AboutSection: React.FC = () => {
 
   return (
     <section className=" w-full min-h-screen  z-2  ">
-      <div className="h-[150vh] flex items-center justify-center gap-4 flex-col">
+      <div className="h-[80vh] container-et flex items-center justify-center gap-4 flex-col">
         <ScrollTextReveal
           mode="characters"
           startOffset="start 0.8"
           endOffset="end 0.2"
-          className="text-2xl lg:text-7xl font-semibold text-gray-900 w-6xl  leading-[1.1]"
+          className="text-2xl lg:text-7xl font-semibold text-gray-900 w-full  leading-[1.1]"
         >
           At ERETZ, we shape not just buildings, but environments that
           immediately feel right.
         </ScrollTextReveal>
       </div>
-      <div className=" mx-auto container  ">
+      <div className=" mx-auto container-et  ">
         <div className="text-center " id="about">
           <h2 className=" container-heading  font-krona">
             <GSAPTextReveal

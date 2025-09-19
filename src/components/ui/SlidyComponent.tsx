@@ -338,7 +338,6 @@ export default function SlidyComponent({
 
   return (
     <div style={{ padding: ` 0px ${padding}px` }}>
-      {/* Image Comparison Container */}
       <div
         ref={containerRef}
         className={`relative ${getAspectRatioClass()} ${getRoundingClass()} ${getShadowClass()} ${getBackgroundStyle()} overflow-hidden ${

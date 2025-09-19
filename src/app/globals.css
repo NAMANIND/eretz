@@ -723,12 +723,12 @@ body {
   box-sizing: border-box;
 }
 
-.container {
+.container-et {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 40px;
-  padding-right: 40px;
-  /* width: 91.66667%; */
+  padding-left: 5vw;
+  padding-right: 5vw;
+  width: 100% !important;
 }
 
 .container-hero {

@@ -78,7 +78,7 @@ const WhyDubai: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 1024px)");
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
     const handleChange = (event: MediaQueryListEvent) => {
       setIsMobile(event.matches);
     };
@@ -125,7 +125,7 @@ const WhyDubai: React.FC = () => {
 
         {/* ScrollVelocity Content */}
         <div className="relative">
-          {isMobile ? (
+          {0 ? (
             <div className="relative w-full">
               {/* Scroll-snap Carousel */}
               <div

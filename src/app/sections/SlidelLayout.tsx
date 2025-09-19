@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -37,31 +37,17 @@ const SlidelLayout = () => {
     },
   ];
 
-  return (
-    <section className="bg-white ">
-      <div className="container mx-auto relative sm:pb-[150px] pb-[40px] flex items-center flex-col ">
-        {/* Section Header */}
-        <div className="text-center sm:w-3/4 w-full">
-          <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-normal mb-[20px] text-gray-900">
-            <GSAPTextReveal
-              splitBy="lines"
-              animationType="slideUp"
-              delay={0.2}
-              duration={0.8}
-              stagger={0.2}
-            >
-              Every decision from design to layout reflects a deep understanding
-              of how you truly want to live.
-            </GSAPTextReveal>
-          </h2>
-        </div>
+  const containerRef = useRef<HTMLDivElement>(null);
 
-        {/* Image Grid */}
+  return (
+    <section ref={containerRef} className="bg-white  ">
+      <div className="container-et mx-auto relative sm:pb-[150px] pb-[40px] flex items-center flex-col ">
         <ScrollSlidy
+          containerRef={containerRef as React.RefObject<HTMLElement>}
           beforeImage={imageData[0].src}
           afterImage={imageData[1].src}
           showLabels={false}
-          className=" h-full w-full"
+          className="h-full w-full"
         />
       </div>
     </section>

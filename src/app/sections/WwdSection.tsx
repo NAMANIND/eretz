@@ -16,7 +16,7 @@ const WwdSection = () => {
 
   // Mobile breakpoint detection
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 1024px)");
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
     const handleChange = (event: MediaQueryListEvent) => {
       setIsMobile(event.matches);
     };
@@ -252,7 +252,6 @@ const WwdSection = () => {
           </h2>
         </div>
 
-        {/* Main Container */}
         <div className="relative w-full h-[calc(100vh-200px)] max-h-[880px] min-h-[600px] overflow-hidden">
           {/* Background Images */}
           <div className="absolute inset-0">

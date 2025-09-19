@@ -38,9 +38,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       
       "
       >
-        <div className="text-center sm:container mx-auto">
+        <div className="text-center sm:container mx-auto flex flex-col items-center gap-8">
           {/* Main Title with GSAP Text Reveal */}
-          <h1 className=" font-normal  container-hero text-center  mb-6  font-krona">
+          <h1 className=" font-normal  container-hero text-center  font-krona">
             <GSAPTextReveal
               delay={0.2}
               duration={0.8}
@@ -65,7 +65,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           {/* Call to Action Button with GSAP Reveal */}
           <motion.div
-            className="mt-10 flex items-center justify-center cursor-pointer transition-transform duration-500 ease-out"
+            className=" flex items-center justify-center cursor-pointer transition-transform duration-500 ease-out"
             whileHover={{
               y: [0, -16, 0], // Moves up, then back down
               transition: {

@@ -40,7 +40,7 @@ const ProductSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 1024px)");
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
     const handleChange = (event: MediaQueryListEvent) => {
       setIsMobile(event.matches);
     };
@@ -66,7 +66,7 @@ const ProductSection = () => {
 
   return (
     <section className=" w-full relative z-10 ">
-      <div className="mx-auto container bg-white  pt-[150px]  overflow-hidden">
+      <div className="mx-auto container-et bg-white  pt-[150px]  overflow-hidden">
         {/* Section Header */}
         <div className="text-center">
           <h2 className="container-heading font-krona">
@@ -98,7 +98,7 @@ const ProductSection = () => {
               {imageData.map((image, idx) => (
                 <div key={image.id} className="space-y-8">
                   <div>
-                    <div className="aspect-[4/5] overflow-hidden h-[60vh]">
+                    <div className="aspect-[4/5] overflow-hidden ">
                       <GSAPImageReveal
                         src={image.src}
                         alt={image.alt}
@@ -131,7 +131,7 @@ const ProductSection = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-row gap-2  h-60vh">
+          <div className="flex flex-row gap-2  h-[60vh]">
             {imageData.map((image, index) => {
               return (
                 <motion.div

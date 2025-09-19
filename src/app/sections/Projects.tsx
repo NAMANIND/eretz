@@ -83,7 +83,7 @@ const ParallaxColumn: React.FC<{
 const Projects: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 1024px)");
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
     const handleChange = (event: MediaQueryListEvent) => {
       setIsMobile(event.matches);
     };
@@ -109,10 +109,10 @@ const Projects: React.FC = () => {
 
   return (
     <section
-      className="relative w-full h-fit sm:min-h-screen bg-white px-6 pb-[50px] "
+      className="relative w-full h-fit sm:min-h-screen bg-white  pb-[50px] "
       id="projects"
     >
-      <div className="mx-auto container-f overflow-hidden ">
+      <div className="mx-auto container-et overflow-hidden ">
         <div className="text-center ">
           <h2 className="container-heading font-krona">
             <GSAPTextReveal

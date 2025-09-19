@@ -96,7 +96,7 @@ export const DockNavbar: React.FC = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="flex items-center justify-between container mx-auto h-[60px] py-l">
+        <div className="flex items-center justify-between container mx-auto h-[60px] p-4 sm:py-l">
           {/* Mobile left: hamburger */}
           <button
             type="button"
@@ -104,7 +104,7 @@ export const DockNavbar: React.FC = () => {
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
             onClick={() => setIsMobileMenuOpen((v) => !v)}
-            className="md:hidden p-2 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+            className="lg:hidden p-2 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
           >
             <Menu
               size={24}
@@ -121,7 +121,7 @@ export const DockNavbar: React.FC = () => {
           />
 
           {/* Mobile right: phone icon */}
-          <Link href="tel:+18556531901" className="md:hidden p-2">
+          <Link href="tel:+18556531901" className="lg:hidden p-2">
             <Phone
               size={22}
               className={isScrolled ? "text-black" : "text-white"}
@@ -129,7 +129,7 @@ export const DockNavbar: React.FC = () => {
           </Link>
 
           {/* Desktop right side content */}
-          <div className="hidden md:flex items-center space-x-10">
+          <div className="hidden lg:flex items-center space-x-10">
             <div className="flex items-center gap-x-8">
               {navItems.map((item) => (
                 <Link href={item.href} key={item.id}>
@@ -187,7 +187,7 @@ export const DockNavbar: React.FC = () => {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -300, opacity: 0 }}
           transition={{ type: "tween", duration: 0.3 }}
-          className="fixed inset-0 z-40 md:hidden"
+          className="fixed inset-0 z-40 lg:hidden"
         >
           <div
             className="absolute inset-0 bg-black/50"
