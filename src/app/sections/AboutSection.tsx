@@ -19,7 +19,7 @@ const AboutSection: React.FC = () => {
                 mode="characters"
                 startOffset="start 0.8"
                 endOffset="end 0.2"
-                className="text-4xl font-semibold w-full text-black  text-wrap leading-[1.1]"
+                className="text-4xl font-semibold w-full text-gray-900  text-wrap leading-[1.1]"
               >
                 At ERETZ, we shape not just buildings, but environments that
                 immediately feel right.
@@ -92,7 +92,7 @@ const AboutSection: React.FC = () => {
           mode="characters"
           startOffset="start 0.8"
           endOffset="end 0.2"
-          className="text-2xl lg:text-7xl font-semibold text-black w-full  leading-[1.1]"
+          className="text-2xl lg:text-7xl font-semibold text-gray-900 w-full  leading-[1.1]"
         >
           At ERETZ, we shape not just buildings, but environments that
           immediately feel right.

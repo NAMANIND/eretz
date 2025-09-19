@@ -26,25 +26,52 @@ export const ScreenProvider = ({ children }: ScreenProviderProps) => {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
-    const handleChange = (event: MediaQueryListEvent) => {
-      // refrshing the page
-      window.location.reload();
+    let debounceTimer: NodeJS.Timeout;
+    let lastWidth = window.innerWidth;
+
+    const handleResize = () => {
+      const currentWidth = window.innerWidth;
+
+      // Clear existing timer
+      if (debounceTimer) {
+        clearTimeout(debounceTimer);
+      }
+
+      // Set new timer with 300ms damping for faster response
+      debounceTimer = setTimeout(() => {
+        // Only reload if width change is significant (more than 100px)
+        if (Math.abs(currentWidth - lastWidth) > 100) {
+          window.location.reload();
+        }
+        lastWidth = currentWidth;
+      }, 300);
+    };
+
+    const handleMediaChange = (event: MediaQueryListEvent) => {
       setIsMobile(event.matches);
     };
 
     setIsMobile(mediaQuery.matches);
 
+    // Listen to window resize events
+    window.addEventListener("resize", handleResize);
+
+    // Listen to media query changes for mobile detection
     if (typeof mediaQuery.addEventListener === "function") {
-      mediaQuery.addEventListener("change", handleChange);
+      mediaQuery.addEventListener("change", handleMediaChange);
     } else if (typeof mediaQuery.addListener === "function") {
-      mediaQuery.addListener(handleChange);
+      mediaQuery.addListener(handleMediaChange);
     }
 
     return () => {
+      if (debounceTimer) {
+        clearTimeout(debounceTimer);
+      }
+      window.removeEventListener("resize", handleResize);
       if (typeof mediaQuery.removeEventListener === "function") {
-        mediaQuery.removeEventListener("change", handleChange);
+        mediaQuery.removeEventListener("change", handleMediaChange);
       } else if (typeof mediaQuery.removeListener === "function") {
-        mediaQuery.removeListener(handleChange);
+        mediaQuery.removeListener(handleMediaChange);
       }
     };
   }, []);

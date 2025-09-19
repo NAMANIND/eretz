@@ -65,7 +65,7 @@ export const ScrollTextReveal: React.FC<ScrollTextRevealProps> = ({
     const textColor = useTransform(
       scrollYProgress,
       [start, end],
-      ["var(--muted)", "var(--primary)"]
+      ["#6b7280", "var(--primary)"]
     );
 
     const scale = useTransform(scrollYProgress, [start, end], [0.98, 1]);

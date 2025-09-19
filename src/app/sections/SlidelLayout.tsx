@@ -6,10 +6,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import GSAPTextReveal from "@/components/ui/GSAPTextReveal";
 import ScrollSlidy from "@/components/ui/ScrollSlidy";
+import ScrollSlidyMobile from "@/components/ui/ScrollSlidyMobile";
+import { useScreen } from "../providers/Screen";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const SlidelLayout = () => {
+  const { isMobile } = useScreen();
   const imageData = [
     {
       id: "image1",
@@ -42,13 +45,23 @@ const SlidelLayout = () => {
   return (
     <section ref={containerRef} className="bg-white  ">
       <div className="container-et mx-auto relative flex items-center flex-col pt-et pb-et pb-0 sm:pb-16 ">
-        <ScrollSlidy
-          containerRef={containerRef as React.RefObject<HTMLElement>}
-          beforeImage={imageData[0].src}
-          afterImage={imageData[1].src}
-          showLabels={false}
-          className="h-full w-full"
-        />
+        {isMobile ? (
+          <ScrollSlidyMobile
+            containerRef={containerRef as React.RefObject<HTMLElement>}
+            beforeImage={imageData[0].src}
+            afterImage={imageData[1].src}
+            showLabels={false}
+            className="h-full w-full"
+          />
+        ) : (
+          <ScrollSlidy
+            containerRef={containerRef as React.RefObject<HTMLElement>}
+            beforeImage={imageData[0].src}
+            afterImage={imageData[1].src}
+            showLabels={false}
+            className="h-full w-full"
+          />
+        )}
       </div>
     </section>
   );

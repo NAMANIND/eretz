@@ -3,6 +3,14 @@
 import React, { useRef, useEffect, useState } from "react";
 import { GSAPTextReveal } from "@/components/ui/GSAPTextReveal";
 import { WhyDubaiHScroll } from "@/components/ui/WhyDubaiHScroll";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { ContactForm } from "@/components/ui/ContactForm";
 import { motion } from "framer-motion";
 import { useScreen } from "../providers/Screen";
 
@@ -77,11 +85,12 @@ const WhyDubai: React.FC = () => {
   const { isMobile } = useScreen();
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   return (
     <section
-      className="relative w-full  bg-white pt-et z-10 "
+      className="relative  bg-white pt-et z-10 "
       id="why-dubai"
       ref={sectionRef}
     >
@@ -167,10 +176,10 @@ const WhyDubai: React.FC = () => {
           )}
         </div>
       </div>
-      <div className="w-full bg-white h-fit pb-20 pt-20 sm:pt-0">
+      <div className="w-full bg-white h-fit pb-20 pt-20">
         <div className="relative z-10 text-center " id="contact">
           <div className="container flex items-center flex-col mx-auto px-4">
-            <h1 className="font-normal w-3/4 container-hero text-center  mb-6  font-krona">
+            <h1 className="font-normal sm:w-3/4 w-full container-hero text-center  mb-6  font-krona">
               <GSAPTextReveal
                 splitBy="lines"
                 animationType="slideUp"
@@ -184,7 +193,7 @@ const WhyDubai: React.FC = () => {
             </h1>
 
             {/* Description */}
-            <div className="max-w-3xl lg:max-w-5xl mx-auto text-center mb-8 sm:mb-12 px-4">
+            <div className="max-w-3xl lg:max-w-5xl mx-auto text-center mb-8 sm:mb-12 sm:px-4 px-0">
               <h4 className="text-base sm:text-lg text-gray-800 leading-relaxed text-center">
                 <GSAPTextReveal
                   splitBy="lines"
@@ -202,17 +211,30 @@ const WhyDubai: React.FC = () => {
             </div>
 
             {/* CTA Button */}
-            <motion.button
-              // onClick={() => setIsFormOpen(true)}
-              className="w-full sm:w-auto bg-black text-gray-200 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium text-base sm:text-lg hover:bg-gray-800 transition-all duration-300 shadow-lg"
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.2 },
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get In Touch
-            </motion.button>
+            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+              <DialogTrigger asChild>
+                <motion.button
+                  className="w-full sm:w-auto bg-black text-gray-200 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium text-base sm:text-lg hover:bg-gray-800 transition-all duration-300 shadow-lg"
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { duration: 0.2 },
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Get In Touch
+                </motion.button>
+              </DialogTrigger>
+              <DialogContent className="max-w-md w-[90vw] p-0">
+                <DialogHeader className="p-6 pb-0">
+                  <DialogTitle className="text-xl font-semibold text-gray-900 font-krona">
+                    Get In Touch
+                  </DialogTitle>
+                </DialogHeader>
+                <div className="p-6 pt-4">
+                  <ContactForm onClose={() => setIsDialogOpen(false)} />
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>

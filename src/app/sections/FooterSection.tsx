@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { GSAPTextReveal } from "@/components/ui/GSAPTextReveal";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
 
 const FooterSection = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -11,6 +12,8 @@ const FooterSection = () => {
     email: "",
     message: "",
   });
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [isSubscribing, setIsSubscribing] = useState(false);
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,20 +23,55 @@ const FooterSection = () => {
     setFormData({ firstName: "", email: "", message: "" });
   };
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!newsletterEmail.trim()) {
+      toast.error("Please enter your email address");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(newsletterEmail)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
+    setIsSubscribing(true);
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: newsletterEmail }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to subscribe");
+      }
+
+      toast.success("Thank you for subscribing! We'll keep you updated.");
+      setNewsletterEmail("");
+    } catch (error) {
+      console.error("Newsletter subscription error:", error);
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again."
+      );
+    } finally {
+      setIsSubscribing(false);
+    }
   };
 
   return (
     <>
       {/* Main Contact + Footer Section */}
-      <section className="relative lg:sticky lg:-bottom-20 bg-black text-white overflow-hidden -z-20">
+      <section className="relative lg:sticky lg:-bottom-20 bg-black text-white overflow-hidden">
         <footer className="relative z-10 py-et container-et">
           <div className="px-4 sm:px-6 lg:px-8 mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-10">
@@ -188,16 +226,36 @@ const FooterSection = () => {
                   Get the latest updates on our projects and investment
                   opportunities.
                 </p>
-                <div className="space-y-3">
+                <form onSubmit={handleNewsletterSubmit} className="space-y-3">
                   <input
                     type="email"
+                    value={newsletterEmail}
+                    onChange={(e) => {
+                      console.log("Input changed:", e.target.value);
+                      setNewsletterEmail(e.target.value);
+                    }}
                     placeholder="Your email address"
-                    className="w-full bg-black border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors text-sm"
+                    disabled={isSubscribing}
+                    className="w-full bg-black border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                    style={{ color: "white" }}
                   />
-                  <button className="w-full bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors text-sm">
-                    Subscribe
-                  </button>
-                </div>
+                  <motion.button
+                    type="submit"
+                    disabled={isSubscribing}
+                    className="w-full bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                    whileHover={{ scale: isSubscribing ? 1 : 1.02 }}
+                    whileTap={{ scale: isSubscribing ? 1 : 0.98 }}
+                  >
+                    {isSubscribing ? (
+                      <div className="flex items-center justify-center space-x-2">
+                        <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                        <span>Subscribing...</span>
+                      </div>
+                    ) : (
+                      "Subscribe"
+                    )}
+                  </motion.button>
+                </form>
               </div>
             </div>
 
@@ -208,9 +266,9 @@ const FooterSection = () => {
                 className="w-full h-full opacity-[0.1] object-contain"
               />
             </div>
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6 text-xs sm:text-sm text-white -mt-4 lg:-mt-6 px-4">
-              <div className="flex flex-col lg:flex-row items-center gap-6">
-                <span>©2025 ERETZ PROPERTIES. ALL RIGHTS RESERVED</span>
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6 text-xs sm:text-sm text-white -mt-4 lg:-mt-6 ">
+              <div className="text-center lg:text-right">
+                <span>Crafting Legacies That Last Generations</span>
               </div>
               <div className="flex flex-col lg:flex-row items-center gap-6">
                 <div className="flex items-center gap-4">
@@ -225,126 +283,14 @@ const FooterSection = () => {
                   </a>
                 </div>
               </div>
-              <div className="text-center lg:text-right">
-                <span>Crafting Legacies That Last Generations</span>
+
+              <div className="flex flex-col lg:flex-row items-center gap-6">
+                <span>©2025 ERETZ PROPERTIES. ALL RIGHTS RESERVED</span>
               </div>
             </div>
           </div>
         </footer>
       </section>
-
-      {/* Contact Form Modal */}
-      {isFormOpen && (
-        <motion.div
-          className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <motion.div
-            className="bg-gray-800 rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl"
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          >
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-normal font-krona text-white">
-                GET IN TOUCH
-              </h2>
-              <button
-                onClick={() => setIsFormOpen(false)}
-                className="text-gray-400 hover:text-white text-2xl transition-colors p-1"
-              >
-                ×
-              </button>
-            </div>
-
-            <p className="text-gray-300 mb-8 leading-relaxed">
-              Ready to start your investment journey with ERETZ? Fill out the
-              form below and our team will get back to you within 24 hours.
-            </p>
-
-            <form onSubmit={handleFormSubmit} className="space-y-6">
-              <div>
-                <label
-                  htmlFor="firstName"
-                  className="block text-sm font-medium text-white mb-3"
-                >
-                  First Name *
-                </label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-4 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent text-white bg-gray-700 transition-all"
-                  required
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-white mb-3"
-                >
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-4 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent text-white bg-gray-700 transition-all"
-                  required
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-white mb-3"
-                >
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={5}
-                  placeholder="Tell us about your investment goals and how we can help..."
-                  className="w-full px-4 py-4 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent text-white bg-gray-700 resize-none transition-all"
-                  required
-                />
-              </div>
-
-              <div className="flex gap-4 pt-4">
-                <motion.button
-                  type="button"
-                  onClick={() => setIsFormOpen(false)}
-                  className="flex-1 py-4 px-6 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-700 transition-colors font-medium"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Cancel
-                </motion.button>
-                <motion.button
-                  type="submit"
-                  className="flex-1 py-4 px-6 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors font-medium"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Send Message
-                </motion.button>
-              </div>
-            </form>
-          </motion.div>
-        </motion.div>
-      )}
     </>
   );
 };

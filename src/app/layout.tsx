@@ -3,6 +3,7 @@ import { Krona_One, Inter } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/providers/LenisProvider";
 import { ScreenProvider } from "./providers/Screen";
+import { Toaster } from "sonner";
 
 const kronaOne = Krona_One({
   subsets: ["latin"],
@@ -36,7 +37,21 @@ export default function RootLayout({
         className={`${inter.variable} ${kronaOne.variable} font-sans antialiased`}
       >
         <LenisProvider>
-          <ScreenProvider>{children}</ScreenProvider>
+          <ScreenProvider>
+            {children}
+            <Toaster
+              position="top-right"
+              theme="light"
+              toastOptions={{
+                style: {
+                  background: "#ffffff",
+                  color: "#000000",
+                  border: "1px solid #e0e0e0",
+                },
+                className: "sonner-toast",
+              }}
+            />
+          </ScreenProvider>
         </LenisProvider>
       </body>
     </html>
