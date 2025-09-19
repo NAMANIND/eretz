@@ -20,14 +20,14 @@ function page() {
           <div className="grid grid-cols-3  gap-0 w-full ">
             <div className="  h-[60vh] opacity-0  ">
               <img
-                src="/placeholder-1.jpg"
+                src="/placeholder-2.jpg"
                 alt="Frame Left"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className=" bg-transparent  top-0 left-0 flex items-center justify-center h-[60vh] ">
               <img
-                src="/placeholder-2.jpg"
+                src="/placeholder-1.jpg"
                 alt="Frame Center"
                 className="w-full h-full object-cover object-center"
               />

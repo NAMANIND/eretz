@@ -741,3 +741,15 @@ body {
 .container-hero {
   font-size: clamp(1rem, 4.5vw, 1.8rem);
 }
+
+.pt-et {
+  padding-top: 3rem;
+}
+
+.pb-et {
+  padding-bottom: 3rem;
+}
+.py-et {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}

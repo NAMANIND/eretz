@@ -27,7 +27,7 @@ const AboutSection: React.FC = () => {
             </h1>
           </div>
           <div className="text-center" id="about">
-            <h2 className=" container-heading  font-krona">ABOUT ERETZ</h2>
+            <h2 className=" container-heading py-et font-krona">ABOUT ERETZ</h2>
             <h5 className="text-base text-gray-900 leading-[1.5] text-justify ">
               ERETZ is a property development company rooted in the values of
               authenticity, quality, and integrity. Inspired by an ancient
@@ -80,7 +80,7 @@ const AboutSection: React.FC = () => {
       </div>
       <div className=" mx-auto container-et  ">
         <div className="text-center " id="about">
-          <h2 className=" container-heading  font-krona">
+          <h2 className=" container-heading py-et font-krona">
             <GSAPTextReveal
               splitBy="words"
               animationType="slideUp"
@@ -116,23 +116,14 @@ const AboutSection: React.FC = () => {
           <div className="grid grid-cols-3 gap-0  ">
             <div className="  h-[60vh]  ">
               <img
-                src="/placeholder-1.jpg"
+                src="/placeholder-2.jpg"
                 alt="Frame Left"
                 className="w-full h-full object-cover"
               />
             </div>
-            <motion.div
-              // ref={greyContentRef}
-              // style={{
-              //   y: greyContentY,
-              //   bottom: greyContentBottom,
-              //   paddingRight: padding,
-              //   paddingLeft: padding,
-              // }}
-              className=" bg-transparent opacity-0 top-0 left-0 flex items-center justify-center h-[60vh] "
-            >
+            <motion.div className=" bg-transparent opacity-0 top-0 left-0 flex items-center justify-center h-[60vh] ">
               <img
-                src="/placeholder-2.jpg"
+                src="/placeholder-1.jpg"
                 alt="Frame Center"
                 className="w-full h-full object-cover object-center"
               />

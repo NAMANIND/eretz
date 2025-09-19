@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const imageData = [
   {
     id: "image1",
-    src: "/placeholder-1.jpg",
+    src: "/placeholder-2.jpg",
     alt: "Luxury Property 1",
     text: "At ERETZ, we transform land into living designing authentic, thoughtful residences rooted in integrity and timeless craftsmanship.",
     textAlign: "left",
@@ -19,7 +19,7 @@ const imageData = [
   },
   {
     id: "image2",
-    src: "/placeholder-2.jpg",
+    src: "/placeholder-1.jpg",
     alt: "Luxury Property 2",
     text: "",
     textAlign: "center",
@@ -42,10 +42,10 @@ const ProductSection = () => {
 
   return (
     <section className=" w-full relative z-10 ">
-      <div className="mx-auto container-et bg-white   overflow-hidden">
+      <div className="mx-auto container-et bg-white pt-et  overflow-hidden">
         {/* Section Header */}
         <div className="text-center">
-          <h2 className="container-heading font-krona">
+          <h2 className="container-heading font-krona py-et">
             <GSAPTextReveal
               splitBy="words"
               animationType="slideUp"

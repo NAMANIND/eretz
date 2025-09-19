@@ -34,13 +34,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Content Overlay */}
       <div
         className="absolute inset-0 z-20 flex items-center justify-center px-4 sm:px-6 lg:px-8
-      bg-black/40
+      bg-black/40 w-full
       
       "
       >
-        <div className="text-center sm:container mx-auto flex flex-col items-center gap-8">
+        <div className="text-center  flex flex-col items-center gap-8 w-full">
           {/* Main Title with GSAP Text Reveal */}
-          <h1 className=" font-normal  container-hero text-center  font-krona">
+          <h1 className=" font-normal  container-hero text-center w-full  font-krona">
             <GSAPTextReveal
               delay={0.2}
               duration={0.8}

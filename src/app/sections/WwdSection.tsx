@@ -210,7 +210,7 @@ const WwdSection = () => {
     <section className="relative w-full overflow-hidden" id="what-we-do">
       <div className=" mx-auto  container-f">
         <div className="text-center">
-          <h2 className="container-heading font-krona">
+          <h2 className="container-heading font-krona py-et">
             <GSAPTextReveal
               splitBy="words"
               animationType="slideUp"

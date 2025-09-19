@@ -81,14 +81,14 @@ const WhyDubai: React.FC = () => {
 
   return (
     <section
-      className="relative w-full  bg-white py-1 z-10 "
+      className="relative w-full  bg-white pt-et z-10 "
       id="why-dubai"
       ref={sectionRef}
     >
-      <div className="mx-auto  min-h-screen overflow-x-hidden">
+      <div className="mx-auto  min-h-[99vh] overflow-hidden">
         {/* Section Header */}
         <div className="text-center  ">
-          <h2 className="container-heading font-krona">
+          <h2 className="container-heading font-krona py-et">
             <GSAPTextReveal
               splitBy="words"
               animationType="slideUp"

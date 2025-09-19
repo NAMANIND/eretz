@@ -86,12 +86,12 @@ const Projects: React.FC = () => {
 
   return (
     <section
-      className="relative w-full h-fit sm:min-h-screen bg-white "
+      className="relative w-full h-fit sm:min-h-screen bg-white  pt-et"
       id="projects"
     >
       <div className="mx-auto container-et overflow-hidden ">
         <div className="text-center ">
-          <h2 className="container-heading font-krona">
+          <h2 className="container-heading font-krona py-et">
             <GSAPTextReveal
               splitBy="words"
               animationType="slideUp"
@@ -106,7 +106,7 @@ const Projects: React.FC = () => {
         {isMobile ? (
           <ScrollVelocity items={items} />
         ) : (
-          <div className="mt-10 grid grid-cols-1 lg:grid-cols-4 gap-6">
+          <div className=" grid grid-cols-1 lg:grid-cols-4 gap-6">
             {[0, 1, 2, 3].map((col) => (
               <ParallaxColumn
                 key={col}

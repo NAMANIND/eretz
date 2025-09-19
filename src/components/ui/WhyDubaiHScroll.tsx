@@ -17,6 +17,7 @@ interface HorizontalScrollProps {
   scrubValue?: number;
   ease?: string;
   containerRef?: React.RefObject<HTMLDivElement>;
+  sidePaddingVW?: number;
 }
 
 interface Item {
@@ -33,6 +34,7 @@ function HorizontalScroll({
   scrubValue = 1,
   ease = "none",
   containerRef,
+  sidePaddingVW = 4,
 }: HorizontalScrollProps) {
   const panelsRef = useRef<HTMLDivElement>(null);
 
@@ -42,10 +44,13 @@ function HorizontalScroll({
     const container = containerRef.current;
     const panels = panelsRef.current;
 
-    // Calculate the exact scroll distance needed
-    const containerWidth = container.offsetWidth;
+    // Calculate the exact scroll distance needed accounting for side paddings
+    const styles = window.getComputedStyle(container);
+    const paddingLeft = parseFloat(styles.paddingLeft) || 0;
+    const paddingRight = parseFloat(styles.paddingRight) || 180;
+    const visibleWidth = container.clientWidth - paddingLeft - paddingRight;
     const totalContentWidth = panels.scrollWidth;
-    const scrollDistance = totalContentWidth - containerWidth * 0.8;
+    const scrollDistance = Math.max(0, totalContentWidth - visibleWidth);
 
     // Create GSAP ScrollTrigger animation
     const animation = gsap.to(panels, {
@@ -69,10 +74,17 @@ function HorizontalScroll({
         }
       });
     };
-  }, [items.length, scrubValue, ease]);
+  }, [items.length, scrubValue, ease, sidePaddingVW]);
 
   return (
-    <div className={`${containerClassName} ${className}`}>
+    <div
+      className={`${containerClassName} ${className}`}
+      ref={containerRef}
+      style={{
+        paddingLeft: `${sidePaddingVW}vw`,
+        // paddingRight: `${sidePaddingVW}vw`,
+      }}
+    >
       <div className="flex" ref={panelsRef}>
         {items.map((item, index) => (
           <div key={index} className={`${panelClassName} flex-shrink-0 w-1/3 `}>
@@ -113,6 +125,7 @@ interface ScrollVelocityProps {
   scrubValue?: number;
   ease?: string;
   containerRef?: React.RefObject<HTMLDivElement>;
+  sidePaddingVW?: number;
 }
 
 export const WhyDubaiHScroll = ({
@@ -123,6 +136,7 @@ export const WhyDubaiHScroll = ({
   scrubValue = 1,
   ease = "none",
   containerRef,
+  sidePaddingVW = 5,
 }: ScrollVelocityProps) => {
   return (
     <section className="space-y-4">
@@ -134,6 +148,7 @@ export const WhyDubaiHScroll = ({
         scrubValue={scrubValue}
         ease={ease}
         containerRef={containerRef}
+        sidePaddingVW={sidePaddingVW}
       />
     </section>
   );

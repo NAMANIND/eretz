@@ -41,7 +41,7 @@ const SlidelLayout = () => {
 
   return (
     <section ref={containerRef} className="bg-white  ">
-      <div className="container-et mx-auto relative flex items-center flex-col ">
+      <div className="container-et mx-auto relative flex items-center flex-col pt-et pb-16 ">
         <ScrollSlidy
           containerRef={containerRef as React.RefObject<HTMLElement>}
           beforeImage={imageData[0].src}

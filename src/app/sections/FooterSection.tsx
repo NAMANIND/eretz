@@ -34,7 +34,7 @@ const FooterSection = () => {
     <>
       {/* Main Contact + Footer Section */}
       <section className="relative lg:sticky lg:-bottom-20 bg-black text-white overflow-hidden -z-20">
-        <footer className="relative z-10 py-14 container-et">
+        <footer className="relative z-10 py-et container-et">
           <div className="px-4 sm:px-6 lg:px-8 mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-10">
               {/* About ERETZ */}
