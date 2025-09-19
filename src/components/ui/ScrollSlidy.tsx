@@ -31,10 +31,10 @@ export default function ScrollSlidy({
   return (
     <div className=" relative sm:w-full w-[90vw]  h-screen mt-8 mb-0 md:h-[200vh] md:mt-[50vh] md:-mb-[50vh]">
       <div
-        className={`relative md:sticky md:top-1/2 md:-translate-y-1/2 h-[85vh] w-full aspect-video md:aspect-16/9 flex items-center justify-center flex-col gap-6`}
+        className={`relative md:sticky md:top-1/2 md:-translate-y-1/2 h-[85vh] w-full aspect-video p-10 md:aspect-16/9 flex items-center justify-center flex-row gap-10`}
       >
         {/* Section Header */}
-        <div className="text-center  w-full lg:w-3/4">
+        <div className="text-center  w-1/2">
           <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-normal mb-[20px] text-black">
             <GSAPTextReveal
               splitBy="lines"
@@ -49,7 +49,7 @@ export default function ScrollSlidy({
           </h2>
         </div>
         <motion.div
-          className={` overflow-hidden relative rounded-xl select-none w-full ${className} aspect-video  `}
+          className={` overflow-hidden relative rounded-xl select-none w-full ${className} aspect-video w-1/2 `}
           style={{
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
           }}

@@ -875,3 +875,69 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.linear-wipe {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#1a1a1a),
+    color-stop(#1a1a1a),
+    color-stop(rgba(36, 36, 36, 0.7058823529)),
+    color-stop(rgba(127, 127, 127, 0.4901960784)),
+    color-stop(rgba(58, 58, 58, 0.2588235294)),
+    color-stop(#1a1a1a),
+    color-stop(#1a1a1a),
+    color-stop(#1a1a1a),
+    color-stop(#1a1a1a),
+    color-stop(rgba(36, 36, 36, 0.7058823529)),
+    color-stop(rgba(127, 127, 127, 0.4901960784)),
+    color-stop(rgba(58, 58, 58, 0.2588235294)),
+    color-stop(#1a1a1a),
+    to(#1a1a1a)
+  );
+  background: linear-gradient(
+    to right,
+    #1a1a1a,
+    #1a1a1a,
+    rgba(36, 36, 36, 0.7058823529),
+    rgba(127, 127, 127, 0.4901960784),
+    rgba(58, 58, 58, 0.2588235294),
+    #1a1a1a,
+    #1a1a1a,
+    #1a1a1a,
+    #1a1a1a,
+    rgba(36, 36, 36, 0.7058823529),
+    rgba(127, 127, 127, 0.4901960784),
+    rgba(58, 58, 58, 0.2588235294),
+    #1a1a1a,
+    #1a1a1a
+  );
+  background-size: 200% auto;
+  -webkit-animation: shine 8s linear infinite;
+  animation: shine 8s linear infinite;
+}
+
+@-webkit-keyframes shine {
+  to {
+    background-position: -200% center;
+  }
+}
+@keyframes shine {
+  to {
+    background-position: -200% center;
+  }
+}
+
+.logo {
+  height: auto;
+  width: 100%;
+  -webkit-mask-image: url(/logo.svg);
+  mask-image: url(/logo.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+}

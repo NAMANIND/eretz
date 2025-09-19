@@ -259,14 +259,14 @@ const FooterSection = () => {
               </div>
             </div>
 
-            <div className="flex justify-center w-full h-24 sm:h-40 lg:h-full">
+            <div className="flex logo justify-center w-full h-24 sm:h-40 lg:h-full linear-wipe">
               <img
                 src="/logo.svg"
                 alt="ERETZ"
                 className="w-full h-full opacity-[0.1] object-contain"
               />
             </div>
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6 text-xs sm:text-sm text-white -mt-4 lg:-mt-6 ">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6 text-xs sm:text-sm text-white  ">
               <div className="text-center lg:text-right">
                 <span>Crafting Legacies That Last Generations</span>
               </div>
