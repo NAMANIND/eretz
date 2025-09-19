@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Krona_One, Inter } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/providers/LenisProvider";
+import { ScreenProvider } from "./providers/Screen";
 
 const kronaOne = Krona_One({
   subsets: ["latin"],
@@ -34,7 +35,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${kronaOne.variable} font-sans antialiased`}
       >
-        <LenisProvider>{children}</LenisProvider>
+        <LenisProvider>
+          <ScreenProvider>{children}</ScreenProvider>
+        </LenisProvider>
       </body>
     </html>
   );

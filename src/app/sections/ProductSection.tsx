@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GSAPImageReveal from "@/components/ui/GSAPImageReveal";
 import GSAPTextReveal from "@/components/ui/GSAPTextReveal";
 import { motion } from "framer-motion";
+import { useScreen } from "../providers/Screen";
 
 gsap.registerPlugin(ScrollTrigger);
 const imageData = [
@@ -36,7 +37,7 @@ const imageData = [
 ];
 
 const ProductSection = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const { isMobile } = useScreen();
   const [activeIndex, setActiveIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement | null>(null);
 
@@ -60,16 +61,16 @@ const ProductSection = () => {
 
         {/* Image Grid */}
         {isMobile ? (
-          <div className=" w-full flex flex-col gap-6 my-10">
+          <div className=" w-full flex flex-col gap-6 ">
             {/* Scroll-snap Carousel */}
-            <h2 className="text-sm text-gray-700 font-medium text-center">
+            <h2 className="text-[15px] text-black font-medium text-center">
               At ERETZ, we transform land into living designing authentic,
               thoughtful residences rooted in integrity and timeless
               craftsmanship.
             </h2>
             <div
               ref={carouselRef}
-              className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar gap-4 -mx-4 px-4"
+              className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar gap-4  px-4"
               onScroll={(e) => {
                 const target = e.currentTarget;
                 const next = Math.round(target.scrollLeft / target.clientWidth);
@@ -103,7 +104,7 @@ const ProductSection = () => {
                 />
               </div>
             </div>
-            <h2 className="text-sm text-gray-700 font-medium text-center">
+            <h2 className="text-[15px] text-black font-medium text-center">
               We build homes for those who value genuine craftsmanship and
               thoughtful design.
             </h2>

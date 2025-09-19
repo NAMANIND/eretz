@@ -116,19 +116,25 @@ const WwdSection = () => {
   /** Determine which image to show */
   const getCurrentImage = () => services[currentImageIndex].image;
 
-  // Mobile layout with stacked cards
   if (isMobile) {
     return (
-      <section className="relative w-full bg-white " id="what-we-do">
-        <div className="mx-auto container-et">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-krona text-gray-900 mb-2">
-              What We Do
+      <section
+        className="relative w-full overflow-hidden pt-et"
+        id="what-we-do"
+      >
+        <div className=" mx-auto  container-et">
+          <div className="text-center">
+            <h2 className="container-heading font-krona py-et">
+              <GSAPTextReveal
+                splitBy="words"
+                animationType="slideUp"
+                stagger={0.1}
+                duration={0.8}
+                delay={0}
+              >
+                What We Do
+              </GSAPTextReveal>
             </h2>
-            <p className="text-gray-600 text-base">
-              Premium development across residential, commercial, and strategic
-              land.
-            </p>
           </div>
 
           <div className="space-y-6">
@@ -162,7 +168,7 @@ const WwdSection = () => {
                   </p>
 
                   <div>
-                    <h4 className="text-base font-semibold text-gray-900 mb-3">
+                    <h4 className="text-base font-semibold text-black mb-3">
                       Key Services:
                     </h4>
                     <ul className="space-y-2.5">
@@ -190,18 +196,33 @@ const WwdSection = () => {
                   </div>
 
                   {/* <div className="mt-6">
-                    <button
-                      type="button"
-                      className="w-full inline-flex items-center justify-center rounded-xl bg-gray-900 text-white px-4 py-3 text-[15px] font-medium active:scale-[0.98] transition-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-900"
-                    >
-                      Learn more
-                    </button>
-                  </div> */}
+                      <button
+                        type="button"
+                        className="w-full inline-flex items-center justify-center rounded-xl bg-gray-900 text-white px-4 py-3 text-[15px] font-medium active:scale-[0.98] transition-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-900"
+                      >
+                        Learn more
+                      </button>
+                    </div> */}
                 </div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Fade Animation */}
+        <style jsx>{`
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+          .animate-fadeInSlow {
+            animation: fadeIn 0.4s ease-in-out forwards;
+          }
+        `}</style>
       </section>
     );
   }

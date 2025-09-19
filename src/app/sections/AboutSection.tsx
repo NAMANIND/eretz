@@ -13,13 +13,13 @@ const AboutSection: React.FC = () => {
     return (
       <section className="w-full min-h-screen overflow-hidden bg-white ">
         <div className=" mx-auto container-et ">
-          <div className="py-16 px-4 flex items-center justify-center gap-4 flex-col text-center h-[50vh]">
-            <h1 className="text-2xl font-semibold text-gray-900 text-left  leading-[1.2]">
+          <div className="py-8  flex items-center justify-center gap-4 flex-col text-center h-[50vh]">
+            <h1 className="text-2xl font-semibold text-black text-left  leading-[1.2]">
               <ScrollTextReveal
                 mode="characters"
                 startOffset="start 0.8"
                 endOffset="end 0.2"
-                className="text-4xl font-semibold w-full text-gray-900  text-wrap leading-[1.1]"
+                className="text-4xl font-semibold w-full text-black  text-wrap leading-[1.1]"
               >
                 At ERETZ, we shape not just buildings, but environments that
                 immediately feel right.
@@ -27,15 +27,35 @@ const AboutSection: React.FC = () => {
             </h1>
           </div>
           <div className="text-center" id="about">
-            <h2 className=" container-heading py-et font-krona">ABOUT ERETZ</h2>
-            <h5 className="text-base text-gray-900 leading-[1.5] text-justify ">
-              ERETZ is a property development company rooted in the values of
-              authenticity, quality, and integrity. Inspired by an ancient
-              language word &quot;Eretz&quot;, meaning land or earth, our name
-              reflects a deep connection to the ground we build on and the lives
-              we aim to enrich. We specialize in crafting residential buildings
-              that combine timeless design with solid construction—homes that
-              are both an emotional and financial investment.
+            <h2 className=" container-heading py-et font-krona">
+              <GSAPTextReveal
+                splitBy="words"
+                animationType="slideUp"
+                stagger={0.1}
+                duration={0.8}
+                delay={0.2}
+              >
+                ABOUT ERETZ
+              </GSAPTextReveal>
+            </h2>
+
+            <h5 className="text-[15px] text-black  leading-[1.3] text-center">
+              <GSAPTextReveal
+                splitBy="lines"
+                animationType="slideUp"
+                stagger={0.3}
+                duration={0.8}
+                delay={0.2}
+                className="text-justify-center"
+              >
+                ERETZ is a property development company rooted in the values of
+                authenticity, quality, and integrity. Inspired by an ancient
+                language word &quot;Eretz&quot;, meaning land or earth, our name
+                reflects a deep connection to the ground we build on and the
+                lives we aim to enrich. We specialize in crafting residential
+                buildings that combine timeless design with solid construction
+                homes that are both an emotional and financial investment.
+              </GSAPTextReveal>
             </h5>
           </div>
 
@@ -52,7 +72,7 @@ const AboutSection: React.FC = () => {
           </div>
 
           <div className="text-left ">
-            <h5 className="text-base text-gray-900 mb-6 leading-[1.4] text-justify">
+            <h5 className="text-[15px] text-black mb-6 leading-[1.4] text-justify">
               At ERETZ, we don&apos;t just develop structures, we shape enduring
               lifestyles. Our commitment to craftsmanship is evident in every
               project we undertake, ensuring that every detail, from layout to
@@ -72,7 +92,7 @@ const AboutSection: React.FC = () => {
           mode="characters"
           startOffset="start 0.8"
           endOffset="end 0.2"
-          className="text-2xl lg:text-7xl font-semibold text-gray-900 w-full  leading-[1.1]"
+          className="text-2xl lg:text-7xl font-semibold text-black w-full  leading-[1.1]"
         >
           At ERETZ, we shape not just buildings, but environments that
           immediately feel right.
@@ -92,7 +112,7 @@ const AboutSection: React.FC = () => {
             </GSAPTextReveal>
           </h2>
 
-          <h5 className="text-xl text-gray-900  leading-[1.3] text-justify">
+          <h5 className="text-xl text-black  leading-[1.3] text-justify">
             <GSAPTextReveal
               splitBy="lines"
               animationType="slideUp"
@@ -139,7 +159,7 @@ const AboutSection: React.FC = () => {
         </div>
 
         <div className="text-left h-[10vh] w-full">
-          <h5 className="text-lg text-gray-900  leading-[0.95] w-full">
+          <h5 className="text-lg text-black  leading-[0.95] w-full">
             <GSAPTextReveal
               splitBy="lines"
               animationType="slideUp"

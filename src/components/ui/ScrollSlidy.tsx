@@ -29,13 +29,13 @@ export default function ScrollSlidy({
   const sliderPosition = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   return (
-    <div className=" relative sm:w-full w-[90vw]  h-auto mt-8 mb-8 md:h-[200vh] md:mt-[50vh] md:-mb-[50vh]">
+    <div className=" relative sm:w-full w-[90vw]  h-screen mt-8 mb-0 md:h-[200vh] md:mt-[50vh] md:-mb-[50vh]">
       <div
         className={`relative md:sticky md:top-1/2 md:-translate-y-1/2 h-[85vh] w-full aspect-video md:aspect-16/9 flex items-center justify-center flex-col gap-6`}
       >
         {/* Section Header */}
         <div className="text-center  w-full lg:w-3/4">
-          <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-normal mb-[20px] text-gray-900">
+          <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-normal mb-[20px] text-black">
             <GSAPTextReveal
               splitBy="lines"
               animationType="slideUp"

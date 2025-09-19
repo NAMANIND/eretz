@@ -85,7 +85,7 @@ const WhyDubai: React.FC = () => {
       id="why-dubai"
       ref={sectionRef}
     >
-      <div className="mx-auto  min-h-[99vh] overflow-hidden">
+      <div className="mx-auto  max-h-[99vh] w-full overflow-hidden">
         {/* Section Header */}
         <div className="text-center  ">
           <h2 className="container-heading font-krona py-et">
@@ -101,14 +101,13 @@ const WhyDubai: React.FC = () => {
           </h2>
         </div>
 
-        {/* ScrollVelocity Content */}
         <div className="relative">
-          {0 ? (
+          {isMobile ? (
             <div className="relative w-full">
               {/* Scroll-snap Carousel */}
               <div
                 ref={carouselRef}
-                className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar gap-4 -mx-4 px-4"
+                className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar gap-1 px-4"
                 onScroll={(e) => {
                   const target = e.currentTarget;
                   const next = Math.round(
@@ -119,7 +118,7 @@ const WhyDubai: React.FC = () => {
               >
                 {items.map((item, index) => (
                   <div key={index} className={` flex-shrink-0 `}>
-                    <div className="px-4">
+                    <div className="px-1">
                       <div className="relative group overflow-hidden rounded-2xl w-80 lg:w-96 mx-auto">
                         <div className="h-[400px] lg:h-[500px] relative">
                           <img
@@ -168,7 +167,7 @@ const WhyDubai: React.FC = () => {
           )}
         </div>
       </div>
-      <div className="w-full bg-white h-fit pb-20">
+      <div className="w-full bg-white h-fit pb-20 pt-20 sm:pt-0">
         <div className="relative z-10 text-center " id="contact">
           <div className="container flex items-center flex-col mx-auto px-4">
             <h1 className="font-normal w-3/4 container-hero text-center  mb-6  font-krona">

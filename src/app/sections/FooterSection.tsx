@@ -334,7 +334,7 @@ const FooterSection = () => {
                 </motion.button>
                 <motion.button
                   type="submit"
-                  className="flex-1 py-4 px-6 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+                  className="flex-1 py-4 px-6 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors font-medium"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >

@@ -28,10 +28,11 @@ export const GSAPTextReveal: React.FC<GSAPTextRevealProps> = ({
   reveal = "onView",
 }) => {
   const textRef = useRef<HTMLDivElement>(null);
-  const isAnimated = useRef(false);
+  const animationRef = useRef<gsap.core.Timeline | null>(null);
+  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
 
   useEffect(() => {
-    if (!textRef.current || isAnimated.current) return;
+    if (!textRef.current) return;
 
     const textElement = textRef.current;
 
@@ -138,11 +139,23 @@ export const GSAPTextReveal: React.FC<GSAPTextRevealProps> = ({
       }
     };
 
+    // Cleanup previous animation
+    if (animationRef.current) {
+      animationRef.current.kill();
+      animationRef.current = null;
+    }
+    if (scrollTriggerRef.current) {
+      scrollTriggerRef.current.kill();
+      scrollTriggerRef.current = null;
+    }
+
     // Apply split text
     textElement.innerHTML = splitText(children, splitBy);
 
     // Get elements to animate
     const elements = textElement.querySelectorAll(".single-line");
+
+    if (elements.length === 0) return;
 
     // Set initial state
     gsap.set(elements, {
@@ -151,15 +164,8 @@ export const GSAPTextReveal: React.FC<GSAPTextRevealProps> = ({
       rotationX: animationType === "maskUp" ? -90 : 0,
     });
 
-    // Create animation timeline based on reveal mode
+    // Create animation timeline
     const tl = gsap.timeline({
-      ...(reveal === "onView" && {
-        scrollTrigger: {
-          trigger: textElement,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      }),
       delay,
     });
 
@@ -174,18 +180,34 @@ export const GSAPTextReveal: React.FC<GSAPTextRevealProps> = ({
       transformOrigin: "bottom center",
     });
 
-    isAnimated.current = true;
+    // Store timeline reference
+    animationRef.current = tl;
+
+    // Add ScrollTrigger if needed
+    if (reveal === "onView") {
+      scrollTriggerRef.current = ScrollTrigger.create({
+        trigger: textElement,
+        start: "top 80%",
+        toggleActions: "play none none none",
+        animation: tl,
+      });
+    } else {
+      // Play immediately if not using onView
+      tl.play();
+    }
 
     return () => {
-      // Cleanup ScrollTrigger instances only if using onView
-      if (reveal === "onView") {
-        ScrollTrigger.getAll().forEach((trigger) => {
-          if (trigger.trigger === textElement) {
-            trigger.kill();
-          }
-        });
+      // Cleanup animation and ScrollTrigger
+      if (animationRef.current) {
+        animationRef.current.kill();
+        animationRef.current = null;
+      }
+      if (scrollTriggerRef.current) {
+        scrollTriggerRef.current.kill();
+        scrollTriggerRef.current = null;
       }
 
+      // Reset text content
       if (textElement) {
         textElement.innerHTML = children;
       }

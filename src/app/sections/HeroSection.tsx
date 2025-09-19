@@ -6,6 +6,7 @@ import { GSAPTextReveal } from "@/components/ui/GSAPTextReveal";
 import { LiquidGlass } from "@/components/ui/LiquidGlass";
 import { ChevronDownIcon } from "lucide-react";
 import { motion } from "framer-motion";
+import { useScreen } from "../providers/Screen";
 interface HeroSectionProps {
   videoId?: string;
   title?: string;
@@ -18,6 +19,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   className = "",
 }) => {
+  const { isMobile } = useScreen();
   return (
     <section
       className={`relative z-10 w-full h-screen overflow-hidden ${className}`}
@@ -40,28 +42,53 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       >
         <div className="text-center  flex flex-col items-center gap-8 w-full">
           {/* Main Title with GSAP Text Reveal */}
-          <h1 className=" font-normal  container-hero text-center w-full  font-krona">
-            <GSAPTextReveal
-              delay={0.2}
-              duration={0.8}
-              stagger={0.2}
-              splitBy="lines"
-              animationType="slideUp"
-              className="inline-block text-white "
-            >
-              WE DON&apos;T JUST BUILD HOMES,
-            </GSAPTextReveal>
-            <GSAPTextReveal
-              delay={0.4}
-              duration={0.8}
-              stagger={0.2}
-              splitBy="lines"
-              animationType="slideUp"
-              className="inline-block text-white"
-            >
-              WE CRAFT LEGACIES THAT LAST GENERATIONS.
-            </GSAPTextReveal>
-          </h1>
+          {isMobile ? (
+            <h1 className=" font-normal  container-hero text-center w-full  font-krona">
+              <GSAPTextReveal
+                delay={0.6}
+                duration={0.8}
+                stagger={0.2}
+                splitBy={"words"}
+                animationType="slideUp"
+                className="inline-block text-white "
+              >
+                WE DON&apos;T JUST BUILD HOMES,
+              </GSAPTextReveal>
+              <GSAPTextReveal
+                delay={0.8}
+                duration={0.8}
+                stagger={0.2}
+                splitBy={"words"}
+                animationType="slideUp"
+                className="inline-block text-white"
+              >
+                WE CRAFT LEGACIES THAT LAST GENERATIONS.
+              </GSAPTextReveal>
+            </h1>
+          ) : (
+            <h1 className=" font-normal  container-hero text-center w-full  font-krona">
+              <GSAPTextReveal
+                delay={0.2}
+                duration={0.8}
+                stagger={0.2}
+                splitBy={"lines"}
+                animationType="slideUp"
+                className="inline-block text-white "
+              >
+                WE DON&apos;T JUST BUILD HOMES,
+              </GSAPTextReveal>
+              <GSAPTextReveal
+                delay={0.4}
+                duration={0.8}
+                stagger={0.2}
+                splitBy={"lines"}
+                animationType="slideUp"
+                className="inline-block text-white"
+              >
+                WE CRAFT LEGACIES THAT LAST GENERATIONS.
+              </GSAPTextReveal>
+            </h1>
+          )}
 
           {/* Call to Action Button with GSAP Reveal */}
           <motion.div

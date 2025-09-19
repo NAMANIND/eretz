@@ -10,6 +10,8 @@ import React, {
 
 type ScreenContextType = {
   isMobile: boolean;
+  isLoading: boolean;
+  setLoading: (loading: boolean) => void;
 };
 
 const ScreenContext = createContext<ScreenContextType | undefined>(undefined);
@@ -20,6 +22,7 @@ type ScreenProviderProps = {
 
 export const ScreenProvider = ({ children }: ScreenProviderProps) => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
@@ -46,8 +49,34 @@ export const ScreenProvider = ({ children }: ScreenProviderProps) => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleLoad = () => {
+      setIsLoading(false);
+    };
+
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+    };
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
+        <div className="w-full h-full bg-black"></div>
+      </div>
+    );
+  }
+
   return (
-    <ScreenContext.Provider value={{ isMobile }}>
+    <ScreenContext.Provider
+      value={{ isMobile, isLoading, setLoading: setIsLoading }}
+    >
       {children}
     </ScreenContext.Provider>
   );
