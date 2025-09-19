@@ -90,7 +90,7 @@ function HorizontalScroll({
           <div key={index} className={`${panelClassName} flex-shrink-0 w-1/3 `}>
             <div className="px-4 w-full">
               <div className="relative group overflow-hidden rounded-2xl mx-auto">
-                <div className=" h-[60vh] relative">
+                <div className=" h-[70vh] relative">
                   <img
                     src={item.image}
                     alt={item.title}

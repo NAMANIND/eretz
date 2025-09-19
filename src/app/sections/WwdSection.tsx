@@ -207,7 +207,10 @@ const WwdSection = () => {
   }
 
   return (
-    <section className="relative w-full overflow-hidden" id="what-we-do">
+    <section
+      className="relative w-full overflow-hidden -mt-[calc(20vh_-_20px)] pt-et"
+      id="what-we-do"
+    >
       <div className=" mx-auto  container-f">
         <div className="text-center">
           <h2 className="container-heading font-krona py-et">
