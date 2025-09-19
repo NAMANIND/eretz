@@ -8,10 +8,11 @@ import WwdSection from "./sections/WwdSection";
 import FooterSection from "./sections/FooterSection";
 import DockNavbar from "@/components/ui/DockNavbar";
 import SlidelLayout from "./sections/SlidelLayout";
+import { ScreenProvider } from "./providers/Screen";
 
 function page() {
   return (
-    <div>
+    <ScreenProvider>
       <DockNavbar />
       <HeroSection />
       <div className="relative">
@@ -54,7 +55,7 @@ function page() {
 
         <FooterSection />
       </div>
-    </div>
+    </ScreenProvider>
   );
 }
 

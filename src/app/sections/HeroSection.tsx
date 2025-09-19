@@ -65,28 +65,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           {/* Call to Action Button with GSAP Reveal */}
           <motion.div
-            className=" flex items-center justify-center cursor-pointer transition-transform duration-500 ease-out"
+            className="flex items-center justify-center cursor-pointer transition-transform duration-500 ease-out"
             whileHover={{
-              y: [0, -16, 0], // Moves up, then back down
+              y: [0, -8, 0], // subtle bounce
               transition: {
-                duration: 1, // One complete cycle (up and down)
-                repeat: Infinity, // Repeat forever
+                duration: 0.8,
+                repeat: Infinity,
                 ease: "easeInOut",
               },
             }}
             onClick={() => {
               const startY = window.scrollY;
-              const targetY = startY + window.innerHeight;
-              const duration = 1400;
+              const targetY = startY + window.innerHeight; // scroll by one screen
+              const duration = 750; // Balanced speed (ms)
               const startTime = performance.now();
 
-              const easeInOutQuint = (t: number) =>
-                t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t;
+              const easeInOutQuad = (t: number) =>
+                t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
               const smoothScroll = (now: number) => {
                 const elapsed = now - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const eased = easeInOutQuint(progress);
+                const progress = Math.min(elapsed / duration, 1); // clamp 0 → 1
+                const eased = easeInOutQuad(progress);
 
                 window.scrollTo(0, startY + (targetY - startY) * eased);
 

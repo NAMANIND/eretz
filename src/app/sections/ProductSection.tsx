@@ -39,34 +39,10 @@ const ProductSection = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    const handleChange = (event: MediaQueryListEvent) => {
-      setIsMobile(event.matches);
-    };
-
-    // Initialize
-    setIsMobile(mediaQuery.matches);
-
-    // Subscribe with fallback for older browsers
-    if (typeof mediaQuery.addEventListener === "function") {
-      mediaQuery.addEventListener("change", handleChange);
-    } else if (typeof mediaQuery.addListener === "function") {
-      mediaQuery.addListener(handleChange);
-    }
-
-    return () => {
-      if (typeof mediaQuery.removeEventListener === "function") {
-        mediaQuery.removeEventListener("change", handleChange);
-      } else if (typeof mediaQuery.removeListener === "function") {
-        mediaQuery.removeListener(handleChange);
-      }
-    };
-  }, []);
 
   return (
     <section className=" w-full relative z-10 ">
-      <div className="mx-auto container-et bg-white  pt-[150px]  overflow-hidden">
+      <div className="mx-auto container-et bg-white   overflow-hidden">
         {/* Section Header */}
         <div className="text-center">
           <h2 className="container-heading font-krona">
@@ -84,8 +60,13 @@ const ProductSection = () => {
 
         {/* Image Grid */}
         {isMobile ? (
-          <div className=" w-full">
+          <div className=" w-full flex flex-col gap-6 my-10">
             {/* Scroll-snap Carousel */}
+            <h2 className="text-sm text-gray-700 font-medium text-center">
+              At ERETZ, we transform land into living designing authentic,
+              thoughtful residences rooted in integrity and timeless
+              craftsmanship.
+            </h2>
             <div
               ref={carouselRef}
               className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar gap-4 -mx-4 px-4"
@@ -96,23 +77,16 @@ const ProductSection = () => {
               }}
             >
               {imageData.map((image, idx) => (
-                <div key={image.id} className="space-y-8">
-                  <div>
-                    <div className="aspect-[4/5] overflow-hidden ">
-                      <GSAPImageReveal
-                        src={image.src}
-                        alt={image.alt}
-                        containerClassName="w-full h-full ease-[cubic-bezier(0.25, 0.46, 0.45, 0.94)]"
-                        delay={1.3}
-                        duration={1.2}
-                        cropFrom={image.cropFrom as "none" | "bottom" | "top"}
-                        text={image.text}
-                        textAlign={
-                          image.textAlign as "left" | "center" | "right"
-                        }
-                        reveal="onTrigger"
-                      />
-                    </div>
+                <div
+                  key={image.id}
+                  className="w-screen snap-start flex-shrink-0"
+                >
+                  <div className="overflow-hidden ">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-[60vh] object-cover"
+                    />
                   </div>
                 </div>
               ))}
@@ -129,9 +103,13 @@ const ProductSection = () => {
                 />
               </div>
             </div>
+            <h2 className="text-sm text-gray-700 font-medium text-center">
+              We build homes for those who value genuine craftsmanship and
+              thoughtful design.
+            </h2>
           </div>
         ) : (
-          <div className="flex flex-row gap-2  h-[60vh]">
+          <div className="flex flex-row gap-2  h-[60vh] w-full">
             {imageData.map((image, index) => {
               return (
                 <motion.div

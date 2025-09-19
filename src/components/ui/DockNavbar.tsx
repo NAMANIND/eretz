@@ -96,7 +96,7 @@ export const DockNavbar: React.FC = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="flex items-center justify-between container mx-auto h-[60px] p-4 sm:py-l">
+        <div className=" container-et  !flex-row justify-between  h-[60px] py-4">
           {/* Mobile left: hamburger */}
           <button
             type="button"

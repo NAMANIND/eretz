@@ -1,37 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import GSAPTextReveal from "@/components/ui/GSAPTextReveal";
 import { ScrollTextReveal } from "@/components/animations/ScrollTextReveal";
+import { useScreen } from "@/app/providers/Screen";
 
 const AboutSection: React.FC = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    const handleChange = (event: MediaQueryListEvent) => {
-      setIsMobile(event.matches);
-    };
-
-    // Initialize
-    setIsMobile(mediaQuery.matches);
-
-    // Subscribe with fallback for older browsers
-    if (typeof mediaQuery.addEventListener === "function") {
-      mediaQuery.addEventListener("change", handleChange);
-    } else if (typeof mediaQuery.addListener === "function") {
-      mediaQuery.addListener(handleChange);
-    }
-
-    return () => {
-      if (typeof mediaQuery.removeEventListener === "function") {
-        mediaQuery.removeEventListener("change", handleChange);
-      } else if (typeof mediaQuery.removeListener === "function") {
-        mediaQuery.removeListener(handleChange);
-      }
-    };
-  }, []);
+  const { isMobile } = useScreen();
 
   if (isMobile) {
     return (
@@ -65,25 +41,11 @@ const AboutSection: React.FC = () => {
 
           <div className=" w-full  mx-auto my-6 ">
             <div className="grid grid-cols-1 gap-3 rounded-2xl">
-              <div className=" h-64">
-                <img
-                  src="/placeholder-1.jpg"
-                  alt="Frame Left"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className=" h-64">
+              <div className=" h-[60vh]">
                 <img
                   src="/placeholder-2.jpg"
                   alt="Frame Center"
                   className="w-full h-full object-cover object-center"
-                />
-              </div>
-              <div className=" h-64">
-                <img
-                  src="/placeholder-3.jpg"
-                  alt="Frame Right"
-                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
@@ -150,7 +112,7 @@ const AboutSection: React.FC = () => {
           </h5>
         </div>
 
-        <div className=" w-full  mx-auto my-10  ">
+        <div className=" w-full  mx-auto my-5  ">
           <div className="grid grid-cols-3 gap-0  ">
             <div className="  h-[60vh]  ">
               <img
@@ -185,8 +147,8 @@ const AboutSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="text-left h-[10vh]">
-          <h5 className="text-lg text-gray-900 mb-6 leading-[0.95]">
+        <div className="text-left h-[10vh] w-full">
+          <h5 className="text-lg text-gray-900  leading-[0.95] w-full">
             <GSAPTextReveal
               splitBy="lines"
               animationType="slideUp"
@@ -197,14 +159,14 @@ const AboutSection: React.FC = () => {
             >
               At ERETZ, we don&apos;t just develop structures, we shape enduring
               lifestyles. Our commitment to craftsmanship is evident in every
-              project we undertake, \n ensuring that every detail, from layout
-              to finish, serves a purpose and reflects our genuine care for the
+              project we undertake, ensuring that every detail, from layout to
+              finish, serves a purpose and reflects our genuine care for the
               people who call our spaces home.
             </GSAPTextReveal>
           </h5>
         </div>
 
-        <div className="h-[calc(20vh_-_40px)]" />
+        <div className="h-[calc(20vh_-_20px)]" />
       </div>
     </section>
   );

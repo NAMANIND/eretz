@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { useScreen } from "@/app/providers/Screen";
 import GSAPTextReveal from "@/components/ui/GSAPTextReveal";
 
 const WwdSection = () => {
@@ -10,35 +11,11 @@ const WwdSection = () => {
   const [fadeImageIndex, setFadeImageIndex] = useState<number | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const { isMobile } = useScreen();
 
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Mobile breakpoint detection
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    const handleChange = (event: MediaQueryListEvent) => {
-      setIsMobile(event.matches);
-    };
-
-    // Initialize
-    setIsMobile(mediaQuery.matches);
-
-    // Subscribe with fallback for older browsers
-    if (typeof mediaQuery.addEventListener === "function") {
-      mediaQuery.addEventListener("change", handleChange);
-    } else if (typeof mediaQuery.addListener === "function") {
-      mediaQuery.addListener(handleChange);
-    }
-
-    return () => {
-      if (typeof mediaQuery.removeEventListener === "function") {
-        mediaQuery.removeEventListener("change", handleChange);
-      } else if (typeof mediaQuery.removeListener === "function") {
-        mediaQuery.removeListener(handleChange);
-      }
-    };
-  }, []);
 
   const services = [
     {
@@ -142,11 +119,8 @@ const WwdSection = () => {
   // Mobile layout with stacked cards
   if (isMobile) {
     return (
-      <section
-        className="relative min-h-screen w-full bg-white py-12"
-        id="what-we-do"
-      >
-        <div className="mx-auto container-f px-4 max-w-screen-sm">
+      <section className="relative w-full bg-white " id="what-we-do">
+        <div className="mx-auto container-et">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-krona text-gray-900 mb-2">
               What We Do
@@ -233,10 +207,7 @@ const WwdSection = () => {
   }
 
   return (
-    <section
-      className="relative min-h-screen w-full overflow-hidden"
-      id="what-we-do"
-    >
+    <section className="relative w-full overflow-hidden" id="what-we-do">
       <div className=" mx-auto  container-f">
         <div className="text-center">
           <h2 className="container-heading font-krona">
@@ -283,7 +254,7 @@ const WwdSection = () => {
           </div>
 
           {/* Three Column Grid */}
-          <div className="relative z-10 grid grid-rows-3 h-full">
+          <div className="relative z-10 grid grid-cols-3 h-full">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -294,37 +265,67 @@ const WwdSection = () => {
                   background:
                     hoveredIndex === index
                       ? "linear-gradient(180deg, rgba(6,22,46,0.56) 0%, rgba(6,22,46,0.24) 100%)"
-                      : "linear-gradient( 180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 100%)",
+                      : "linear-gradient(180deg, rgba(6,22,46,0.36) 0%, rgba(6,22,46,0.12) 100%)",
                   backdropFilter:
                     hoveredIndex === index ? "blur(10px)" : "none",
-                  borderTop: index === 0 ? "none" : "5px solid white",
-                  borderBottom:
-                    index === services.length - 1 ? "none" : "5px solid white",
+                  borderLeft: index === 0 ? "none" : "3px solid white",
+                  borderRight:
+                    index === services.length - 1 ? "none" : "3px solid white",
                 }}
               >
                 <div
-                  className="max-w-full mx-auto text-center flex flex-row transition-transform justify-between duration-500 ease-[cubic-bezier(0.87,-0.005,0.215,0.985)] px-8"
+                  className="max-w-[390px] mx-auto text-center transition-all duration-500 ease-[cubic-bezier(0.87,-0.005,0.215,0.985)]"
                   style={{
                     transform:
                       hoveredIndex === index
-                        ? "translateX(0)"
-                        : "translateX(calc(33%))",
+                        ? "translateY(0)"
+                        : "translateY(calc(50% - 100px))",
                   }}
                 >
                   {/* Always Visible Title */}
-                  <h3 className="text-[30px]  font-bold w-1/3 text-white mb-6 drop-shadow-lg uppercase font-krona  transition-all  duration-500 ease-[cubic-bezier(0.87,-0.005,0.215,0.985)] ">
+                  <h3 className="text-[30px] font-bold text-white mb-6 drop-shadow-lg uppercase">
                     {service.title}
                   </h3>
 
                   {/* Content Appears on Hover */}
-
                   <div
-                    className="transition-opacity duration-500 w-1/2 ease-out"
+                    className="transition-opacity duration-500 ease-out"
                     style={{ opacity: hoveredIndex === index ? 1 : 0 }}
                   >
-                    <p className="text-white/90 text-lg leading-relaxed mb-8 text-right drop-shadow-md">
+                    <p className="text-white/90 text-lg leading-relaxed mb-8 drop-shadow-md">
                       {service.description}
                     </p>
+
+                    {/* <div className="mb-8">
+                      <h4 className="text-lg font-semibold text-white mb-4 drop-shadow-md">
+                        Key Services:
+                      </h4>
+                      <ul className="space-y-3 text-left">
+                        {service.details.map((detail, detailIndex) => (
+                          <li
+                            key={detailIndex}
+                            className="flex items-center text-white/95 text-sm drop-shadow-sm"
+                          >
+                            <span className="mr-3 h-2 w-2 rounded-full bg-white/80 drop-shadow-sm" />
+                            {detail}
+                          </li>
+                        ))}
+                      </ul>
+                    </div> */}
+
+                    {/* <div className="inline-flex items-center text-white hover:text-white/80 transition-colors duration-300 group/btn">
+                      <span className="text-lg font-medium mr-3 drop-shadow-md">
+                        Learn More
+                      </span>
+                      <svg
+                        className="w-6 h-3 transition-transform duration-300 group-hover/btn:translate-x-1 drop-shadow-sm"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 22 12"
+                        fill="currentColor"
+                      >
+                        <path d="M15 0.749925C14.9297 0.819647 14.8739 0.902598 14.8358 0.993992C14.7978 1.08539 14.7782 1.18342 14.7782 1.28242C14.7782 1.38143 14.7978 1.47946 14.8358 1.57086C14.8739 1.66225 14.9297 1.7452 15 1.81492L18.45 5.26493H0.795013C0.596101 5.26493 0.405336 5.34394 0.264683 5.48459C0.124031 5.62525 0.0450134 5.81601 0.0450134 6.01493C0.0450134 6.21384 0.124031 6.4046 0.264683 6.54525C0.405336 6.68591 0.596101 6.76493 0.795013 6.76493H18.435L15 10.1924C14.8603 10.3329 14.7819 10.523 14.7819 10.7212C14.7819 10.9193 14.8603 11.1094 15 11.2499C15.1405 11.3896 15.3306 11.468 15.5288 11.468C15.7269 11.468 15.917 11.3896 16.0575 11.2499L20.8275 6.47992C20.8917 6.41833 20.9428 6.34439 20.9777 6.26254C21.0126 6.1807 21.0306 6.09265 21.0306 6.00367C21.0306 5.9147 21.0126 5.82665 20.9777 5.74481C20.9428 5.66296 20.8917 5.58902 20.8275 5.52742L16.065 0.749925C15.9953 0.679629 15.9123 0.623833 15.8209 0.585757C15.7296 0.54768 15.6315 0.528076 15.5325 0.528076C15.4335 0.528076 15.3355 0.54768 15.2441 0.585757C15.1527 0.623833 15.0697 0.679629 15 0.749925Z" />
+                      </svg>
+                    </div> */}
                   </div>
                 </div>
 

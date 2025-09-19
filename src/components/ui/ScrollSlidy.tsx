@@ -34,7 +34,7 @@ export default function ScrollSlidy({
         className={`relative md:sticky md:top-1/2 md:-translate-y-1/2 h-[85vh] w-full aspect-video md:aspect-16/9 flex items-center justify-center flex-col gap-6`}
       >
         {/* Section Header */}
-        <div className="text-center  w-full">
+        <div className="text-center  w-full lg:w-3/4">
           <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-normal mb-[20px] text-gray-900">
             <GSAPTextReveal
               splitBy="lines"
@@ -49,13 +49,13 @@ export default function ScrollSlidy({
           </h2>
         </div>
         <motion.div
-          className={` overflow-hidden select-none w-full ${className} aspect-video md:aspect-16/9 `}
+          className={` overflow-hidden relative rounded-xl select-none w-full ${className} aspect-video  `}
           style={{
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
           }}
         >
           {/* Before Image */}
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 ">
             <img
               src={afterImage}
               alt="after"
@@ -76,7 +76,7 @@ export default function ScrollSlidy({
 
           {/* After Image with Clip Path */}
           <motion.div
-            className="absolute inset-0"
+            className="absolute inset-0 "
             style={{
               clipPath: useTransform(
                 sliderPosition,

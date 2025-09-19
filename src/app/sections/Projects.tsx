@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { GSAPTextReveal } from "@/components/ui/GSAPTextReveal";
 import { ScrollVelocity } from "@/components/ui/ScrollVelocity";
+import { useScreen } from "../providers/Screen";
 
 interface ProjectItem {
   id: number;
@@ -81,35 +82,11 @@ const ParallaxColumn: React.FC<{
 };
 
 const Projects: React.FC = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    const handleChange = (event: MediaQueryListEvent) => {
-      setIsMobile(event.matches);
-    };
-
-    // Initialize
-    setIsMobile(mediaQuery.matches);
-
-    // Subscribe with fallback for older browsers
-    if (typeof mediaQuery.addEventListener === "function") {
-      mediaQuery.addEventListener("change", handleChange);
-    } else if (typeof mediaQuery.addListener === "function") {
-      mediaQuery.addListener(handleChange);
-    }
-
-    return () => {
-      if (typeof mediaQuery.removeEventListener === "function") {
-        mediaQuery.removeEventListener("change", handleChange);
-      } else if (typeof mediaQuery.removeListener === "function") {
-        mediaQuery.removeListener(handleChange);
-      }
-    };
-  }, []);
+  const { isMobile } = useScreen();
 
   return (
     <section
-      className="relative w-full h-fit sm:min-h-screen bg-white  pb-[50px] "
+      className="relative w-full h-fit sm:min-h-screen bg-white "
       id="projects"
     >
       <div className="mx-auto container-et overflow-hidden ">

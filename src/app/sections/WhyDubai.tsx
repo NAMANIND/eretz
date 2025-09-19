@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { GSAPTextReveal } from "@/components/ui/GSAPTextReveal";
 import { WhyDubaiHScroll } from "@/components/ui/WhyDubaiHScroll";
 import { motion } from "framer-motion";
+import { useScreen } from "../providers/Screen";
 
 const items = [
   {
@@ -73,34 +74,11 @@ const items = [
 ];
 
 const WhyDubai: React.FC = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const { isMobile } = useScreen();
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    const handleChange = (event: MediaQueryListEvent) => {
-      setIsMobile(event.matches);
-    };
 
-    // Initialize
-    setIsMobile(mediaQuery.matches);
-
-    // Subscribe with fallback for older browsers
-    if (typeof mediaQuery.addEventListener === "function") {
-      mediaQuery.addEventListener("change", handleChange);
-    } else if (typeof mediaQuery.addListener === "function") {
-      mediaQuery.addListener(handleChange);
-    }
-
-    return () => {
-      if (typeof mediaQuery.removeEventListener === "function") {
-        mediaQuery.removeEventListener("change", handleChange);
-      } else if (typeof mediaQuery.removeListener === "function") {
-        mediaQuery.removeListener(handleChange);
-      }
-    };
-  }, []);
   return (
     <section
       className="relative w-full  bg-white py-1 z-10 "
@@ -109,7 +87,7 @@ const WhyDubai: React.FC = () => {
     >
       <div className="mx-auto  min-h-screen overflow-x-hidden">
         {/* Section Header */}
-        <div className="text-center  pt-[80px]  ">
+        <div className="text-center  ">
           <h2 className="container-heading font-krona">
             <GSAPTextReveal
               splitBy="words"
@@ -190,14 +168,14 @@ const WhyDubai: React.FC = () => {
           )}
         </div>
       </div>
-      <div className="w-full bg-white h-fit py-12">
+      <div className="w-full bg-white h-fit pb-20">
         <div className="relative z-10 text-center " id="contact">
           <div className="container flex items-center flex-col mx-auto px-4">
             <h1 className="font-normal w-3/4 container-hero text-center  mb-6  font-krona">
               <GSAPTextReveal
                 splitBy="lines"
                 animationType="slideUp"
-                delay={1}
+                delay={0.2}
                 duration={0.8}
                 stagger={0.2}
               >
@@ -212,7 +190,7 @@ const WhyDubai: React.FC = () => {
                 <GSAPTextReveal
                   splitBy="lines"
                   animationType="slideUp"
-                  delay={2}
+                  delay={0.4}
                   duration={0.8}
                   stagger={0.2}
                 >
