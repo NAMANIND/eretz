@@ -13,7 +13,7 @@ import {
 import { ContactForm } from "@/components/ui/ContactForm";
 import { motion } from "framer-motion";
 import { useScreen } from "../providers/Screen";
-import ExpandingGallery from "./ExpandingGallery";
+import ExpandingGallery from "./ChooseUs";
 
 const items = [
   {

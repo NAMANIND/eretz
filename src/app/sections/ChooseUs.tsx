@@ -19,46 +19,51 @@ interface GalleryItem {
 const galleryData: GalleryItem[] = [
   {
     id: 1,
-    title: "Modern Living",
-    shortDescription: "Contemporary spaces designed for today's lifestyle",
+    title: "Ethics",
+    shortDescription:
+      "We operate with integrity, guided by honesty and fairness at every stage",
     expandedDescription:
-      "Our modern living spaces combine cutting-edge design with functional elegance. Every detail is carefully crafted to create environments that inspire and comfort. From open-plan layouts to smart home integration, we redefine what it means to live beautifully in the 21st century.",
+      "We operate with integrity, guided by honesty and fairness at every stage. From planning to handover, our approach is guided by doing what is right for our customers and partners.",
     image:
       "https://images.unsplash.com/photo-1511882150382-421056c89033?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 2,
-    title: "Sustainable Design",
-    shortDescription: "Eco-conscious development for a better tomorrow",
+    title: "Transparency",
+    shortDescription:
+      "With open communication, clear documentation, and genuine updates at every stage",
     expandedDescription:
-      "Sustainability is at the heart of our design philosophy. We integrate renewable energy systems, water conservation technologies, and locally sourced materials to minimize environmental impact while maximizing comfort and efficiency for our residents.",
+      "With open communication, clear documentation, and genuine updates at every stage, we ensure there are no surprises just confidence in your investment.",
     image:
       "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 3,
-    title: "Premium Quality",
-    shortDescription: "Uncompromising standards in every project",
+    title: "Quality",
+    shortDescription:
+      "Quality isn't just a promise, it's the foundation of every ERETZ project",
     expandedDescription:
-      "Quality is never an accident. Our rigorous selection process for materials, combined with expert craftsmanship and attention to detail, ensures that every ERETZ property meets the highest standards of excellence and durability.",
+      "Quality isn't just a promise, it's the foundation of every ERETZ project. We use trusted materials and expert craftsmanship to deliver residences that last for generations.",
     image:
       "https://images.unsplash.com/photo-1569959220744-ff553533f492?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 4,
-    title: "Innovation",
-    shortDescription: "Pushing boundaries in property development",
+    title: "Safety",
+    shortDescription:
+      "We value the well-being of everyone involved in our projects",
     expandedDescription:
-      "We embrace cutting-edge technology and innovative design solutions to create properties that stand the test of time. Our forward-thinking approach ensures that every project incorporates the latest advancements in construction, sustainability, and smart living.",
+      "We value the well-being of everyone involved in our projects. By adhering to the highest safety standards on-site, we create secure environments that protect our people.",
     image:
       "https://images.unsplash.com/photo-1607585011081-241d2bacb7de?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 5,
-    title: "Excellence",
-    shortDescription: "Unwavering commitment to superior outcomes",
+    title: "Timely Delivery",
+    shortDescription:
+      "With disciplined project management and a transparent process",
     expandedDescription:
-      "Excellence is not just a goal, it's our standard. Every aspect of our development process, from initial concept to final delivery, is executed with meticulous attention to detail and an unwavering commitment to surpassing expectations.",
+      "With disciplined project management and a transparent process, we make sure your home is ready when we promise without compromising on quality or detail.",
     image:
       "https://images.unsplash.com/photo-1449452198679-05c7fd30f416?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
@@ -181,7 +186,7 @@ const ExpandingGallery: React.FC = () => {
     return (
       <section ref={sectionRef} className="w-full bg-white pt-et">
         <div className="container-et mx-auto">
-          <div className="text-center py-et">
+          <div className="text-center py-et w-full">
             <h2 className="container-heading font-krona">
               <GSAPTextReveal
                 splitBy="words"
@@ -190,9 +195,24 @@ const ExpandingGallery: React.FC = () => {
                 duration={0.8}
                 delay={0.2}
               >
-                Our Expanding Vision
+                Why Choose ERETZ?
               </GSAPTextReveal>
             </h2>
+
+            <h5 className="text-[15px] text-black  leading-[1.3] text-center">
+              <GSAPTextReveal
+                splitBy="lines"
+                animationType="slideUp"
+                stagger={0.3}
+                duration={0.8}
+                delay={0.2}
+                className="text-justify-center"
+              >
+                At ERETZ Developers, trust is the foundation of everything we
+                build. Our promise is simple, homes crafted with ethics,
+                quality, and care.
+              </GSAPTextReveal>
+            </h5>
           </div>
 
           <div className="flex flex-col w-full h-[70vh]">
@@ -234,10 +254,7 @@ const ExpandingGallery: React.FC = () => {
                 {/* Expanded content - full description */}
                 <div className="box-content absolute bottom-4 left-4 right-4 text-white z-10 opacity-0">
                   <h3 className="text-lg font-semibold mb-1">{item.title}</h3>
-                  <p className="text-sm opacity-90 mb-2">
-                    {item.shortDescription}
-                  </p>
-                  <div className="mt-4">
+                  <div className="mt-2">
                     <p className="text-sm leading-relaxed opacity-95">
                       {item.expandedDescription}
                     </p>
@@ -257,7 +274,7 @@ const ExpandingGallery: React.FC = () => {
       className="w-full bg-white flex items-center justify-center"
     >
       <div className="container-et mx-auto pt-et">
-        <div className="text-center">
+        <div className="text-center w-full">
           <h2 className="container-heading font-krona py-et">
             <GSAPTextReveal
               splitBy="words"
@@ -266,12 +283,26 @@ const ExpandingGallery: React.FC = () => {
               duration={0.8}
               delay={0.2}
             >
-              Our Expanding Vision
+              Why Choose ERETZ?
             </GSAPTextReveal>
           </h2>
+
+          <h5 className="text-xl text-black  leading-[1.3] ">
+            <GSAPTextReveal
+              splitBy="words"
+              animationType="slideUp"
+              stagger={0.05}
+              duration={0.8}
+              delay={0.2}
+            >
+              At ERETZ Developers, trust is the foundation of everything we
+              build. Our promise is simple, homes crafted with ethics, quality,
+              and care.
+            </GSAPTextReveal>
+          </h5>
         </div>
 
-        <div className="flex items-center h-[80vh] w-full">
+        <div className="flex items-center h-[80vh] w-full my-5">
           {galleryData.map((item, index) => (
             <div
               key={item.id}
@@ -308,10 +339,8 @@ const ExpandingGallery: React.FC = () => {
               {/* Expanded content - full description */}
               <div className="box-content absolute bottom-6 left-6 right-6 text-white z-10 opacity-0">
                 <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm opacity-90 mb-4">
-                  {item.shortDescription}
-                </p>
-                <div className="mt-6">
+
+                <div className="mt-2">
                   <p className="text-base leading-relaxed opacity-95 max-w-md">
                     {item.expandedDescription}
                   </p>
@@ -322,7 +351,7 @@ const ExpandingGallery: React.FC = () => {
         </div>
 
         <div className="text-center">
-          <p className="text-gray-400 mt-2 text-sm">
+          <p className="text-gray-400  text-sm">
             Use arrow keys to navigate • Click to expand
           </p>
         </div>

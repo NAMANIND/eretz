@@ -163,7 +163,7 @@ export const DockNavbar: React.FC = () => {
 
               <Link href="tel:+18556531901">
                 <h3
-                  className={`text-sm text-muted-foreground relative group cursor-pointer leading-[1.2] pb-1 transition-colors duration-500 ease-in-out inline-block whitespace-nowrap ${
+                  className={`text-sm relative group cursor-pointer leading-[1.2] pb-1 transition-colors duration-500 ease-in-out inline-block whitespace-nowrap ${
                     isScrolled ? "text-black" : "text-white"
                   }`}
                 >
@@ -255,12 +255,12 @@ export const DockNavbar: React.FC = () => {
                 duration: 0.4,
                 ease: "easeOut",
               }}
-              className="p-6 border-t border-gray-100"
+              className="px-6 py-8 border-t border-gray-100"
             >
               <Link
                 href="tel:+18556531901"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="inline-flex items-center gap-3 text-lg font-light text-gray-600 hover:text-black transition-colors duration-300"
+                className="inline-flex items-center gap-3 text-lg font-light text-black transition-colors duration-300"
               >
                 <Phone size={20} />
                 +1 (855) 653-1901
