@@ -28,8 +28,8 @@ export async function POST(request: NextRequest) {
     // Send welcome email using Resend
     const { data, error } = await resend.emails.send({
       from: "ERETZ Newsletter <updates@eretzdevelopers.com>",
-      to: ["namanrai309@gmail.com"], // Replace with your actual email
-      subject: "New Newsletter Subscription - ERETZ Team",
+      to: ["testokie1@gmail.com", "info@eretzdevelopers.com"],
+      subject: "New Newsletter Subscription - ${name}",
       html: `
         <!DOCTYPE html>
         <html>
