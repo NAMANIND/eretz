@@ -32,10 +32,10 @@ export const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({
   const getYouTubeUrl = (): string => {
     const baseUrl = "https://www.youtube.com/embed/";
     const params = new URLSearchParams({
-      autoplay: autoplay ? "1" : "0",
-      mute: muted ? "1" : "0",
-      loop: loop ? "1" : "0",
-      playlist: loop ? videoId : "",
+      autoplay: "1",
+      mute: "1",
+      loop: "1",
+      playlist: videoId,
       controls: "0",
       showinfo: "0",
       rel: "0",
