@@ -215,7 +215,7 @@ const ExpandingGallery: React.FC = () => {
             </h5>
           </div>
 
-          <div className="flex flex-col w-full h-[70vh]">
+          <div className="flex flex-col w-full h-[80vh]">
             {galleryData.map((item, index) => (
               <div
                 key={item.id}
@@ -302,7 +302,7 @@ const ExpandingGallery: React.FC = () => {
           </h5>
         </div>
 
-        <div className="flex items-center h-[80vh] w-full my-5">
+        <div className="flex items-center h-[70vh] w-full my-5">
           {galleryData.map((item, index) => (
             <div
               key={item.id}
