@@ -237,7 +237,7 @@ export const DockNavbar: React.FC = () => {
                       onClick={() => handleNavClick(item.href)}
                       className="group block"
                     >
-                      <span className="text-3xl font-light text-black hover:text-gray-600 transition-colors duration-300">
+                      <span className="text-3xl font-medium text-black hover:text-gray-600 transition-colors duration-300">
                         {item.label}
                       </span>
                     </Link>

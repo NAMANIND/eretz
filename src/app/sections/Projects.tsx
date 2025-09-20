@@ -52,8 +52,8 @@ const ParallaxColumn: React.FC<{
     offset: ["start end", "end start"],
   });
 
-  const yFast = useTransform(scrollYProgress, [0, 1], ["0vh", "40vh"]);
-  const ySlow = useTransform(scrollYProgress, [0, 1], ["0vh", "2vh"]);
+  const yFast = useTransform(scrollYProgress, [0, 1], ["0vh", "80vh"]);
+  const ySlow = useTransform(scrollYProgress, [0, 1], ["0vh", "60vh"]);
   const y = speed === "fast" ? yFast : ySlow;
 
   return (
@@ -106,7 +106,7 @@ const Projects: React.FC = () => {
         {isMobile ? (
           <ScrollVelocity items={items} />
         ) : (
-          <div className=" grid grid-cols-1 lg:grid-cols-4 gap-6">
+          <div className=" grid grid-cols-1 lg:grid-cols-4 gap-6 mb-[85vh]">
             {[0, 1, 2, 3].map((col) => (
               <ParallaxColumn
                 key={col}

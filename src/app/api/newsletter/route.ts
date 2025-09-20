@@ -5,9 +5,13 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
-    const { email } = await request.json();
+    const { email, name } = await request.json();
 
     // Validate required fields
+    if (!name) {
+      return NextResponse.json({ error: "Name is required" }, { status: 400 });
+    }
+
     if (!email) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
     }
@@ -49,15 +53,25 @@ export async function POST(request: NextRequest) {
               </h2>
               <p style="color: #666666; font-size: 14px; line-height: 1.5; margin: 0 0 20px 0;">
                 A new subscriber has joined the newsletter.
-              </p>
-              
-              <div style="background-color: #f8f9fa; padding: 16px; border-radius: 6px; margin: 20px 0;">
-                <p style="margin: 0; color: #000000; font-size: 14px; font-weight: 500;">
-                  Subscriber Email:
-                </p>
-                <p style="margin: 4px 0 0 0; color: #666666; font-size: 14px;">
-                  ${email}
-                </p>
+            </p>     
+              <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 24px 0;">
+                <div style="margin-bottom: 16px;">
+                  <p style="margin: 0; color: #000000; font-size: 14px; font-weight: 600;">
+                    Subscriber Name:
+                  </p>
+                  <p style="margin: 6px 0 0 0; color: #333333; font-size: 14px;">
+                    ${name}
+                  </p>
+                </div>
+                
+                <div>
+                  <p style="margin: 0; color: #000000; font-size: 14px; font-weight: 600;">
+                    Email Address:
+                  </p>
+                  <p style="margin: 6px 0 0 0; color: #333333; font-size: 14px;">
+                    ${email}
+                  </p>
+                </div>
               </div>
               
               <p style="color: #999999; font-size: 12px; line-height: 1.4; margin: 30px 0 0 0;">

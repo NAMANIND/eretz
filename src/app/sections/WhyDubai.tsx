@@ -13,6 +13,7 @@ import {
 import { ContactForm } from "@/components/ui/ContactForm";
 import { motion } from "framer-motion";
 import { useScreen } from "../providers/Screen";
+import ExpandingGallery from "./ExpandingGallery";
 
 const items = [
   {
@@ -176,6 +177,7 @@ const WhyDubai: React.FC = () => {
           )}
         </div>
       </div>
+      <ExpandingGallery />
       <div className="w-full bg-white h-fit pb-20 pt-20">
         <div className="relative z-10 text-center " id="contact">
           <div className="container flex items-center flex-col mx-auto px-4">
@@ -214,7 +216,9 @@ const WhyDubai: React.FC = () => {
             <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
               <DialogTrigger asChild>
                 <motion.button
-                  className="w-full sm:w-auto bg-black text-gray-200 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium text-base sm:text-lg hover:bg-gray-800 transition-all duration-300 shadow-lg"
+                  className="w-full sm:w-auto bg-black text-gray-200 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium text-base sm:text-lg transition-all duration-300 shadow-lg outline-
+                  hover:outline hover:outline-2 hover:outline-black
+                  hover:bg-white hover:text-black"
                   whileHover={{
                     scale: 1.05,
                     transition: { duration: 0.2 },

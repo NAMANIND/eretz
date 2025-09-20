@@ -7,6 +7,7 @@ import FooterSection from "./sections/FooterSection";
 import DockNavbar from "@/components/ui/DockNavbar";
 import SlidelLayout from "./sections/SlidelLayout";
 import AboutHelper from "./sections/AboutHelper";
+
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
 function page() {
@@ -21,7 +22,8 @@ function page() {
       <WwdSection />
       <SlidelLayout />
       <Projects />
-      <div className="relative">
+
+      <div className="relative w-screen overflow-x-hidden">
         <WhyDubai />
         <FooterSection />
       </div>

@@ -137,14 +137,14 @@ const WwdSection = () => {
             </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="flex flex-col gap-8 w-full">
             {services.map((service, index) => (
               <div
                 key={service.id}
-                className="relative rounded-2xl overflow-hidden border border-gray-100 bg-gradient-to-b from-white to-gray-50 shadow-sm active:shadow-md transition-shadow"
+                className="relative rounded-2xl overflow-hidden border shadow-sm active:shadow-md transition-shadow  w-full"
               >
                 {/* Service Image */}
-                <div className="relative aspect-[16/9]">
+                <div className="relative h-[60vh] w-full">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -159,50 +159,6 @@ const WwdSection = () => {
                       {service.title}
                     </h3>
                   </div>
-                </div>
-
-                {/* Service Content */}
-                <div className="p-5">
-                  <p className="text-gray-700 text-[15px] leading-relaxed mb-5">
-                    {service.description}
-                  </p>
-
-                  <div>
-                    <h4 className="text-base font-semibold text-black mb-3">
-                      Key Services:
-                    </h4>
-                    <ul className="space-y-2.5">
-                      {service.details.map((detail, detailIndex) => (
-                        <li
-                          key={detailIndex}
-                          className="flex items-start text-gray-800 text-[15px]"
-                        >
-                          <svg
-                            className="mt-0.5 mr-3 h-5 w-5 text-emerald-600 flex-shrink-0"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M16.704 5.29a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3.25-3.25a1 1 0 111.414-1.414L8.75 11.586l6.543-6.543a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                          <span className="leading-relaxed">{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* <div className="mt-6">
-                      <button
-                        type="button"
-                        className="w-full inline-flex items-center justify-center rounded-xl bg-gray-900 text-white px-4 py-3 text-[15px] font-medium active:scale-[0.98] transition-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-900"
-                      >
-                        Learn more
-                      </button>
-                    </div> */}
                 </div>
               </div>
             ))}

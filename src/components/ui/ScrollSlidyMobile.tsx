@@ -22,14 +22,14 @@ export default function ScrollSlidyMobile({
   // Use Framer Motion's scroll tracking
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 10%", "end 110%"],
+    offset: ["start 10%", "end 130%"],
   });
 
   // Transform scroll progress to slider position (0 to 100)
   const sliderPosition = useTransform(scrollYProgress, [0, 1], [100, 0]);
 
   return (
-    <div className=" relative sm:w-full w-[90vw]  h-[50vh] mt-8 mb-0 md:h-[200vh] md:mt-[50vh] md:-mb-[50vh]">
+    <div className=" relative sm:w-full w-[90vw]  h-[80vh] flex items-center mt-8 mb-0 md:h-[200vh] md:mt-[50vh] md:-mb-[50vh]">
       <div
         className={`relative  w-full aspect-4/3 flex items-center justify-center flex-col gap-6`}
       >

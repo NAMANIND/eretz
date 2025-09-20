@@ -13,7 +13,7 @@ const AboutSection: React.FC = () => {
     return (
       <section className="w-full min-h-screen overflow-hidden bg-white ">
         <div className=" mx-auto container-et ">
-          <div className="py-8  flex items-center justify-center gap-4 flex-col text-center h-[50vh]">
+          <div className="py-8  flex items-center justify-center gap-4 flex-col text-center h-[80vh]">
             <h1 className="text-2xl font-semibold text-black text-left  leading-[1.2]">
               <ScrollTextReveal
                 mode="characters"
