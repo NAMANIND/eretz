@@ -136,7 +136,7 @@ const ParallaxColumn: React.FC<{
           className="relative group overflow-hidden rounded-lg cursor-pointer
           shadow-lg hover:shadow-xl transition-shadow duration-300"
         >
-          <div className="aspect-[4/3] h-[50vh] relative">
+          <div className=" h-[50vh] relative">
             <img
               src={item.image}
               alt={item.title}
