@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useScreen } from "@/app/providers/Screen";
 import GSAPTextReveal from "@/components/ui/GSAPTextReveal";
+import Image from "next/image";
 
 const WwdSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -29,7 +30,7 @@ const WwdSection = () => {
         "Sustainable and energy-efficient design",
         "Turnkey project delivery",
       ],
-      image: "/placeholder-1.jpg",
+      image: "/wwd/1.png",
     },
     {
       id: 2,
@@ -42,7 +43,7 @@ const WwdSection = () => {
         "Flexible workspace solutions",
         "End-to-end project management",
       ],
-      image: "/placeholder-2.jpg",
+      image: "/wwd/2.png",
     },
     {
       id: 3,
@@ -55,7 +56,7 @@ const WwdSection = () => {
         "Infrastructure and site development",
         "Investment and joint venture opportunities",
       ],
-      image: "/placeholder-3.jpg",
+      image: "/wwd/3.png",
     },
   ];
 
@@ -145,7 +146,7 @@ const WwdSection = () => {
               >
                 {/* Service Image */}
                 <div className="relative h-[60vh] w-full">
-                  <img
+                  <Image
                     src={service.image}
                     alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-700 will-change-transform active:scale-95"

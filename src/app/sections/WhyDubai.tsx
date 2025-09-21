@@ -21,7 +21,7 @@ const items = [
     title: "High Rental Returns",
     description:
       "Benefit from rental yields as high as 8–10% annually, outperforming many major cities worldwide.",
-    image: "/placeholder-1.jpg",
+    image: "whydubai/1.png",
     category: "Investment",
   },
   {
@@ -29,7 +29,7 @@ const items = [
     title: "Zero Tax",
     description:
       "Enjoy zero income, capital gains, and wealth taxes, ensuring you keep more of what you earn.",
-    image: "/placeholder-2.jpg",
+    image: "whydubai/2.png",
     category: "Tax Benefits",
   },
   {
@@ -37,7 +37,7 @@ const items = [
     title: "Golden Visa Eligibility",
     description:
       "Investing in Dubai real estate can lead to long-term residency through the UAE's exclusive Golden Visa program.",
-    image: "/placeholder-3.jpg",
+    image: "whydubai/3.png",
     category: "Residency",
   },
   {
@@ -45,7 +45,7 @@ const items = [
     title: "Exceptional Safety Standards",
     description:
       "Ranked among the safest countries globally, UAE offers a secure environment supported by advanced law enforcement.",
-    image: "/placeholder-1.jpg",
+    image: "whydubai/4.png",
     category: "Safety",
   },
   {
@@ -53,7 +53,7 @@ const items = [
     title: "Vibrant Lifestyle & Entertainment",
     description:
       "From luxury malls to cultural festivals and thrilling attractions, Dubai offers an unmatched lifestyle experience.",
-    image: "/placeholder-2.jpg",
+    image: "whydubai/5.png",
     category: "Lifestyle",
   },
   {
@@ -61,7 +61,7 @@ const items = [
     title: "Advanced Healthcare Services",
     description:
       "Dubai boasts world-class hospitals and medical facilities, offering residents exceptional care and wellbeing.",
-    image: "/placeholder-3.jpg",
+    image: "whydubai/6.png",
     category: "Healthcare",
   },
   {
@@ -69,7 +69,7 @@ const items = [
     title: "Top-Tier Education Options",
     description:
       "Home to international schools and universities, Dubai provides globally accredited education for families and expatriates.",
-    image: "/placeholder-1.jpg",
+    image: "whydubai/7.png",
     category: "Education",
   },
   {
@@ -77,7 +77,7 @@ const items = [
     title: "Global Tourism Hotspot",
     description:
       "With iconic architecture, five-star resorts, and diverse experiences, Dubai continues to attract millions of international visitors every year.",
-    image: "/placeholder-2.jpg",
+    image: "whydubai/8.png",
     category: "Tourism",
   },
 ];

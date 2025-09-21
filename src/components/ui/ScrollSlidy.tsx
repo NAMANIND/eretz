@@ -35,7 +35,7 @@ export default function ScrollSlidy({
       >
         {/* Section Header */}
         <div className="text-left w-2/5">
-          <h2 className="text-3xl w-full font-bold mb-[20px] text-black">
+          <h2 className="text-4xl w-full  mb-[20px] text-black">
             <GSAPTextReveal
               splitBy="lines"
               animationType="slideUp"

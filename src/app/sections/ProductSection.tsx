@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 const imageData = [
   {
     id: "image1",
-    src: "/placeholder-2.jpg",
+    src: "/product/a.jpg",
     alt: "Luxury Property 1",
     text: "At ERETZ, we transform land into living designing authentic, thoughtful residences rooted in integrity and timeless craftsmanship.",
     textAlign: "left",
@@ -20,7 +20,7 @@ const imageData = [
   },
   {
     id: "image2",
-    src: "/placeholder-1.jpg",
+    src: "/product/b.jpg",
     alt: "Luxury Property 2",
     text: "",
     textAlign: "center",
@@ -28,7 +28,7 @@ const imageData = [
   },
   {
     id: "image3",
-    src: "/placeholder-3.jpg",
+    src: "/product/c.jpg",
     alt: "Luxury Property 3",
     text: "We build homes for those who value genuine craftsmanship and thoughtful design.",
     textAlign: "right",
