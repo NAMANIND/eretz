@@ -61,9 +61,9 @@ const AboutSection: React.FC = () => {
 
           <div className=" w-full  mx-auto my-6 ">
             <div className="grid grid-cols-1 gap-3 rounded-2xl">
-              <div className=" h-[60vh]">
+              <div className="aspect-video">
                 <img
-                  src="/placeholder-2.jpg"
+                  src="/about/mobile.png"
                   alt="Frame Center"
                   className="w-full h-full object-cover object-center"
                 />

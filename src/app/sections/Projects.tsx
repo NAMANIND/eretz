@@ -14,13 +14,13 @@ interface ProjectItem {
   category: string;
 }
 
-const items = [
+const items: ProjectItem[] = [
   {
     id: 1,
     title: "High Rental Returns",
     description:
       "Benefit from rental yields as high as 8–10% annually, outperforming many major cities worldwide.",
-    image: "/placeholder-1.jpg",
+    image: "/projects/1.png",
     category: "Investment",
   },
   {
@@ -28,7 +28,7 @@ const items = [
     title: "Zero Tax",
     description:
       "Enjoy zero income, capital gains, and wealth taxes, ensuring you keep more of what you earn.",
-    image: "/placeholder-2.jpg",
+    image: "/projects/2.png",
     category: "Tax Benefits",
   },
   {
@@ -36,8 +36,80 @@ const items = [
     title: "Golden Visa Eligibility",
     description:
       "Investing in Dubai real estate can lead to long-term residency through the UAE's exclusive Golden Visa program.",
-    image: "/placeholder-3.jpg",
+    image: "/projects/3.png",
     category: "Residency",
+  },
+  {
+    id: 4,
+    title: "World-Class Infrastructure",
+    description:
+      "Experience modern amenities and advanced infrastructure that set new standards for urban living.",
+    image: "/projects/4.png",
+    category: "Infrastructure",
+  },
+  {
+    id: 5,
+    title: "Safe and Secure Environment",
+    description:
+      "Dubai is renowned for its low crime rates and high standards of safety, making it ideal for families and investors.",
+    image: "/projects/5.png",
+    category: "Safety",
+  },
+  {
+    id: 6,
+    title: "Strong Capital Appreciation",
+    description:
+      "Benefit from consistent property value growth in one of the world’s fastest-growing cities.",
+    image: "/projects/6.png",
+    category: "Appreciation",
+  },
+  {
+    id: 7,
+    title: "Diverse Property Portfolio",
+    description:
+      "Choose from a wide range of residential, commercial, and luxury properties to suit every need.",
+    image: "/projects/7.png",
+    category: "Diversity",
+  },
+  {
+    id: 8,
+    title: "Flexible Payment Plans",
+    description:
+      "Developers offer attractive and flexible payment options, making property ownership accessible.",
+    image: "/projects/8.png",
+    category: "Payment",
+  },
+  {
+    id: 9,
+    title: "Vibrant Expat Community",
+    description:
+      "Join a multicultural society with a welcoming environment for expatriates from around the globe.",
+    image: "/projects/9.png",
+    category: "Community",
+  },
+  {
+    id: 10,
+    title: "Strategic Global Location",
+    description:
+      "Dubai’s location offers easy access to Europe, Asia, and Africa, making it a global business hub.",
+    image: "/projects/10.png",
+    category: "Location",
+  },
+  {
+    id: 11,
+    title: "No Currency Restrictions",
+    description:
+      "Invest freely with no restrictions on currency repatriation or foreign ownership in designated areas.",
+    image: "/projects/11.png",
+    category: "Currency",
+  },
+  {
+    id: 12,
+    title: "Year-Round Sunshine",
+    description:
+      "Enjoy a warm climate and sunshine throughout the year, perfect for an active and outdoor lifestyle.",
+    image: "/projects/12.png",
+    category: "Lifestyle",
   },
 ];
 
@@ -103,12 +175,12 @@ const Projects: React.FC = () => {
         {isMobile ? (
           <ScrollVelocity items={items} />
         ) : (
-          <div className=" grid grid-cols-1 lg:grid-cols-4 gap-6 mb-[85vh]">
-            {[0, 1, 2, 3].map((col) => (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-[85vh]">
+            {[0, 1, 2].map((col) => (
               <ParallaxColumn
                 key={col}
                 columnIndex={col}
-                list={items}
+                list={items.filter((_, idx) => idx % 3 === col)}
                 speed={col % 2 === 0 ? "fast" : "slow"}
               />
             ))}
