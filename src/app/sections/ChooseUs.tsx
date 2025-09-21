@@ -190,7 +190,7 @@ const ExpandingGallery: React.FC = () => {
                 duration={0.8}
                 delay={0.2}
               >
-                Why Choose ERETZ?
+                Why ERETZ?
               </GSAPTextReveal>
             </h2>
 
@@ -280,7 +280,7 @@ const ExpandingGallery: React.FC = () => {
               duration={0.8}
               delay={0.2}
             >
-              Why Choose ERETZ?
+              Why ERETZ?
             </GSAPTextReveal>
           </h2>
 

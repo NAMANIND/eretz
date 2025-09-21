@@ -40,9 +40,12 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
   // after this much duration set show to true
   useEffect(() => {
     if (reveal === "onTrigger") return;
-    const timer = setTimeout(() => {
-      setShow(true);
-    }, (duration + delay) * 1000); // Convert to milliseconds
+    const timer = setTimeout(
+      () => {
+        setShow(true);
+      },
+      (duration + delay) * 1000
+    ); // Convert to milliseconds
 
     return () => clearTimeout(timer);
   }, [duration, delay, reveal]);
@@ -106,7 +109,7 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
         ref={imageRef}
         src={src}
         alt={alt}
-        className="{`z-10 p-[1px] w-full h-full object-cover ${className}`}"
+        className={` ${text ? "p-[1px]" : "p-[0px]"}  w-full h-full object-cover`}
       />
     </div>
   );

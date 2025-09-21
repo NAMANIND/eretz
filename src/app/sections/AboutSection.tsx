@@ -150,7 +150,7 @@ const AboutSection: React.FC = () => {
             </motion.div>
             <div className=" h-[60vh]">
               <img
-                src="/placeholder-3.jpg"
+                src="/about/c.png"
                 alt="Frame Right"
                 className="w-full h-full object-cover"
               />

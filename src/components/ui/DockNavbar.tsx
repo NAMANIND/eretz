@@ -40,9 +40,9 @@ export const DockNavbar: React.FC = () => {
       icon: <Folder size={20} />,
     },
     {
-      id: "why-dubai",
-      label: "Why Dubai",
-      href: "#why-dubai",
+      id: "why-eretz",
+      label: "Why Eretz",
+      href: "#why-eretz",
       icon: <MapPin size={20} />,
     },
     {

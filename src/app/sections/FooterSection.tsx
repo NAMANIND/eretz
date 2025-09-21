@@ -88,9 +88,9 @@ const FooterSection = () => {
       href: "#projects",
     },
     {
-      id: "why-dubai",
-      label: "Why Dubai",
-      href: "#why-dubai",
+      id: "why-eretz",
+      label: "Why Eretz",
+      href: "#why-eretz",
     },
   ];
 
@@ -233,9 +233,9 @@ const FooterSection = () => {
             </div>
             <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-6 text-xs sm:text-sm text-white  ">
               <div className="text-center lg:text-right">
-                <span>Crafting Legacies That Last Generations</span>
+                <span>Building Beyond Bricks.</span>
               </div>
-              <div className="flex flex-col lg:flex-row items-center gap-6">
+              {/* <div className="flex flex-col lg:flex-row items-center gap-6">
                 <div className="flex items-center gap-4">
                   <a href="#" className="hover:text-gray-300 transition-colors">
                     LinkedIn
@@ -247,7 +247,7 @@ const FooterSection = () => {
                     Twitter
                   </a>
                 </div>
-              </div>
+              </div> */}
 
               <div className="flex flex-col lg:flex-row items-center gap-6">
                 <span>©2025 ERETZ PROPERTIES. ALL RIGHTS RESERVED</span>
