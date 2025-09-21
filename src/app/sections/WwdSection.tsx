@@ -152,10 +152,7 @@ const WwdSection = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <span className="inline-block text-[10px] tracking-wide uppercase text-white/90 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-2 py-1 mb-2">
-                      Service
-                    </span>
-                    <h3 className="text-white text-2xl font-bold leading-tight drop-shadow-md">
+                    <h3 className="text-white text-2xl font-bold leading-tight drop-shadow-md uppercase">
                       {service.title}
                     </h3>
                   </div>

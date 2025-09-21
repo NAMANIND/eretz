@@ -314,7 +314,7 @@ const ExpandingGallery: React.FC = () => {
               className="relative overflow-hidden cursor-pointer bg-center bg-no-repeat"
               style={{
                 backgroundImage: `url(${item.image})`,
-                backgroundSize: "auto 200%",
+                backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 width: activeIndex === index ? "85%" : "5%",
