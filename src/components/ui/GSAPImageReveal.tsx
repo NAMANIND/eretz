@@ -64,7 +64,7 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
   const getTextPositionClass = () => {
     return textAlign === "left"
       ? "items-start justify-start pb-8 "
-      : "items-end justify-end pt-8 ";
+      : "items-start justify-start pt-8 ";
   };
 
   const getcoldirection = () => {
