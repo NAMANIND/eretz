@@ -175,7 +175,7 @@ const WhyDubai: React.FC = () => {
       </div>
       <ExpandingGallery />
       <div className="w-full bg-white h-fit pb-20 pt-20">
-        <div className="relative z-10 text-center " id="contact">
+        <div className="relative z-10 text-center ">
           <div className="container flex items-center flex-col mx-auto px-4">
             <h1 className="font-normal sm:w-3/4 w-full container-hero text-center  mb-6  font-krona">
               <GSAPTextReveal
@@ -191,7 +191,10 @@ const WhyDubai: React.FC = () => {
             </h1>
 
             {/* Description */}
-            <div className="max-w-3xl lg:max-w-5xl mx-auto text-center mb-8 sm:mb-12 sm:px-4 px-0">
+            <div
+              className="max-w-3xl lg:max-w-5xl mx-auto text-center mb-8 sm:mb-12 sm:px-4 px-0"
+              id="contact"
+            >
               <h4 className="text-base sm:text-lg text-gray-800 leading-relaxed text-center">
                 <GSAPTextReveal
                   splitBy="lines"

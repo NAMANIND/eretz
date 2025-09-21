@@ -19,9 +19,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ERETZ - Crafting Legacies That Last Generations",
+  title: "ERETZ - Building Beyond Bricks",
   description:
-    "ERETZ is a real estate development company rooted in authenticity, quality, and integrity. We craft homes that are both emotional and financial investments.",
+    "ERETZ is a real estate development company rooted in authenticity, quality, and integrity. We build homes that are both emotional and financial investments.",
   keywords:
     "construction, real estate, residential development, commercial development, ERETZ",
 };

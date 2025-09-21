@@ -102,27 +102,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               },
             }}
             onClick={() => {
-              const startY = window.scrollY;
-              const targetY = startY + window.innerHeight; // scroll by one screen
-              const duration = 750; // Balanced speed (ms)
-              const startTime = performance.now();
-
-              const easeInOutQuad = (t: number) =>
-                t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-
-              const smoothScroll = (now: number) => {
-                const elapsed = now - startTime;
-                const progress = Math.min(elapsed / duration, 1); // clamp 0 → 1
-                const eased = easeInOutQuad(progress);
-
-                window.scrollTo(0, startY + (targetY - startY) * eased);
-
-                if (progress < 1) {
-                  requestAnimationFrame(smoothScroll);
-                }
-              };
-
-              requestAnimationFrame(smoothScroll);
+              window.scrollBy({
+                top: window.innerHeight,
+                behavior: "smooth",
+              });
             }}
           >
             <LiquidGlass
