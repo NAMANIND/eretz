@@ -55,7 +55,7 @@ export const GSAPImageReveal: React.FC<GSAPImageRevealProps> = ({
       case "left":
         return "text-left";
       case "right":
-        return "text-right";
+        return "text-left";
       default:
         return "text-center";
     }
