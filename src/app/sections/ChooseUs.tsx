@@ -179,7 +179,11 @@ const ExpandingGallery: React.FC = () => {
 
   if (isMobile) {
     return (
-      <section ref={sectionRef} className="w-full bg-white pt-et">
+      <section
+        id="why-eretz"
+        ref={sectionRef}
+        className="w-full bg-white pt-et"
+      >
         <div className="container-et mx-auto">
           <div className="text-center py-et w-full">
             <h2 className="container-heading font-krona">
@@ -268,6 +272,7 @@ const ExpandingGallery: React.FC = () => {
   return (
     <section
       ref={sectionRef}
+      id="why-eretz"
       className="w-full bg-white flex items-center justify-center"
     >
       <div className="container-et mx-auto pt-et">

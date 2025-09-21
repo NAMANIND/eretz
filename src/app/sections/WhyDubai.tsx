@@ -90,11 +90,7 @@ const WhyDubai: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section
-      className="relative  bg-white pt-et z-10 "
-      id="why-dubai"
-      ref={sectionRef}
-    >
+    <section className="relative  bg-white pt-et z-10 " ref={sectionRef}>
       <div className="mx-auto  max-h-[99vh] w-full overflow-hidden">
         {/* Section Header */}
         <div className="text-center  ">
