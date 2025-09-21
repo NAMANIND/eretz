@@ -175,12 +175,12 @@ const Projects: React.FC = () => {
         {isMobile ? (
           <ScrollVelocity items={items} />
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-[85vh]">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-[85vh]">
             {[0, 1, 2, 3].map((col) => (
               <ParallaxColumn
                 key={col}
                 columnIndex={col}
-                list={items.filter((_, idx) => idx % 3 === col)}
+                list={items.filter((_, idx) => Math.floor(idx / 3) === col)}
                 speed={col % 2 === 0 ? "fast" : "slow"}
               />
             ))}
