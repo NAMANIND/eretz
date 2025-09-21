@@ -15,7 +15,7 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
-  videoId = "nQmFpa3yxxg", // Default video ID - replace with your desired video
+  videoId = "Ut8t_CdUuzs", // Default video ID - replace with your desired video
 
   className = "",
 }) => {

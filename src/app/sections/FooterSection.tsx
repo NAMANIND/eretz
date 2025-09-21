@@ -153,10 +153,10 @@ const FooterSection = () => {
                     </li>
                     <li>
                       <a
-                        href="tel:+971-4-123-4567"
+                        href="tel:+971543574545"
                         className="text-gray-300 hover:text-white transition-colors text-sm"
                       >
-                        +971 4 123 4567
+                        +971 54 357 4545
                       </a>
                     </li>
                     <li>

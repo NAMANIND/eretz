@@ -123,7 +123,7 @@ export const DockNavbar: React.FC = () => {
             />
 
             {/* Mobile right: phone icon */}
-            <Link href="tel:+18556531901" className="lg:hidden p-2">
+            <Link href="tel:+971543574545" className="lg:hidden p-2">
               <Phone
                 size={22}
                 className={isScrolled ? "text-black" : "text-white"}
@@ -161,13 +161,13 @@ export const DockNavbar: React.FC = () => {
                 ))}
               </div>
 
-              <Link href="tel:+18556531901">
+              <Link href="tel:+971543574545">
                 <h3
                   className={`text-sm relative group cursor-pointer leading-[1.2] pb-1 transition-colors duration-500 ease-in-out inline-block whitespace-nowrap ${
                     isScrolled ? "text-black" : "text-white"
                   }`}
                 >
-                  +1 (855) 653-1901
+                  +971 54 357 4545
                   <div className="absolute bottom-0 right-0 h-[1px] w-full overflow-hidden">
                     <div
                       className={`h-full ${
@@ -258,12 +258,12 @@ export const DockNavbar: React.FC = () => {
               className="px-6 py-8 border-t border-gray-100"
             >
               <Link
-                href="tel:+18556531901"
+                href="tel:+971543574545"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="inline-flex items-center gap-3 text-lg font-light text-black transition-colors duration-300"
               >
                 <Phone size={20} />
-                +1 (855) 653-1901
+                +971 54 357 4545
               </Link>
             </motion.div>
           </motion.div>
