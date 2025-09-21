@@ -250,7 +250,10 @@ const FooterSection = () => {
               </div> */}
 
               <div className="flex flex-col lg:flex-row items-center gap-6">
-                <span>©2025 ERETZ PROPERTIES. ALL RIGHTS RESERVED</span>
+                <span>
+                  © {new Date().getFullYear()} ERETZ DEVELOPERS. ALL RIGHTS
+                  RESERVED
+                </span>
               </div>
             </div>
           </div>
