@@ -19,15 +19,7 @@ export const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({
   muted = true,
   loop = true,
 }) => {
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const [isMounted, setIsMounted] = useState<boolean>(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
-
-  useEffect(() => {
-    setIsMounted(true);
-    const timer = setTimeout(() => setIsLoaded(true), 120);
-    return () => clearTimeout(timer);
-  }, []);
 
   const getYouTubeUrl = (): string => {
     const baseUrl = "https://www.youtube.com/embed/";
@@ -44,43 +36,27 @@ export const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({
       playsinline: "1",
       start: startTime.toString(),
       enablejsapi: "1",
-      origin:
-        isMounted && typeof window !== "undefined"
-          ? window.location.origin
-          : "",
+      origin: typeof window !== "undefined" ? window.location.origin : "",
       vq: "hd1080",
     });
 
     return `${baseUrl}${videoId}?${params.toString()}`;
   };
 
-  if (!isMounted) {
-    return (
-      <div className={`relative w-full h-full overflow-hidden ${className}`}>
-        <div className="absolute inset-0 bg-black/90 flex items-center justify-center z-10">
-          <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 pointer-events-none" />
-      </div>
-    );
-  }
-
   return (
-    <div className={`relative w-full h-full overflow-hidden ${className}`}>
-      {!isLoaded && (
-        <div className="absolute inset-0 bg-black/90 flex items-center justify-center z-10">
-          <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-        </div>
-      )}
+    <div
+      className={`relative w-full h-full overflow-hidden bg-black ${className}`}
+    >
       <iframe
         ref={iframeRef}
         src={getYouTubeUrl()}
-        className="absolute top-1/2 left-1/2 h-[100vh] w-[177.78vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         style={{
-          minWidth: "100vw",
+          width: "100vw",
+          height: "56.25vw", // 16:9 aspect ratio based on viewport width
           minHeight: "100vh",
+          minWidth: "177.78vh", // 16:9 aspect ratio based on viewport height
           objectFit: "cover",
-          background: "#000",
         }}
         allow="autoplay; encrypted-media"
         allowFullScreen={false}
@@ -89,7 +65,6 @@ export const YouTubeBackground: React.FC<YouTubeBackgroundProps> = ({
         aria-hidden="true"
         role="presentation"
         title="YouTube Video Background"
-        onLoad={() => setIsLoaded(true)}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 pointer-events-none" />
     </div>
