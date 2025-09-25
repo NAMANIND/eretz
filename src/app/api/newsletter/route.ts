@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
     const { data, error } = await resend.emails.send({
       from: "ERETZ Newsletter <updates@eretzdevelopers.com>",
       to: ["testokie1@gmail.com", "info@eretzdevelopers.com"],
-      subject: "New Newsletter Subscription - ${name}",
+      subject: "New Newsletter Subscription - " + name,
       html: `
         <!DOCTYPE html>
         <html>
